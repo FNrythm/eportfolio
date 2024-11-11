@@ -11,6 +11,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			.bg-alt1 {
+				background-color: #1f2937 !important;
+			}
+			.bg-alt2 {
+				background-color: #374151 !important;
+			}
+			.bg-alt3 {
+				background-color: #111827 !important;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -38,15 +49,30 @@
 				<!-- Banner -->
 					<section id="banner" class="major">
 						<div class="inner">
-							<header class="major">
-								<h1>Hi, I'm Fabian</h1>
-							</header>
-							<div class="content">
-								<p>MSc Artificial Intelligence Candidate<br />
-								Exploring the Future of AI, MLOps, and Cloud Services</p>
-								<ul class="actions">
-									<li><a href="#modules" class="button next scrolly">View My Work</a></li>
-								</ul>
+							<div class="row">
+								<div class="col-4">
+									<!-- Add your photo here -->
+									<span class="image">
+										<img src="images/profile-photo.jpg" alt="Fabian Narel" 
+											 style="border-radius: 50%; /* Makes it circular */
+												max-width: 250px;
+												margin: 20px auto;
+												display: block;
+												border: 3px solid #ffffff;" />
+									</span>
+								</div>
+								<div class="col-8">
+									<header class="major">
+										<h1>Hi, I'm Fabian</h1>
+									</header>
+									<div class="content">
+										<p>MSc Artificial Intelligence Candidate<br />
+										Exploring the Future of AI, MLOps, and Cloud Services</p>
+										<ul class="actions">
+											<li><a href="#modules" class="button next scrolly">View My Work</a></li>
+										</ul>
+									</div>
+								</div>
 							</div>
 						</div>
 					</section>
@@ -55,21 +81,21 @@
 					<div id="main">
 
 						<!-- About Me Section -->
-							<section id="about">
+							<section id="about" class="bg-alt1">
 								<div class="inner">
 									<header class="major">
 										<h2>About Me</h2>
 									</header>
-									<p>I'm Fabián, a director in a technology company where I lead global support teams and am currently transitioning to head a Customer Facing SRE team. With a background in software and services, I bring extensive client-oriented experience in Cloud and AI Platforms, specializing in Platform and Infrastructure as a Service (PaaS and IaaS).</p>
+									<p>I'm Fabián, a director in a technology company where I lead Global Support and Site Reliability Teams. With a background in software and services, I bring extensive client-oriented experience in Cloud and AI Platforms, specializing in Platform and Infrastructure as a Service (PaaS and IaaS).</p>
 									
-									<p>As a candidate in a Master's program in Artificial Intelligence, my focus is on exploring and applying AI to solve complex challenges within tech support and the fintech sector. I'm deeply committed to continuous learning and professional development, which drives me to research and dive into DevOps and MLOps concepts, aiming to enhance customer experience in cutting-edge cloud technologies.</p>
+									<p>As a student in a Master's program in Artificial Intelligence, my focus is on using AI to tackle complex challenges in tech support to improve our customers' experience with our products and services. My goal is to simplify product and service usage for clients, providing comprehensive guidance throughout their technology implementation journey, from initial deployment to ongoing optimization. I am deeply invested in researching edge technologies to enhance our customer engagement through scalable, intelligent platforms.</p>
 									
-									<p>In this e-portfolio, I share my journey, projects, and skills developed throughout this Master's program, with the ambition of connecting academic AI theory to real-world industry cases and challenges.</p>
+									<p>In this e-portfolio, I share my journey, projects, and skills developed throughout this Master's program, with the ambition of connecting academic AI theory to real-world challenges in the tech support landscape, ultimately aiming to elevate customer experience and streamline their technology adoption.</p>
 								</div>
 							</section>
 
 						<!-- Modules Section -->
-							<section id="modules" class="tiles">
+							<section id="modules" class="tiles bg-alt2">
 								<article>
 									<span class="image">
 										<img src="images/ai.jpg" alt="" />
@@ -127,7 +153,7 @@
 							</section>
 
 						<!-- MSc Project Section -->
-							<section id="project">
+							<section id="project" class="bg-alt3">
 								<div class="inner">
 									<header class="major">
 										<h2>MSc Computing Project</h2>
@@ -142,7 +168,7 @@
 					</div>
 
 				<!-- Contact -->
-					<section id="contact">
+					<section id="contact" class="bg-alt1">
 						<div class="inner">
 							<section>
 								<form method="post" action="#">
@@ -171,23 +197,21 @@
 									<div class="contact-method">
 										<span class="icon solid alt fa-envelope"></span>
 										<h3>Email</h3>
-										<a href="#">information@untitled.tld</a>
+										<a href="mailto:fabian.narel@gmail.com">fabian.narel@gmail.com</a>
 									</div>
 								</section>
 								<section>
 									<div class="contact-method">
-										<span class="icon solid alt fa-phone"></span>
-										<h3>Phone</h3>
-										<span>(000) 000-0000 x12387</span>
+										<span class="icon brands alt fa-github"></span>
+										<h3>GitHub</h3>
+										<a href="https://github.com/FNrythm">github.com/FNrythm</a>
 									</div>
 								</section>
 								<section>
 									<div class="contact-method">
-										<span class="icon solid alt fa-home"></span>
-										<h3>Address</h3>
-										<span>1234 Somewhere Road #5432<br />
-										Nashville, TN 00000<br />
-										United States of America</span>
+										<span class="icon brands alt fa-linkedin-in"></span>
+										<h3>LinkedIn</h3>
+										<a href="https://www.linkedin.com/in/fabiannarel/">linkedin.com/in/fabiannarel</a>
 									</div>
 								</section>
 							</section>
@@ -197,13 +221,6 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<div class="inner">
-							<ul class="icons">
-								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-							</ul>
 							<ul class="copyright">
 								<li>&copy; Fabian Narel</li>
 							</ul>
