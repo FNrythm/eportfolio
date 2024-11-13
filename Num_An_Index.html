@@ -261,6 +261,71 @@
 					flex: 100%;
 				}
 			}
+
+			/* Activities list styling */
+			.activities-list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.activities-list li {
+				border: 1px solid rgba(42, 47, 53, 0.1);
+				border-radius: 8px;
+				margin-bottom: 1.5em;
+				padding: 1.5em;
+				transition: all 0.3s ease;
+				background: #ffffff;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+			}
+
+			.activities-list li:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+			}
+
+			.activities-list li a {
+				text-decoration: none;
+				color: inherit;
+				display: block;
+			}
+
+			.activity-number {
+				display: inline-block;
+				background: #f56a6a;
+				color: #ffffff;
+				padding: 0.3em 0.8em;
+				border-radius: 4px;
+				font-size: 0.9em;
+				margin-bottom: 0.8em;
+			}
+
+			.activities-list h4 {
+				color: #2a2f35;
+				margin: 0.5em 0;
+				font-size: 1.2em;
+			}
+
+			.activities-list p {
+				margin: 0;
+				color: #666;
+				font-size: 0.95em;
+			}
+
+			/* Upcoming activities styling */
+			.upcoming {
+				opacity: 0.7;
+				background: #f8f9fa;
+			}
+
+			.upcoming .activity-number {
+				background: #6c757d;
+			}
+
+			.upcoming:hover {
+				transform: none;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -296,105 +361,53 @@
 						<!-- One -->
 							<section id="one">
 								<div class="inner">
-									<h2>Activity 1: Analysis of the <code>antisocx</code> Variable</h2>
+									<h2>Numerical Analysis Portfolio</h2>
 									
-									<p>This analysis uses the <em>Crime Survey for England and Wales, 2013-2014</em> dataset to investigate levels of perceived antisocial behavior in respondents' neighborhoods. I loaded the dataset into RStudio, where it was named <code>csew1314teachingopen</code>. My first step was to explore the <code>antisocx</code> variable manually in the RStudio console to understand its structure and identify any data issues, such as missing values.</p>
+									<p>Welcome to my Numerical Analysis portfolio. This section showcases various activities and projects completed during my MSc in Artificial Intelligence, focusing on statistical analysis and data interpretation.</p>
 
-									<h3>Initial Exploration in RStudio Console</h3>
-
-									<ol>
-										<li>
-											<strong>Inspecting the Data</strong>:
-											<p>I began by viewing a few entries from the <code>antisocx</code> variable in the RStudio console to check its structure and content. This allowed me to confirm that the variable contained numerical data, along with several missing (NA) values.</p>
-											
-											<pre><code class="language-r"><strong># View the first few entries of antisocx</strong>
-head(csew1314teachingopen$antisocx)</code></pre>
-										</li>
-										
-										<li>
-											<strong>Checking for Missing Values</strong>:
-											<p>To determine how many missing values existed in antisocx, I used the is.na function in the R console. This step confirmed that a significant portion of the values were missing, which would need to be handled carefully in the analysis.</p>
-											
-											<pre><code class="language-r"><strong># Count missing values in antisocx</strong>
-sum(is.na(csew1314teachingopen$antisocx))</code></pre>
-										</li>
-										
-										<li>
-											<strong>Calculating Mean, Standard Deviation, and Summary Manually</strong>:
-											<p>Next, I manually calculated the mean and standard deviation in the R console to get a preliminary understanding of the data's distribution. I also used the summary() function to see a broader overview, which helped me recognize the general data spread and identify any outliers. Through pairwise deletion I excluded the specific missing datapoints in the calculation by using the <code>na.rm = TRUE</code> function option</p>
-											
-											<pre><code class="language-r"><strong># Calculate mean, standard deviation, and summary</strong>
-mean(csew1314teachingopen$antisocx, na.rm = TRUE)
-sd(csew1314teachingopen$antisocx, na.rm = TRUE)
-summary(csew1314teachingopen$antisocx)</code></pre>
-										</li>
-									</ol>
-
-									<h3>Automated Script for Analysis</h3>
-
-									<p>After completing the initial exploration, I created a script to automate the calculation of the mean, standard deviation, and summary for the antisocx variable. Here's the R script I wrote:</p>
-
-									<pre><code class="language-r"><strong># Assuming the dataset is already loaded in RStudio as csew1314teachingopen</strong>
-
-<strong># Calculate mean and standard deviation for antisocx, ignoring missing values</strong>
-antisocx_mean <- mean(csew1314teachingopen$antisocx, na.rm = TRUE)
-antisocx_sd <- sd(csew1314teachingopen$antisocx, na.rm = TRUE)
-
-<strong># Generate a summary of the antisocx variable</strong>
-antisocx_summary <- summary(csew1314teachingopen$antisocx)
-
-<strong># Print results</strong>
-print(paste("Mean of antisocx:", antisocx_mean))
-print(paste("Standard deviation of antisocx:", antisocx_sd))
-print("Summary of antisocx:")
-print(antisocx_summary)</code></pre>
-
-									<h3>Results</h3>
-
-									<p>Upon running the above script, I obtained the following results in the RStudio console:</p>
-
-									<ul>
-										<li>Mean of antisocx: -0.0075</li>
-										<li>Standard Deviation of antisocx: 0.991</li>
-										<li>Summary of antisocx:
-											<ul>
-												<li>Min: -1.215</li>
-												<li>1st Qu.: -0.788</li>
-												<li>Median: -0.185</li>
-												<li>Mean: -0.0075</li>
-												<li>3rd Qu.: 0.528</li>
-												<li>Max: 4.015</li>
-												<li>Missing Values (NA's): 6,694</li>
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<h3>Activities</h3>
+											<ul class="activities-list">
+												<li>
+													<a href="Activity1_Num_AN.html">
+														<span class="activity-number">Activity 1</span>
+														<h4>Analysis of Antisocial Behavior Perception</h4>
+														<p>Statistical analysis using the Crime Survey for England and Wales dataset to investigate levels of perceived antisocial behavior in neighborhoods.</p>
+													</a>
+												</li>
+												<li class="upcoming">
+													<span class="activity-number">Activity 2</span>
+													<h4>Coming Soon</h4>
+													<p>Future statistical analysis activity to be added.</p>
+												</li>
+												<li class="upcoming">
+													<span class="activity-number">Activity 3</span>
+													<h4>Coming Soon</h4>
+													<p>Future statistical analysis activity to be added.</p>
+												</li>
 											</ul>
-										</li>
-									</ul>
-
-									<p>These results suggest that the average perception of antisocial behavior is slightly negative, indicating that respondents generally perceive low levels of antisocial behavior in their neighborhoods. The moderate standard deviation suggests some variability in responses, and the large number of missing values implies that many respondents may have been uncomfortable or found this information irrelevant.</p>
-
-									<p>Here there are screenshots showing the preliminary analysis through R and the script execution and results:</p>
-
-									<div class="image-grid">
-										<div class="image-container">
-											<a href="images/preliminaryanalysis.png" data-lightbox="analysis" data-title="Preliminary Analysis in R">
-												<img src="images/preliminaryanalysis.png" alt="Preliminary Analysis in R" />
-											</a>
-											<span class="caption">Preliminary Analysis in R Studio</span>
 										</div>
-										<div class="image-container">
-											<a href="images/antisocxresults.png" data-lightbox="analysis" data-title="Antisocx Variable Results">
-												<img src="images/antisocxresults.png" alt="Antisocx Variable Results" />
-											</a>
-											<span class="caption">Results of the script execution in R Studio</span>
+										
+										<div class="col-6 col-12-small">
+											<h3>Learning Outcomes</h3>
+											<ul>
+												<li>Understanding of statistical analysis techniques</li>
+												<li>Proficiency in R programming for data analysis</li>
+												<li>Data visualization and interpretation skills</li>
+												<li>Critical analysis of survey data</li>
+											</ul>
 										</div>
 									</div>
 
-									<h3>Reflection</h3>
-
-									<p>In this analysis, I explored the antisocx variable from the 2013-2014 Crime Survey for England and Wales to assess perceived levels of antisocial behavior in neighborhoods. Loading the data into RStudio revealed 6,694 missing entries for antisocx, a potential bias if these missing responses correlate with specific demographics or neighborhood traits.</p>
-
-									<p>Key statistics—mean (-0.0075), median (-0.185), and standard deviation (0.991)—indicated that respondents generally perceive antisocial behavior as low, with moderate variability in responses. Most perceptions fell within a low range, with minimal reports of extreme antisocial behavior.</p>
-
-									<p>This exercise reinforced the importance of data exploration, especially in handling missing data to avoid skewed insights. Going forward, I aim to apply imputation or filtering techniques to manage missing values effectively, recognizing that detailed data inspection and bias management are essential steps in accurate statistical analysis.</p>
+									<h3>About This Portfolio</h3>
+									<p>This portfolio demonstrates my journey through numerical analysis, showcasing my ability to:</p>
+									<ul>
+										<li>Process and analyze complex datasets</li>
+										<li>Apply statistical methods to real-world problems</li>
+										<li>Draw meaningful conclusions from data</li>
+										<li>Present findings in a clear and professional manner</li>
+									</ul>
 								</div>
 							</section>
 
