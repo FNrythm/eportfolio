@@ -195,34 +195,56 @@
 				margin-top: 0.5em;
 			}
 
-			.module-timeline {
-				margin-top: 2em;
+			/* Contact section styling */
+			#contact {
+				background: #ffffff;
+				padding: 2em 0 1em 0;
+				border-top: 1px solid #e9ecef;
 			}
 
-			.module-timeline h4 {
+			.contact-methods {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 3em;
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 1em 0;
+			}
+
+			.contact-method {
+				display: flex;
+				align-items: center;
+				gap: 0.8em;
+				transition: transform 0.2s ease;
+			}
+
+			.contact-method:hover {
+				transform: translateY(-2px);
+			}
+
+			.contact-method a {
+				border-bottom: none;
 				color: #2a2f35;
-				margin-bottom: 1em;
-				padding-left: 1em;
-				border-left: 4px solid #f56a6a;
+				transition: color 0.2s ease;
 			}
 
-			.module-timeline ul {
-				list-style: none;
-				padding-left: 2em;
-				margin-bottom: 2em;
-			}
-
-			.module-timeline ul li {
-				margin-bottom: 0.5em;
-				position: relative;
-			}
-
-			.module-timeline ul li:before {
-				content: "•";
+			.contact-method a:hover {
 				color: #f56a6a;
-				font-weight: bold;
-				position: absolute;
-				left: -1em;
+			}
+
+			.contact-method .title {
+				font-size: 1em;
+				font-weight: 600;
+				color: #2a2f35;
+			}
+
+			/* Responsive design */
+			@media screen and (max-width: 736px) {
+				.contact-methods {
+					flex-direction: column;
+					gap: 1.5em;
+				}
 			}
 		</style>
 	</head>
@@ -270,7 +292,7 @@
 								</div>
 
 								<div class="module-section">
-									<h3>Learning Objectives</h3>
+									<h3>Learning Outcomes</h3>
 									<ol>
 										<li>Articulate the legal, social, ethical and professional issues faced by machine learning professionals</li>
 										<li>Understand the applicability and challenges associated with different datasets for machine learning algorithms</li>
@@ -289,8 +311,7 @@
 										</li>
 										<li>
 											<a href="machine-learning/seminars/unit2_eda_tutorial.html">Unit 2 - EDA Tutorial</a>
-											<div class="date">Posted: April 19, 2025</div>
-											<p>Exploratory Data Analysis of the Auto-mpg dataset, covering data preprocessing, visualization, and statistical analysis techniques.</p>
+											<p>A comprehensive tutorial on Exploratory Data Analysis using the Auto-mpg dataset, demonstrating key techniques in data visualization and statistical analysis.</p>
 										</li>
 									</ul>
 								</div>
@@ -301,28 +322,29 @@
 				<!-- Contact -->
 					<section id="contact">
 						<div class="inner">
-							<section class="split">
-								<section>
+							<section class="split contact horizontal">
+								<div class="contact-methods">
 									<div class="contact-method">
-										<span class="icon solid alt fa-envelope"></span>
-										<h3>Email</h3>
-										<a href="mailto:fabian.narel@gmail.com">fabian.narel@gmail.com</a>
+										<a href="mailto:fabian.narel@gmail.com">
+											<span class="icon solid alt fa-envelope"></span>
+										</a>
+										<span class="title">Email</span>
 									</div>
-								</section>
-								<section>
+								
 									<div class="contact-method">
-										<span class="icon brands alt fa-github"></span>
-										<h3>GitHub</h3>
-										<a href="https://github.com/FNrythm">github.com/FNrythm</a>
+										<a href="https://github.com/FNrythm" target="_blank" rel="noopener noreferrer">
+											<span class="icon brands alt fa-github"></span>
+										</a>
+										<span class="title">GitHub</span>
 									</div>
-								</section>
-								<section>
+								
 									<div class="contact-method">
-										<span class="icon brands alt fa-linkedin-in"></span>
-										<h3>LinkedIn</h3>
-										<a href="https://www.linkedin.com/in/fabiannarel/">linkedin.com/in/fabiannarel</a>
+										<a href="https://www.linkedin.com/in/fabiannarel/" target="_blank" rel="noopener noreferrer">
+											<span class="icon brands alt fa-linkedin-in"></span>
+										</a>
+										<span class="title">LinkedIn</span>
 									</div>
-								</section>
+								</div>
 							</section>
 						</div>
 					</section>
