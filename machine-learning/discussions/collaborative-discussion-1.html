@@ -11,15 +11,15 @@
 			.discussion-post {
 				background: #f8f9fa;
 				border-left: 4px solid #f56a6a;
-				padding: 1.5em;
-				margin: 1.5em 0;
+				padding: 1.2em;
+				margin: 1em 0 0 0;
 				border-radius: 4px;
 			}
 
 			.discussion-post .metadata {
 				color: #2a2f35;
 				font-size: 0.9em;
-				margin-bottom: 1em;
+				margin-bottom: 0.8em;
 				background: #f0f1f2;
 				padding: 0.8em;
 				border-radius: 4px;
@@ -31,7 +31,7 @@
 			}
 
 			.discussion-post .content {
-				margin-bottom: 1em;
+				margin-bottom: 0;
 				color: #2a2f35;
 			}
 
@@ -42,6 +42,11 @@
 
 			.discussion-post p {
 				color: #2a2f35;
+				margin-bottom: 0.8em;
+			}
+
+			.discussion-post p:last-child {
+				margin-bottom: 0;
 			}
 
 			.discussion-post ul {
@@ -58,27 +63,32 @@
 			}
 
 			.references {
-				margin-top: 2em;
-				padding-top: 1em;
+				margin-top: 1em;
+				padding-top: 0.8em;
 				border-top: 1px solid #ddd;
 			}
 
 			.references h4 {
 				color: #2a2f35;
-				margin-bottom: 1em;
+				margin-bottom: 0.5em;
 			}
 
 			.references ul {
 				list-style-type: none;
 				padding-left: 0;
 				color: #2a2f35;
+				margin: 0;
 			}
 
 			.references ul li {
-				margin-bottom: 0.5em;
+				margin-bottom: 0.3em;
 				padding-left: 1em;
 				text-indent: -1em;
 				color: #2a2f35;
+			}
+
+			.references ul li:last-child {
+				margin-bottom: 0;
 			}
 
 			.key-points {
@@ -141,6 +151,14 @@
 				color: #22863a;
 				text-decoration: underline;
 			}
+
+			h2 {
+				margin: 1em 0 0.5em 0;
+			}
+
+			h2:first-child {
+				margin-top: 0;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -178,7 +196,7 @@
 
 								<h2>Initial Post</h2>
 								<div class="discussion-post">
-									<div class="metadata">
+									<div class="metadata" style="margin-bottom: 1em;">
 										<strong>Topic:</strong> Cloud Computing and AI in Industry 4.0: Challenges and Opportunities<br>
 										<strong>Posted:</strong> Sunday, 16 February 2025, 10:24 PM
 									</div>
@@ -202,17 +220,17 @@
 									<div class="references">
 										<h4>References</h4>
 										<ul>
-											<li>Buyya, R. & Srirama, S.N. (2019). Fog and Edge Computing: Principles and Paradigms. Wiley.</li>
-											<li>Cheng, Q., Sahoo, D., Saha, A., Yang, W., Liu, C., Wo, G., Singh, M., Saverese, S. and Hoi, S.C.H. (2023) AI for IT Operations (AIOps) on Cloud Platforms: Reviews, Opportunities, and Challenges. Salesforce AI.</li>
+											<li>Buyya, R., & Srirama, S. N. (2019). Fog and Edge Computing: Principles and Paradigms. Wiley.</li>
+											<li>Cheng, Q., et al. (2023). AI for IT Operations (AIOps) on Cloud Platforms: Reviews, Opportunities, and Challenges. Salesforce AI.</li>
 											<li>Giles, M. (2022). A Major Outage at AWS Has Caused Chaos at Amazon's Own Operations, Highlighting Cloud Computing Risks. Forbes.</li>
-											<li>Schwab, K. (2016) The Fourth Industrial Revolution: What it means and how to respond. World Economic Forum.</li>
+											<li>Schwab, K. (2016). The Fourth Industrial Revolution: What it means and how to respond. World Economic Forum.</li>
 										</ul>
 									</div>
 								</div>
 
 								<h2>Discussion Summary</h2>
 								<div class="discussion-post">
-									<div class="metadata">
+									<div class="metadata" style="margin-bottom: 1em;">
 										<strong>Posted by:</strong> Fabian Narel<br>
 										<strong>Date:</strong> Monday, 17 February 2025, 10:35 PM
 									</div>
@@ -226,15 +244,6 @@
 										<p>Statistical techniques such as correlation and regression further support predictive analytics in cloud environments. Correlation analysis helps identify dependencies between infrastructure metrics, while regression modeling is instrumental in forecasting potential failures based on historical data (Crawford, 2006). Regression models have been used in financial risk management to predict insolvency and assess risk factors (Valaskova et al., 2018). Similar methodologies are being applied in IT operations to anticipate system failures and optimize resource allocation, enhancing overall resilience.</p>
 
 										<p>Ultimately, while automation and AI-powered analytics bring efficiency and scalability to IT operations, they also introduce new complexities. The paradox of increased automation is that it reduces direct human control while creating intricate dependencies that can lead to cascading failures if not properly managed. Addressing these challenges requires a combination of AI-driven automation, robust exploratory and statistical data analysis, and strategic human intervention to ensure the reliability and sustainability of modern cloud-based infrastructures.</p>
-									</div>
-									<div class="key-points">
-										<h4>Key Learning Points</h4>
-										<ul>
-											<li>Cloud computing's critical role in Industry 4.0 and the associated risks of single-provider dependency</li>
-											<li>The importance of AIOps in enhancing system reliability through automation and predictive analytics</li>
-											<li>The role of EDA and statistical analysis in preparing high-quality data for machine learning models</li>
-											<li>The balance needed between AI-driven automation and human oversight in modern IT operations</li>
-										</ul>
 									</div>
 									<div class="references">
 										<h4>References</h4>
@@ -254,14 +263,14 @@
 								<h2>Reflection</h2>
 								<div class="discussion-post">
 									<div class="content">
-										<p>The December 2021 AWS outage epitomises the fragility that emerges when Industry 4.0 ambitions meet mono-cloud reality. Analysing the incident through a socio-technical lens showed me that resilience is as much an organisational choice as a technical one: automation without deliberate diversity collapses into a single point of failure. Buyya & Srirama (2019) on fog/edge architectures and Schwab's Industry 4.0 framework provided the theoretical backbone for this insight.</p>
+										<p style="margin-bottom: 0;">The December 2021 AWS outage epitomises the fragility that emerges when Industry 4.0 ambitions meet mono-cloud reality. Analysing the incident through a socio-technical lens showed me that resilience is as much an organisational choice as a technical one: automation without deliberate diversity collapses into a single point of failure. Buyya & Srirama (2019) on fog/edge architectures and Schwab's Industry 4.0 framework provided the theoretical backbone for this insight.</p>
 									</div>
 								</div>
 							</div>
 						</section>
 
-						<div style="margin-top: 2em; border-top: 1px solid #e9ecef;">
-							<div style="max-width: 700px; margin: 0 auto; text-align: center; padding: 1em 0;">
+						<div style="margin-top: 1em; border-top: 1px solid #e9ecef;">
+							<div style="max-width: 700px; margin: 0 auto; text-align: center; padding: 0.8em 0;">
 								<div style="display: flex; align-items: center; justify-content: center; gap: 1.2em; flex-wrap: wrap; font-size: 0.95em;">
 									<span style="color: #ffffff; display: flex; align-items: center; gap: 0.5em; font-weight: 600; opacity: 0.8;">
 										<svg height="20" viewBox="0 0 16 16" width="20" style="fill: #ffffff;">
