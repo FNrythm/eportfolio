@@ -1,0 +1,3 @@
+# Reflection – Collaborative Discussion 1
+
+The December 2021 AWS outage epitomises the fragility that emerges when Industry 4.0 ambitions meet mono‑cloud reality. Analysing the incident through a socio‑technical lens showed me that resilience is as much an organisational choice as a technical one: automation without deliberate diversity collapses into a single point of failure. Buyya & Srirama (2019) on fog/edge architectures and Schwab's Industry 4.0 framework provided the theoretical backbone for this insight. 
