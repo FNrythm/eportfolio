@@ -1,25 +1,256 @@
 <!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
 	<head>
-		<title>Collaborative Discussion 1 - Machine Learning</title>
+		<title>Unit 1-3 - Collaborative Discussion 1 - MSc AI Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../../assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 		<style>
-			/* Content styling */
+			/* General page styling */
+			body {
+				line-height: 1.7;
+				color: #2a2f35;
+				background: #ffffff;
+			}
+
+			/* Main content styling */
+			#main {
+				background: #ffffff;
+				padding: 0 0 2em 0;
+			}
+
+			.inner {
+				max-width: 1000px;
+				margin: 0 auto;
+				padding: 0 2em;
+			}
+
+			/* Headers styling */
+			h2 {
+				color: #2a2f35;
+				font-size: 2.5em;
+				font-weight: 600;
+				margin: 0 0 0.8em 0;
+				position: relative;
+				padding-bottom: 0.5em;
+			}
+
+			h2:after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100px;
+				height: 3px;
+				background: #f56a6a;
+			}
+
+			h3 {
+				color: #2a2f35;
+				font-size: 1.5em;
+				margin-top: 2em;
+				margin-bottom: 1em;
+			}
+
+			/* Text elements */
+			p, li, strong, span {
+				color: #2a2f35;
+			}
+
+			/* Inline code styling */
+			code {
+				font-family: 'Consolas', 'Monaco', monospace;
+				font-size: 0.9em;
+				color: #2a2f35;
+				background: #e9ecef;
+				padding: 0.2em 0.4em;
+				border-radius: 3px;
+			}
+
+			/* Code blocks styling */
+			pre {
+				background: #f1f3f5;
+				border-left: 4px solid #f56a6a;
+				border-radius: 4px;
+				padding: 1.5em;
+				margin: 1.5em 0;
+				overflow-x: auto;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+			}
+
+			pre code {
+				background: transparent;
+				padding: 0;
+			}
+
+			pre code strong {
+				color: #f56a6a;
+			}
+
+			/* List styling */
+			ol {
+				counter-reset: item;
+				list-style: none;
+				padding-left: 0;
+			}
+
+			ol li {
+				position: relative;
+				padding-left: 2em;
+				margin-bottom: 1.5em;
+			}
+
+			ol li:before {
+				content: counter(item) ".";
+				counter-increment: item;
+				position: absolute;
+				left: 0;
+				color: #f56a6a;
+				font-weight: bold;
+			}
+
+			/* Contact section styling */
+			#contact {
+				background: #ffffff;
+				padding: 2em 0 1em 0;
+				border-top: 1px solid #e9ecef;
+			}
+
+			.contact-methods {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 3em;
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 1em 0;
+			}
+
+			.contact-method {
+				display: flex;
+				align-items: center;
+				gap: 0.8em;
+				transition: transform 0.2s ease;
+			}
+
+			.contact-method:hover {
+				transform: translateY(-2px);
+			}
+
+			.contact-method a {
+				border-bottom: none;
+				color: #2a2f35;
+				transition: color 0.2s ease;
+			}
+
+			.contact-method a:hover {
+				color: #f56a6a;
+			}
+
+			.contact-method .title {
+				font-size: 1em;
+				font-weight: 600;
+				color: #2a2f35;
+			}
+
+			/* Footer styling */
+			#footer {
+				background: #2a2f35;
+				color: rgba(255,255,255,0.9);
+				padding: 1em 0;
+				text-align: center;
+			}
+
+			#footer .copyright {
+				font-size: 0.9em;
+				margin: 0;
+			}
+
+			/* Responsive design */
+			@media screen and (max-width: 736px) {
+				.inner {
+					padding: 0 1.5em;
+				}
+
+				h2 {
+					font-size: 2em;
+				}
+
+				.contact-methods {
+					flex-direction: column;
+					gap: 1.5em;
+				}
+
+				pre {
+					padding: 1em;
+				}
+			}
+
+			/* Main content spacing */
+			#main {
+				padding: 0 0 2em 0;
+			}
+
+			#one {
+				padding-top: 1em;
+			}
+
+			/* Title spacing */
+			h2 {
+				color: #2a2f35;
+				font-size: 2.5em;
+				font-weight: 600;
+				margin: 0 0 0.8em 0;
+				position: relative;
+				padding-bottom: 0.5em;
+			}
+
+			/* First paragraph after title */
+			h2 + p {
+				margin-top: 0;
+			}
+
+			/* Activity header styling */
+			.activity-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 2em;
+				padding-bottom: 1em;
+				border-bottom: 1px solid #e9ecef;
+			}
+
+			.activity-title {
+				font-size: 1.2em;
+				color: #2a2f35;
+				font-weight: 600;
+			}
+
+			.activity-date {
+				color: #666;
+				font-size: 0.9em;
+			}
+
+			/* Discussion post styling */
 			.discussion-post {
 				background: #f8f9fa;
 				border-left: 4px solid #f56a6a;
-				padding: 1.2em;
-				margin: 1em 0 0 0;
+				padding: 1.5em;
+				margin: 1.5em 0;
 				border-radius: 4px;
 			}
 
 			.discussion-post .metadata {
 				color: #2a2f35;
 				font-size: 0.9em;
-				margin-bottom: 0.8em;
+				margin-bottom: 1em;
 				background: #f0f1f2;
 				padding: 0.8em;
 				border-radius: 4px;
@@ -47,19 +278,6 @@
 
 			.discussion-post p:last-child {
 				margin-bottom: 0;
-			}
-
-			.discussion-post ul {
-				color: #2a2f35;
-			}
-
-			.discussion-post li {
-				color: #2a2f35;
-			}
-
-			.response {
-				margin-left: 2em;
-				border-left: 4px solid #4a9eda;
 			}
 
 			.references {
@@ -90,75 +308,6 @@
 			.references ul li:last-child {
 				margin-bottom: 0;
 			}
-
-			.key-points {
-				margin-top: 1.5em;
-				padding-top: 1em;
-				border-top: 1px solid #ddd;
-			}
-
-			.key-points h4 {
-				color: #2a2f35;
-				margin-bottom: 1em;
-			}
-
-			.key-points ul {
-				color: #2a2f35;
-				list-style-type: disc;
-				padding-left: 1.5em;
-			}
-
-			.key-points ul li {
-				color: #2a2f35;
-				margin-bottom: 0.5em;
-			}
-
-			/* GitHub links section */
-			.github-links {
-				background: #f8f9fa;
-				padding: 1.5em;
-				border-radius: 4px;
-				border-left: 4px solid #2ea44f;
-				margin-bottom: 2em;
-			}
-
-			.github-links h3 {
-				color: #2a2f35;
-				margin-bottom: 0.5em;
-			}
-
-			.github-links p {
-				color: #2a2f35;
-				margin-bottom: 1em;
-			}
-
-			.github-links ul {
-				list-style-type: none;
-				padding-left: 0;
-			}
-
-			.github-links ul li {
-				margin-bottom: 0.5em;
-			}
-
-			.github-links ul li a {
-				color: #2ea44f;
-				text-decoration: none;
-				transition: color 0.2s ease;
-			}
-
-			.github-links ul li a:hover {
-				color: #22863a;
-				text-decoration: underline;
-			}
-
-			h2 {
-				margin: 1em 0 0.5em 0;
-			}
-
-			h2:first-child {
-				margin-top: 0;
-			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -168,7 +317,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="../../index.html" class="logo"><strong>Fabian Narel</strong> <span>MSc AI Portfolio</span></a>
+						<a href="../../index.html" class="logo"><strong>MSc AI</strong> <span>Portfolio</span></a>
 						<nav>
 							<a href="#menu">Menu</a>
 						</nav>
@@ -178,9 +327,9 @@
 					<nav id="menu">
 						<ul class="links">
 							<li><a href="../../index.html">Home</a></li>
-							<li><a href="../../index.html#about">About Me</a></li>
-							<li><a href="../../index.html#modules">Modules</a></li>
-							<li><a href="../../ML_Index.html">Machine Learning Module</a></li>
+							<li><a href="../../landing.html">Portfolio</a></li>
+							<li><a href="../../generic.html">About</a></li>
+							<li><a href="../../elements.html">Contact</a></li>
 						</ul>
 					</nav>
 
@@ -188,15 +337,16 @@
 					<div id="main" class="alt">
 						<section id="one">
 							<div class="inner">
-								<header class="major">
-									<h1>Collaborative Discussion 1: Introduction to Machine Learning</h1>
-								</header>
+								<div class="activity-header">
+									<div class="activity-title">Units 1-3 - Collaborative Discussion 1</div>
+								</div>
 
+								<h2>Cloud Computing and AI in Industry 4.0</h2>
 								<p>This three-week collaborative discussion explores the impact of Industry 4.0 on information systems, focusing on a significant system failure incident and its implications. Based on Schwab's (2016) analysis of the Fourth Industrial Revolution, the discussion examines real-world challenges in modern IT operations, incorporating peer feedback and insights from Units 1-3 course materials.</p>
 
-								<h2>Initial Post</h2>
+								<h3>Initial Post</h3>
 								<div class="discussion-post">
-									<div class="metadata" style="margin-bottom: 1em;">
+									<div class="metadata">
 										<strong>Topic:</strong> Cloud Computing and AI in Industry 4.0: Challenges and Opportunities<br>
 										<strong>Posted:</strong> Sunday, 16 February 2025, 10:24 PM
 									</div>
@@ -228,9 +378,9 @@
 									</div>
 								</div>
 
-								<h2>Discussion Summary</h2>
+								<h3>Discussion Summary</h3>
 								<div class="discussion-post">
-									<div class="metadata" style="margin-bottom: 1em;">
+									<div class="metadata">
 										<strong>Posted by:</strong> Fabian Narel<br>
 										<strong>Date:</strong> Monday, 17 February 2025, 10:35 PM
 									</div>
@@ -260,7 +410,7 @@
 									</div>
 								</div>
 
-								<h2>Reflection</h2>
+								<h3>Reflection</h3>
 								<div class="discussion-post">
 									<div class="content">
 										<p>The December 2021 AWS outage (Giles 2022) reminded me how quickly things can go wrong when a company pins everything on a single cloud. Reading Schwab's take on Industry 4.0 (Schwab 2016) and the fog/edge ideas of Buyya and Srirama (2019) helped me see the trade‑off more clearly: the smarter and more automated we make our systems with AIOps (Cheng et al. 2023), the bigger the impact if something fundamental breaks. The episode left me both impressed by automation's potential and aware of its fragility, reinforcing the need to keep a critical, questioning mindset whenever I design or depend on complex AI‑driven operations.</p>
@@ -275,28 +425,58 @@
 										</ul>
 									</div>
 								</div>
-							</div>
-						</section>
 
-						<div style="margin-top: 1em; border-top: 1px solid #e9ecef;">
-							<div style="max-width: 700px; margin: 0 auto; text-align: center; padding: 0.8em 0;">
-								<div style="display: flex; align-items: center; justify-content: center; gap: 1.2em; flex-wrap: wrap; font-size: 0.95em;">
-									<span style="color: #ffffff; display: flex; align-items: center; gap: 0.5em; font-weight: 600; opacity: 0.8;">
-										<svg height="20" viewBox="0 0 16 16" width="20" style="fill: #ffffff;">
-											<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-										</svg>
-										Source Artifacts
-									</span>
-									<span style="color: #e9ecef; font-weight: 300;">|</span>
-									<a href="https://github.com/FNrythm/eportfolio/blob/intro-machine-learning/machine-learning/discussions/collaborative-discussion-1/initial-post.md" target="_blank" style="color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 Initial Post</a>
-									<span style="color: #e9ecef;">•</span>
-									<a href="https://github.com/FNrythm/eportfolio/blob/intro-machine-learning/machine-learning/discussions/collaborative-discussion-1/summary.md" target="_blank" style="color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 Discussion Summary</a>
-									<span style="color: #e9ecef;">•</span>
-									<a href="https://github.com/FNrythm/eportfolio/blob/intro-machine-learning/machine-learning/discussions/collaborative-discussion-1/reflection.md" target="_blank" style="color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 Discussion Reflection</a>
+								<div style="margin-top: 1em; border-top: 1px solid #e9ecef;">
+									<div style="max-width: 700px; margin: 0 auto; text-align: center; padding: 0.8em 0;">
+										<div style="display: flex; align-items: center; justify-content: center; gap: 1.2em; flex-wrap: wrap; font-size: 0.95em;">
+											<span style="color: #2a2f35; display: flex; align-items: center; gap: 0.5em; font-weight: 600; opacity: 0.8;">
+												<svg height="20" viewBox="0 0 16 16" width="20" style="fill: #2a2f35;">
+													<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+												</svg>
+												Source Artifacts
+											</span>
+											<span style="color: #e9ecef; font-weight: 300;">|</span>
+											<a href="https://github.com/FNrythm/eportfolio/blob/main/machine-learning/discussions/collaborative-discussion-1/initial-post.md" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 Initial Post</a>
+											<span style="color: #e9ecef; font-weight: 300;">|</span>
+											<a href="https://github.com/FNrythm/eportfolio/blob/main/machine-learning/discussions/collaborative-discussion-1/summary.md" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 Discussion Summary</a>
+											<span style="color: #e9ecef; font-weight: 300;">|</span>
+											<a href="https://github.com/FNrythm/eportfolio/blob/main/machine-learning/discussions/collaborative-discussion-1/reflection.md" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 Reflection</a>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
+						</section>
 					</div>
+
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+							<section class="split contact horizontal">
+								<div class="contact-methods">
+									<div class="contact-method">
+										<a href="mailto:fabian.narel@gmail.com">
+											<span class="icon solid alt fa-envelope"></span>
+										</a>
+										<span class="title">Email</span>
+									</div>
+								
+									<div class="contact-method">
+										<a href="https://github.com/FNrythm" target="_blank" rel="noopener noreferrer">
+											<span class="icon brands alt fa-github"></span>
+										</a>
+										<span class="title">GitHub</span>
+									</div>
+								
+									<div class="contact-method">
+										<a href="https://www.linkedin.com/in/fabiannarel/" target="_blank" rel="noopener noreferrer">
+											<span class="icon brands alt fa-linkedin-in"></span>
+										</a>
+										<span class="title">LinkedIn</span>
+									</div>
+								</div>
+							</section>
+						</div>
+					</section>
 
 				<!-- Footer -->
 					<footer id="footer">
@@ -317,6 +497,54 @@
 			<script src="../../assets/js/breakpoints.min.js"></script>
 			<script src="../../assets/js/util.js"></script>
 			<script src="../../assets/js/main.js"></script>
+
+		<div id="back-to-top" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99;">
+			<a href="#" class="button primary icon solid fa-arrow-up">Top</a>
+		</div>
+
+		<script>
+		// Back to top button
+		window.onscroll = function() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				document.getElementById("back-to-top").style.display = "block";
+			} else {
+				document.getElementById("back-to-top").style.display = "none";
+			}
+		};
+		</script>
+
+		<script>
+		// Add this script at the bottom of your page
+		document.addEventListener('DOMContentLoaded', function() {
+			const sections = document.querySelectorAll('section');
+			
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+					}
+				});
+			});
+
+			sections.forEach(section => {
+				section.classList.add('fade-in');
+				observer.observe(section);
+			});
+		});
+		</script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+		<script>
+		// Initialize lightbox
+		lightbox.option({
+			'resizeDuration': 200,
+			'wrapAround': true,
+			'maxWidth': 1200,
+			'maxHeight': 900
+		});
+		</script>
 
 	</body>
 </html> 

@@ -1,0 +1,428 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Unit 4 - Linear Regression with Scikit-Learn - MSc AI Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+		<style>
+			/* General page styling */
+			body {
+				line-height: 1.7;
+				color: #2a2f35;
+				background: #ffffff;
+			}
+
+			/* Main content styling */
+			#main {
+				background: #ffffff;
+				padding: 0 0 2em 0;
+			}
+
+			.inner {
+				max-width: 1000px;
+				margin: 0 auto;
+				padding: 0 2em;
+			}
+
+			/* Headers styling */
+			h2 {
+				color: #2a2f35;
+				font-size: 2.5em;
+				font-weight: 600;
+				margin: 0 0 0.8em 0;
+				position: relative;
+				padding-bottom: 0.5em;
+			}
+
+			h2:after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100px;
+				height: 3px;
+				background: #f56a6a;
+			}
+
+			h3 {
+				color: #2a2f35;
+				font-size: 1.5em;
+				margin-top: 2em;
+				margin-bottom: 1em;
+			}
+
+			/* Text elements */
+			p, li, strong, span {
+				color: #2a2f35;
+			}
+
+			/* Inline code styling */
+			code {
+				font-family: 'Consolas', 'Monaco', monospace;
+				font-size: 0.9em;
+				color: #2a2f35;
+				background: #e9ecef;
+				padding: 0.2em 0.4em;
+				border-radius: 3px;
+			}
+
+			/* Code blocks styling */
+			pre {
+				background: #f1f3f5;
+				border-left: 4px solid #f56a6a;
+				border-radius: 4px;
+				padding: 1.5em;
+				margin: 1.5em 0;
+				overflow-x: auto;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+			}
+
+			pre code {
+				background: transparent;
+				padding: 0;
+			}
+
+			pre code strong {
+				color: #f56a6a;
+			}
+
+			/* List styling */
+			ol {
+				counter-reset: item;
+				list-style: none;
+				padding-left: 0;
+			}
+
+			ol li {
+				position: relative;
+				padding-left: 2em;
+				margin-bottom: 1.5em;
+			}
+
+			ol li:before {
+				content: counter(item) ".";
+				counter-increment: item;
+				position: absolute;
+				left: 0;
+				color: #f56a6a;
+				font-weight: bold;
+			}
+
+			/* Activity header styling */
+			.activity-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 2em;
+				padding-bottom: 1em;
+				border-bottom: 1px solid #e9ecef;
+			}
+
+			.activity-title {
+				font-size: 1.2em;
+				color: #2a2f35;
+				font-weight: 600;
+			}
+
+			.activity-date {
+				color: #666;
+				font-size: 0.9em;
+			}
+
+			/* Code section styling */
+			.code-section {
+				background: #f8f9fa;
+				padding: 1.5em;
+				border-radius: 4px;
+				margin: 1.5em 0;
+			}
+
+			.code-section h4 {
+				color: #2a2f35;
+				margin-top: 0;
+				margin-bottom: 1em;
+			}
+
+			/* Image grid styling */
+			.image-grid {
+				display: flex;
+				gap: 2em;
+				margin: 2em 0;
+				flex-wrap: wrap;
+			}
+
+			.image-container {
+				flex: 1;
+				min-width: 300px;
+				text-align: center;
+			}
+
+			.image-container img {
+				width: 100%;
+				height: auto;
+				border-radius: 4px;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+				transition: transform 0.2s ease;
+				cursor: pointer;
+			}
+
+			.image-container img:hover {
+				transform: scale(1.02);
+			}
+
+			.caption {
+				display: block;
+				margin-top: 0.5em;
+				color: #2a2f35;
+				font-size: 0.9em;
+			}
+
+			/* Activity box styling */
+			.activity-box {
+				background: #f8f9fa;
+				padding: 1.5em;
+				border-radius: 4px;
+				margin: 1.5em 0;
+			}
+
+			/* Responsive adjustments */
+			@media screen and (max-width: 736px) {
+				.image-grid {
+					gap: 1em;
+				}
+				
+				.image-container {
+					flex: 100%;
+				}
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="../../index.html" class="logo"><strong>MSc AI</strong> <span>Portfolio</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="../../index.html">Home</a></li>
+							<li><a href="../../landing.html">Portfolio</a></li>
+							<li><a href="../../generic.html">About</a></li>
+							<li><a href="../../elements.html">Contact</a></li>
+						</ul>
+						<ul class="actions stacked">
+							<li><a href="#" class="button primary fit">Get Started</a></li>
+							<li><a href="#" class="button fit">Log In</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<div class="activity-header">
+										<div class="activity-title">Unit 4 - Linear Regression with Scikit-Learn</div>
+									</div>
+
+									<h2>Global Population & GDP Analysis</h2>
+									<p>This tutorial demonstrates the application of linear regression analysis to investigate the relationship between a country's population and its GDP per capita. The analysis is performed using Python with libraries such as pandas, numpy, matplotlib, and scikit-learn.</p>
+
+									<h3>Data Loading and Preprocessing</h3>
+									<div class="code-section">
+										<h4>Loading and Preparing the Data</h4>
+										<pre><code># Import required libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from scipy.stats import pearsonr
+
+# Load the datasets
+pop_df = pd.read_csv('Global_Population.csv')
+gdp_df = pd.read_csv('Global_GDP.csv')
+
+# Preprocess the data
+years = [str(y) for y in range(2001, 2022)]
+pop_df[years] = pop_df[years].apply(pd.to_numeric, errors='coerce')
+gdp_df[years] = gdp_df[years].apply(pd.to_numeric, errors='coerce')
+
+# Handle missing values
+pop_df[years] = pop_df[years].apply(lambda row: row.fillna(row.mean()), axis=1)
+gdp_df[years] = gdp_df[years].apply(lambda row: row.fillna(row.mean()), axis=1)
+
+# Calculate means
+pop_df['mean_population'] = pop_df[years].mean(axis=1)
+gdp_df['mean_gdp'] = gdp_df[years].mean(axis=1)</code></pre>
+									</div>
+
+									<h3>Correlation Analysis</h3>
+									<div class="image-grid">
+										<div class="image-container">
+											<a href="../../assets/images/correlation_plot.png" data-lightbox="correlation" data-title="Correlation between Population and GDP per Capita">
+												<img src="../../assets/images/correlation_plot.png" alt="Correlation Plot" />
+											</a>
+											<span class="caption">Correlation between Population and GDP per Capita</span>
+										</div>
+									</div>
+
+									<h3>Regression Analysis</h3>
+									<div class="image-grid">
+										<div class="image-container">
+											<a href="../../assets/images/regression_plot.png" data-lightbox="regression" data-title="Linear Regression Analysis">
+												<img src="../../assets/images/regression_plot.png" alt="Regression Plot" />
+											</a>
+											<span class="caption">Linear Regression Analysis</span>
+										</div>
+									</div>
+
+									<div class="activity-box">
+										<h3>Key Findings</h3>
+										<ul>
+											<li>The analysis included data from 258 countries and regions over the period 2000-2020.</li>
+											<li>The Pearson correlation coefficient between mean population and mean GDP is 0.72, indicating a strong positive linear relationship.</li>
+											<li>The p-value of 3.46 × 10⁻⁴² confirms that this correlation is statistically significant.</li>
+											<li>The regression line shows a moderate fit to the data, with an R² of 0.52, meaning that approximately 52% of the variation in mean GDP can be explained by the mean population.</li>
+											<li>The regression coefficient is 5909.31, suggesting that for each additional person in the mean population, the mean GDP increases by approximately $5,909 USD.</li>
+											<li>The model has an intercept of 4.39 × 10¹¹, representing the theoretical GDP when population is zero.</li>
+										</ul>
+									</div>
+
+									<div style="margin-top: 1em; border-top: 1px solid #e9ecef;">
+										<div style="max-width: 700px; margin: 0 auto; text-align: center; padding: 0.8em 0;">
+											<div style="display: flex; align-items: center; justify-content: center; gap: 1.2em; flex-wrap: wrap; font-size: 0.95em;">
+												<span style="color: #2a2f35; display: flex; align-items: center; gap: 0.5em; font-weight: 600; opacity: 0.8;">
+													<svg height="20" viewBox="0 0 16 16" width="20" style="fill: #2a2f35;">
+														<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+													</svg>
+													Source Artifacts
+												</span>
+												<span style="color: #e9ecef; font-weight: 300;">|</span>
+												<a href="https://github.com/FNrythm/eportfolio/blob/main/machine-learning/Seminar%20Preparation%20-%20Unit%204/Global_Population_GDP_Analysis.ipynb" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📊 Analysis Notebook</a>
+												<span style="color: #e9ecef; font-weight: 300;">|</span>
+												<a href="https://github.com/FNrythm/eportfolio/blob/main/machine-learning/Seminar%20Preparation%20-%20Unit%204/reflection.md" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📋 Reflection</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+							<section class="split contact horizontal">
+								<div class="contact-methods">
+									<div class="contact-method">
+										<a href="mailto:fabian.narel@gmail.com">
+											<span class="icon solid alt fa-envelope"></span>
+										</a>
+										<span class="title">Email</span>
+									</div>
+								
+									<div class="contact-method">
+										<a href="https://github.com/FNrythm" target="_blank" rel="noopener noreferrer">
+											<span class="icon brands alt fa-github"></span>
+										</a>
+										<span class="title">GitHub</span>
+									</div>
+								
+									<div class="contact-method">
+										<a href="https://www.linkedin.com/in/fabiannarel/" target="_blank" rel="noopener noreferrer">
+											<span class="icon brands alt fa-linkedin-in"></span>
+										</a>
+										<span class="title">LinkedIn</span>
+									</div>
+								</div>
+							</section>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="copyright">
+								<li>&copy; Fabian Narel</li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+
+		<div id="back-to-top" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99;">
+			<a href="#" class="button primary icon solid fa-arrow-up">Top</a>
+		</div>
+
+		<script>
+		// Back to top button
+		window.onscroll = function() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				document.getElementById("back-to-top").style.display = "block";
+			} else {
+				document.getElementById("back-to-top").style.display = "none";
+			}
+		};
+		</script>
+
+		<script>
+		// Add this script at the bottom of your page
+		document.addEventListener('DOMContentLoaded', function() {
+			const sections = document.querySelectorAll('section');
+			
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+					}
+				});
+			});
+
+			sections.forEach(section => {
+				section.classList.add('fade-in');
+				observer.observe(section);
+			});
+		});
+		</script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+		<script>
+		// Initialize lightbox
+		lightbox.option({
+			'resizeDuration': 200,
+			'wrapAround': true,
+			'maxWidth': 1200,
+			'maxHeight': 900
+		});
+		</script>
+
+	</body>
+</html> 
