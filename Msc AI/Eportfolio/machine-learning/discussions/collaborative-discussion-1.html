@@ -1,0 +1,550 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Unit 1-3 - Collaborative Discussion 1 - MSc AI Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+		<style>
+			/* General page styling */
+			body {
+				line-height: 1.7;
+				color: #2a2f35;
+				background: #ffffff;
+			}
+
+			/* Main content styling */
+			#main {
+				background: #ffffff;
+				padding: 0 0 2em 0;
+			}
+
+			.inner {
+				max-width: 1000px;
+				margin: 0 auto;
+				padding: 0 2em;
+			}
+
+			/* Headers styling */
+			h2 {
+				color: #2a2f35;
+				font-size: 2.5em;
+				font-weight: 600;
+				margin: 0 0 0.8em 0;
+				position: relative;
+				padding-bottom: 0.5em;
+			}
+
+			h2:after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100px;
+				height: 3px;
+				background: #f56a6a;
+			}
+
+			h3 {
+				color: #2a2f35;
+				font-size: 1.5em;
+				margin-top: 2em;
+				margin-bottom: 1em;
+			}
+
+			/* Text elements */
+			p, li, strong, span {
+				color: #2a2f35;
+			}
+
+			/* Inline code styling */
+			code {
+				font-family: 'Consolas', 'Monaco', monospace;
+				font-size: 0.9em;
+				color: #2a2f35;
+				background: #e9ecef;
+				padding: 0.2em 0.4em;
+				border-radius: 3px;
+			}
+
+			/* Code blocks styling */
+			pre {
+				background: #f1f3f5;
+				border-left: 4px solid #f56a6a;
+				border-radius: 4px;
+				padding: 1.5em;
+				margin: 1.5em 0;
+				overflow-x: auto;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+			}
+
+			pre code {
+				background: transparent;
+				padding: 0;
+			}
+
+			pre code strong {
+				color: #f56a6a;
+			}
+
+			/* List styling */
+			ol {
+				counter-reset: item;
+				list-style: none;
+				padding-left: 0;
+			}
+
+			ol li {
+				position: relative;
+				padding-left: 2em;
+				margin-bottom: 1.5em;
+			}
+
+			ol li:before {
+				content: counter(item) ".";
+				counter-increment: item;
+				position: absolute;
+				left: 0;
+				color: #f56a6a;
+				font-weight: bold;
+			}
+
+			/* Contact section styling */
+			#contact {
+				background: #ffffff;
+				padding: 2em 0 1em 0;
+				border-top: 1px solid #e9ecef;
+			}
+
+			.contact-methods {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 3em;
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 1em 0;
+			}
+
+			.contact-method {
+				display: flex;
+				align-items: center;
+				gap: 0.8em;
+				transition: transform 0.2s ease;
+			}
+
+			.contact-method:hover {
+				transform: translateY(-2px);
+			}
+
+			.contact-method a {
+				border-bottom: none;
+				color: #2a2f35;
+				transition: color 0.2s ease;
+			}
+
+			.contact-method a:hover {
+				color: #f56a6a;
+			}
+
+			.contact-method .title {
+				font-size: 1em;
+				font-weight: 600;
+				color: #2a2f35;
+			}
+
+			/* Footer styling */
+			#footer {
+				background: #2a2f35;
+				color: rgba(255,255,255,0.9);
+				padding: 1em 0;
+				text-align: center;
+			}
+
+			#footer .copyright {
+				font-size: 0.9em;
+				margin: 0;
+			}
+
+			/* Responsive design */
+			@media screen and (max-width: 736px) {
+				.inner {
+					padding: 0 1.5em;
+				}
+
+				h2 {
+					font-size: 2em;
+				}
+
+				.contact-methods {
+					flex-direction: column;
+					gap: 1.5em;
+				}
+
+				pre {
+					padding: 1em;
+				}
+			}
+
+			/* Main content spacing */
+			#main {
+				padding: 0 0 2em 0;
+			}
+
+			#one {
+				padding-top: 1em;
+			}
+
+			/* Title spacing */
+			h2 {
+				color: #2a2f35;
+				font-size: 2.5em;
+				font-weight: 600;
+				margin: 0 0 0.8em 0;
+				position: relative;
+				padding-bottom: 0.5em;
+			}
+
+			/* First paragraph after title */
+			h2 + p {
+				margin-top: 0;
+			}
+
+			/* Activity header styling */
+			.activity-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 2em;
+				padding-bottom: 1em;
+				border-bottom: 1px solid #e9ecef;
+			}
+
+			.activity-title {
+				font-size: 1.2em;
+				color: #2a2f35;
+				font-weight: 600;
+			}
+
+			.activity-date {
+				color: #666;
+				font-size: 0.9em;
+			}
+
+			/* Discussion post styling */
+			.discussion-post {
+				background: #f8f9fa;
+				border-left: 4px solid #f56a6a;
+				padding: 1.5em;
+				margin: 1.5em 0;
+				border-radius: 4px;
+			}
+
+			.discussion-post .metadata {
+				color: #2a2f35;
+				font-size: 0.9em;
+				margin-bottom: 1em;
+				background: #f0f1f2;
+				padding: 0.8em;
+				border-radius: 4px;
+			}
+
+			.discussion-post .metadata strong {
+				color: #f56a6a;
+				margin-right: 0.5em;
+			}
+
+			.discussion-post .content {
+				margin-bottom: 0;
+				color: #2a2f35;
+			}
+
+			.discussion-post h4 {
+				color: #2a2f35;
+				margin-bottom: 0.5em;
+			}
+
+			.discussion-post p {
+				color: #2a2f35;
+				margin-bottom: 0.8em;
+			}
+
+			.discussion-post p:last-child {
+				margin-bottom: 0;
+			}
+
+			.references {
+				margin-top: 1em;
+				padding-top: 0.8em;
+				border-top: 1px solid #ddd;
+			}
+
+			.references h4 {
+				color: #2a2f35;
+				margin-bottom: 0.5em;
+			}
+
+			.references ul {
+				list-style-type: none;
+				padding-left: 0;
+				color: #2a2f35;
+				margin: 0;
+			}
+
+			.references ul li {
+				margin-bottom: 0.3em;
+				padding-left: 1em;
+				text-indent: -1em;
+				color: #2a2f35;
+			}
+
+			.references ul li:last-child {
+				margin-bottom: 0;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="../../index.html" class="logo"><strong>MSc AI</strong> <span>Portfolio</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="../../index.html">Home</a></li>
+							<li><a href="../../landing.html">Portfolio</a></li>
+							<li><a href="../../generic.html">About</a></li>
+							<li><a href="../../elements.html">Contact</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+						<section id="one">
+							<div class="inner">
+								<div class="activity-header">
+									<div class="activity-title">Units 1-3 - Collaborative Discussion 1</div>
+								</div>
+
+								<h2>Cloud Computing and AI in Industry 4.0</h2>
+								<p>This three-week collaborative discussion explores the impact of Industry 4.0 on information systems, focusing on a significant system failure incident and its implications. Based on Schwab's (2016) analysis of the Fourth Industrial Revolution, the discussion examines real-world challenges in modern IT operations, incorporating peer feedback and insights from Units 1-3 course materials.</p>
+
+								<h3>Initial Post</h3>
+								<div class="discussion-post">
+									<div class="metadata">
+										<strong>Topic:</strong> Cloud Computing and AI in Industry 4.0: Challenges and Opportunities<br>
+										<strong>Posted:</strong> Sunday, 16 February 2025, 10:24 PM
+									</div>
+									<div class="content">
+										<p>The Fourth Industrial Revolution, as described by Schwab (2016), is transforming all industries through the convergence of digital, physical, and biological systems at a high pace and impacting all systems, such as production, management, and governance. Cloud computing plays a central role in this revolution, serving as the backbone for scalable infrastructures that power modern digital services. Its evolutions have led to increased automation, enhanced security, and improved efficiency in data processing and application deployment.</p>
+
+										<p>One of the most significant changes is the widespread adoption of artificial intelligence and machine learning into IT Operations, leading to the development of AI for IT Operations, also known as AIOps. AIOps leverage big data, machine learning, and advanced analytics to automate monitoring, detect real-time anomalies, and predict system failures before they impact operations. This shift reduces manual intervention, enhances system resilience, and minimizes downtime through self-healing mechanisms. (Cheng et al., 2023).</p>
+
+										<p>With increased automation comes the challenge of systemic risks and cascading failures, where a single misconfiguration or outage can have widespread consequences.</p>
+
+										<p>In December 2021, Amazon Web Services (AWS) experienced a major outage, disrupting millions of users and critical services such as Netflix, Disney+, Slack, Delta Airlines, and Venmo. Amazon's own operations were heavily affected, including Alexa, Ring, Amazon Music, and delivery logistics, as drivers lost access to essential applications. The incident stemmed from AWS's automated networking scaling system in their U.S.-East-1 region, a critical hub for cloud infrastructure, leading to prolonged service disruptions despite mitigation efforts (Giles, 2022).</p>
+
+										<p>This event exposed the risks of cloud concentration, where heavy reliance on a single provider can result in widespread operational and financial losses. Businesses relying on AWS faced significant downtime, with estimated revenue losses reaching millions per hour. The outage reinforced the need for multi-cloud and hybrid cloud strategies to ensure resilience and business continuity, as well as the growing importance of AIOps-driven automation in preventing and mitigating failures (Giles, 2022).</p>
+
+										<p>Repeated cloud failures deteriorate trust, leading organizations to adopt multi-cloud and hybrid strategies to ensure resilience and service continuity. High-profile outages from AWS, Google Cloud, and Azure have demonstrated the risks of single-cloud dependency, causing financial losses, regulatory concerns, and operational disruptions (Cheng et al., 2023). To mitigate these risks, businesses are distributing workloads across providers and integrating edge and fog computing to reduce latency and reliance on central data centers (Buyya & Srirama, 2019).</p>
+
+										<p>This incident highlights the paradox of Industry 4.0 in cloud computing; while automation and AI enhance efficiency, they also create intricate interdependencies that, without proper human oversight, can trigger large-scale failures.</p>
+
+										<p>Industry 4.0 has propelled cloud computing into a new era of automation, intelligence, and scalability, transforming how organizations deploy digital services. However, increased reliance on automated infrastructures also challenges resilience, security, and system reliability. To navigate this evolving landscape, cloud providers must prioritize fault-tolerant architectures, distributed computing models, and a balanced approach that combines AI-driven automation with strategic human oversight to ensure the reliability of mission-critical applications.</p>
+									</div>
+									<div class="references">
+										<h4>References</h4>
+										<ul>
+											<li>Buyya, R., & Srirama, S. N. (2019). Fog and Edge Computing: Principles and Paradigms. Wiley.</li>
+											<li>Cheng, Q., et al. (2023). AI for IT Operations (AIOps) on Cloud Platforms: Reviews, Opportunities, and Challenges. Salesforce AI.</li>
+											<li>Giles, M. (2022). A Major Outage at AWS Has Caused Chaos at Amazon's Own Operations, Highlighting Cloud Computing Risks. Forbes.</li>
+											<li>Schwab, K. (2016). The Fourth Industrial Revolution: What it means and how to respond. World Economic Forum.</li>
+										</ul>
+									</div>
+								</div>
+
+								<h3>Discussion Summary</h3>
+								<div class="discussion-post">
+									<div class="metadata">
+										<strong>Posted by:</strong> Fabian Narel<br>
+										<strong>Date:</strong> Monday, 17 February 2025, 10:35 PM
+									</div>
+									<div class="content">
+										<p>The Fourth Industrial Revolution, as described by Schwab (2016), is reshaping industries through the convergence of digital, physical, and biological systems. Cloud computing has become a critical infrastructure in this transformation, enabling scalable, data-driven services. However, with the increased reliance on automated cloud environments, systemic risks have emerged, as demonstrated by the December 2021 AWS outage. This incident, triggered by an automated network scaling system failure, disrupted services globally, affecting both third-party businesses and Amazon's own operations (Giles, 2022). It underscored the risks of single-provider cloud dependency, reinforcing the necessity of multi-cloud and hybrid cloud strategies to ensure resilience and business continuity (Buyya & Srirama, 2019).</p>
+
+										<p>Artificial Intelligence for IT Operations (AIOps) is increasingly being leveraged to enhance system reliability and mitigate these risks. AIOps integrates big data analytics, machine learning, and automation to detect anomalies, predict failures, and reduce manual intervention (Cheng et al., 2023). By analyzing large volumes of telemetry data in real-time, AIOps can identify patterns indicative of system failures, allowing for proactive interventions. However, while AI-driven automation enhances efficiency, it also introduces challenges related to data integrity, bias, and the interpretability of model decisions, requiring a balanced approach that incorporates human oversight.</p>
+
+										<p>Exploratory Data Analysis (EDA) plays a crucial role in preparing datasets for machine learning applications in IT operations. Through statistical techniques such as visualization, anomaly detection, and feature engineering, EDA helps refine datasets, ensuring that machine learning models receive high-quality input data (Patil, 2018). The ability to identify outliers and understand feature distributions is particularly relevant in anomaly detection models used in AIOps, where detecting subtle deviations from normal behavior can prevent large-scale failures (Harmadi, 2021).</p>
+
+										<p>Statistical techniques such as correlation and regression further support predictive analytics in cloud environments. Correlation analysis helps identify dependencies between infrastructure metrics, while regression modeling is instrumental in forecasting potential failures based on historical data (Crawford, 2006). Regression models have been used in financial risk management to predict insolvency and assess risk factors (Valaskova et al., 2018). Similar methodologies are being applied in IT operations to anticipate system failures and optimize resource allocation, enhancing overall resilience.</p>
+
+										<p>Ultimately, while automation and AI-powered analytics bring efficiency and scalability to IT operations, they also introduce new complexities. The paradox of increased automation is that it reduces direct human control while creating intricate dependencies that can lead to cascading failures if not properly managed. Addressing these challenges requires a combination of AI-driven automation, robust exploratory and statistical data analysis, and strategic human intervention to ensure the reliability and sustainability of modern cloud-based infrastructures.</p>
+									</div>
+									<div class="references">
+										<h4>References</h4>
+										<ul>
+											<li>Buyya, R., & Srirama, S. N. (2019). Fog and Edge Computing: Principles and Paradigms. Wiley.</li>
+											<li>Cheng, Q., et al. (2023). AI for IT Operations (AIOps) on Cloud Platforms: Reviews, Opportunities, and Challenges. Salesforce AI.</li>
+											<li>Crawford, S. L. (2006). Correlation and Regression. Circulation, 114(21), 2083-2088.</li>
+											<li>Giles, M. (2022). A Major Outage at AWS Has Caused Chaos at Amazon's Own Operations, Highlighting Cloud Computing Risks. Forbes.</li>
+											<li>Harmadi, A. C. (2021). 10 Things to do when Conducting your Exploratory Data Analysis (EDA). Medium.</li>
+											<li>Patil, P. (2018). What is Exploratory Data Analysis? Towards Data Science.</li>
+											<li>Schwab, K. (2016). The Fourth Industrial Revolution. World Economic Forum.</li>
+											<li>Valaskova, K., Kliestik, T., Svabova, L., & Adamko, P. (2018). Financial Risk Measurement and Prediction Modelling for Sustainable Development of Business Entities Using Regression Analysis. Sustainability, 10(7), 2144.</li>
+										</ul>
+									</div>
+								</div>
+
+								<h3>Reflection</h3>
+								<div class="discussion-post">
+									<div class="content">
+										<p>The December 2021 AWS outage (Giles 2022) reminded me how quickly things can go wrong when a company pins everything on a single cloud. Reading Schwab's take on Industry 4.0 (Schwab 2016) and the fog/edge ideas of Buyya and Srirama (2019) helped me see the trade‑off more clearly: the smarter and more automated we make our systems with AIOps (Cheng et al. 2023), the bigger the impact if something fundamental breaks. The episode left me both impressed by automation's potential and aware of its fragility, reinforcing the need to keep a critical, questioning mindset whenever I design or depend on complex AI‑driven operations.</p>
+									</div>
+									<div class="references">
+										<h4>References</h4>
+										<ul>
+											<li>Buyya, R., & Srirama, S. N. (2019). Fog and Edge Computing: Principles and Paradigms. Wiley.</li>
+											<li>Cheng, Q., et al. (2023). AI for IT Operations (AIOps) on Cloud Platforms: Reviews, Opportunities, and Challenges. arXiv preprint arXiv:2304.04661.</li>
+											<li>Giles, M. (2022). A Major Outage at AWS Has Caused Chaos at Amazon's Own Operations, Highlighting Cloud Computing Risks. Forbes, 7 December.</li>
+											<li>Schwab, K. (2016). The Fourth Industrial Revolution: What It Means and How to Respond. World Economic Forum.</li>
+										</ul>
+									</div>
+								</div>
+
+								<div style="margin-top: 1em; border-top: 1px solid #e9ecef;">
+									<div style="max-width: 700px; margin: 0 auto; text-align: center; padding: 0.8em 0;">
+										<div style="display: flex; align-items: center; justify-content: center; gap: 1.2em; flex-wrap: wrap; font-size: 0.95em;">
+											<span style="color: #2a2f35; display: flex; align-items: center; gap: 0.5em; font-weight: 600; opacity: 0.8;">
+												<svg height="20" viewBox="0 0 16 16" width="20" style="fill: #2a2f35;">
+													<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+												</svg>
+												Source Artifacts
+											</span>
+											<span style="color: #e9ecef; font-weight: 300;">|</span>
+											<a href="https://github.com/FNrythm/eportfolio/blob/main/machine-learning/discussions/collaborative-discussion-1/initial-post.md" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 Initial Post</a>
+											<span style="color: #e9ecef; font-weight: 300;">|</span>
+											<a href="https://github.com/FNrythm/eportfolio/blob/main/machine-learning/discussions/collaborative-discussion-1/summary.md" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 Discussion Summary</a>
+											<span style="color: #e9ecef; font-weight: 300;">|</span>
+											<a href="https://github.com/FNrythm/eportfolio/blob/main/machine-learning/discussions/collaborative-discussion-1/reflection.md" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 Reflection</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+							<section class="split contact horizontal">
+								<div class="contact-methods">
+									<div class="contact-method">
+										<a href="mailto:fabian.narel@gmail.com">
+											<span class="icon solid alt fa-envelope"></span>
+										</a>
+										<span class="title">Email</span>
+									</div>
+								
+									<div class="contact-method">
+										<a href="https://github.com/FNrythm" target="_blank" rel="noopener noreferrer">
+											<span class="icon brands alt fa-github"></span>
+										</a>
+										<span class="title">GitHub</span>
+									</div>
+								
+									<div class="contact-method">
+										<a href="https://www.linkedin.com/in/fabiannarel/" target="_blank" rel="noopener noreferrer">
+											<span class="icon brands alt fa-linkedin-in"></span>
+										</a>
+										<span class="title">LinkedIn</span>
+									</div>
+								</div>
+							</section>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="copyright">
+								<li>&copy; Fabian Narel</li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+
+		<div id="back-to-top" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99;">
+			<a href="#" class="button primary icon solid fa-arrow-up">Top</a>
+		</div>
+
+		<script>
+		// Back to top button
+		window.onscroll = function() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				document.getElementById("back-to-top").style.display = "block";
+			} else {
+				document.getElementById("back-to-top").style.display = "none";
+			}
+		};
+		</script>
+
+		<script>
+		// Add this script at the bottom of your page
+		document.addEventListener('DOMContentLoaded', function() {
+			const sections = document.querySelectorAll('section');
+			
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+					}
+				});
+			});
+
+			sections.forEach(section => {
+				section.classList.add('fade-in');
+				observer.observe(section);
+			});
+		});
+		</script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+		<script>
+		// Initialize lightbox
+		lightbox.option({
+			'resizeDuration': 200,
+			'wrapAround': true,
+			'maxWidth': 1200,
+			'maxHeight': 900
+		});
+		</script>
+
+	</body>
+</html> 

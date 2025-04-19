@@ -1,0 +1,515 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Activity 1: Analysis of the antisocx Variable</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+		<style>
+			/* General page styling */
+			body {
+				line-height: 1.7;
+				color: #2a2f35;
+				background: #ffffff;
+			}
+
+			/* Main content styling */
+			#main {
+				background: #ffffff;
+				padding: 0 0 2em 0;
+			}
+
+			.inner {
+				max-width: 1000px;
+				margin: 0 auto;
+				padding: 0 2em;
+			}
+
+			/* Headers styling */
+			h2 {
+				color: #2a2f35;
+				font-size: 2.5em;
+				font-weight: 600;
+				margin: 0 0 0.8em 0;
+				position: relative;
+				padding-bottom: 0.5em;
+			}
+
+			h2:after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100px;
+				height: 3px;
+				background: #f56a6a;
+			}
+
+			h3 {
+				color: #2a2f35;
+				font-size: 1.5em;
+				margin-top: 2em;
+				margin-bottom: 1em;
+			}
+
+			/* Text elements */
+			p, li, strong, span {
+				color: #2a2f35;
+			}
+
+			/* Inline code styling */
+			code {
+				font-family: 'Consolas', 'Monaco', monospace;
+				font-size: 0.9em;
+				color: #2a2f35;
+				background: #e9ecef;
+				padding: 0.2em 0.4em;
+				border-radius: 3px;
+			}
+
+			/* Code blocks styling */
+			pre {
+				background: #f1f3f5;
+				border-left: 4px solid #f56a6a;
+				border-radius: 4px;
+				padding: 1.5em;
+				margin: 1.5em 0;
+				overflow-x: auto;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+			}
+
+			pre code {
+				background: transparent;
+				padding: 0;
+			}
+
+			pre code strong {
+				color: #f56a6a;
+			}
+
+			/* List styling */
+			ol {
+				counter-reset: item;
+				list-style: none;
+				padding-left: 0;
+			}
+
+			ol li {
+				position: relative;
+				padding-left: 2em;
+				margin-bottom: 1.5em;
+			}
+
+			ol li:before {
+				content: counter(item) ".";
+				counter-increment: item;
+				position: absolute;
+				left: 0;
+				color: #f56a6a;
+				font-weight: bold;
+			}
+
+			/* Contact section styling */
+			#contact {
+				background: #ffffff;
+				padding: 2em 0 1em 0;
+				border-top: 1px solid #e9ecef;
+			}
+
+			.contact-methods {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 3em;
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 1em 0;
+			}
+
+			.contact-method {
+				display: flex;
+				align-items: center;
+				gap: 0.8em;
+				transition: transform 0.2s ease;
+			}
+
+			.contact-method:hover {
+				transform: translateY(-2px);
+			}
+
+			.contact-method a {
+				border-bottom: none;
+				color: #2a2f35;
+				transition: color 0.2s ease;
+			}
+
+			.contact-method a:hover {
+				color: #f56a6a;
+			}
+
+			.contact-method .title {
+				font-size: 1em;
+				font-weight: 600;
+				color: #2a2f35;
+			}
+
+			/* Footer styling */
+			#footer {
+				background: #2a2f35;
+				color: rgba(255,255,255,0.9);
+				padding: 1em 0;
+				text-align: center;
+			}
+
+			#footer .copyright {
+				font-size: 0.9em;
+				margin: 0;
+			}
+
+			/* Responsive design */
+			@media screen and (max-width: 736px) {
+				.inner {
+					padding: 0 1.5em;
+				}
+
+				h2 {
+					font-size: 2em;
+				}
+
+				.contact-methods {
+					flex-direction: column;
+					gap: 1.5em;
+				}
+
+				pre {
+					padding: 1em;
+				}
+			}
+
+			/* Main content spacing */
+			#main {
+				padding: 0 0 2em 0;
+			}
+
+			#one {
+				padding-top: 1em;
+			}
+
+			/* Title spacing */
+			h2 {
+				color: #2a2f35;
+				font-size: 2.5em;
+				font-weight: 600;
+				margin: 0 0 0.8em 0;
+				position: relative;
+				padding-bottom: 0.5em;
+			}
+
+			/* First paragraph after title */
+			h2 + p {
+				margin-top: 0;
+			}
+
+			/* Image grid styling */
+			.image-grid {
+				display: flex;
+				gap: 2em;
+				margin: 2em 0;
+				flex-wrap: wrap;
+			}
+
+			.image-container {
+				flex: 1;
+				min-width: 300px;
+				text-align: center;
+			}
+
+			.image-container img {
+				width: 100%;
+				height: auto;
+				border-radius: 4px;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+				transition: transform 0.2s ease;
+				cursor: pointer;
+			}
+
+			.image-container img:hover {
+				transform: scale(1.02);
+			}
+
+			.caption {
+				display: block;
+				margin-top: 0.5em;
+				color: #2a2f35;
+				font-size: 0.9em;
+			}
+
+			/* Responsive adjustments */
+			@media screen and (max-width: 736px) {
+				.image-grid {
+					gap: 1em;
+				}
+				
+				.image-container {
+					flex: 100%;
+				}
+			}
+
+			/* Activities list styling */
+			.activities-list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.activities-list li {
+				border: 1px solid rgba(42, 47, 53, 0.1);
+				border-radius: 8px;
+				margin-bottom: 1.5em;
+				padding: 1.5em;
+				transition: all 0.3s ease;
+				background: #ffffff;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+			}
+
+			.activities-list li:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+			}
+
+			.activities-list li a {
+				text-decoration: none;
+				color: inherit;
+				display: block;
+			}
+
+			.activity-number {
+				display: inline-block;
+				background: #f56a6a;
+				color: #ffffff;
+				padding: 0.3em 0.8em;
+				border-radius: 4px;
+				font-size: 0.9em;
+				margin-bottom: 0.8em;
+			}
+
+			.activities-list h4 {
+				color: #2a2f35;
+				margin: 0.5em 0;
+				font-size: 1.2em;
+			}
+
+			.activities-list p {
+				margin: 0;
+				color: #666;
+				font-size: 0.95em;
+			}
+
+			/* Upcoming activities styling */
+			.upcoming {
+				opacity: 0.7;
+				background: #f8f9fa;
+			}
+
+			.upcoming .activity-number {
+				background: #6c757d;
+			}
+
+			.upcoming:hover {
+				transform: none;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>MSc AI</strong> <span>Portfolio</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="landing.html">Portfolio</a></li>
+							<li><a href="generic.html">About</a></li>
+							<li><a href="elements.html">Contact</a></li>
+						</ul>
+						<ul class="actions stacked">
+							<li><a href="#" class="button primary fit">Get Started</a></li>
+							<li><a href="#" class="button fit">Log In</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<h2>Numerical Analysis Portfolio</h2>
+									
+									<p>Welcome to my Numerical Analysis portfolio. This section showcases various activities and projects completed during my MSc in Artificial Intelligence, focusing on statistical analysis and data interpretation.</p>
+
+									<div class="row">
+										<div class="col-6 col-12-small">
+											<h3>Activities</h3>
+											<ul class="activities-list">
+												<li>
+													<a href="Activity1_Num_AN.html">
+														<span class="activity-number">Activity 1</span>
+														<h4>Analysis of Antisocial Behavior Perception</h4>
+														<p>Statistical analysis using the Crime Survey for England and Wales dataset to investigate levels of perceived antisocial behavior in neighborhoods.</p>
+													</a>
+												</li>
+												<li class="upcoming">
+													<span class="activity-number">Activity 2</span>
+													<h4>Coming Soon</h4>
+													<p>Future statistical analysis activity to be added.</p>
+												</li>
+												<li class="upcoming">
+													<span class="activity-number">Activity 3</span>
+													<h4>Coming Soon</h4>
+													<p>Future statistical analysis activity to be added.</p>
+												</li>
+											</ul>
+										</div>
+										
+										<div class="col-6 col-12-small">
+											<h3>Learning Outcomes</h3>
+											<ul>
+												<li>Understanding of statistical analysis techniques</li>
+												<li>Proficiency in R programming for data analysis</li>
+												<li>Data visualization and interpretation skills</li>
+												<li>Critical analysis of survey data</li>
+											</ul>
+										</div>
+									</div>
+
+									<h3>About This Portfolio</h3>
+									<p>This portfolio demonstrates my journey through numerical analysis, showcasing my ability to:</p>
+									<ul>
+										<li>Process and analyze complex datasets</li>
+										<li>Apply statistical methods to real-world problems</li>
+										<li>Draw meaningful conclusions from data</li>
+										<li>Present findings in a clear and professional manner</li>
+									</ul>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+							<section class="split contact horizontal">
+								<div class="contact-methods">
+									<div class="contact-method">
+										<a href="mailto:fabian.narel@gmail.com">
+											<span class="icon solid alt fa-envelope"></span>
+										</a>
+										<span class="title">Email</span>
+									</div>
+								
+									<div class="contact-method">
+										<a href="https://github.com/FNrythm" target="_blank" rel="noopener noreferrer">
+											<span class="icon brands alt fa-github"></span>
+										</a>
+										<span class="title">GitHub</span>
+									</div>
+								
+									<div class="contact-method">
+										<a href="https://www.linkedin.com/in/fabiannarel/" target="_blank" rel="noopener noreferrer">
+											<span class="icon brands alt fa-linkedin-in"></span>
+										</a>
+										<span class="title">LinkedIn</span>
+									</div>
+								</div>
+							</section>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="copyright">
+								<li>&copy; Fabian Narel</li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+		<div id="back-to-top" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99;">
+			<a href="#" class="button primary icon solid fa-arrow-up">Top</a>
+		</div>
+
+		<script>
+		// Back to top button
+		window.onscroll = function() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				document.getElementById("back-to-top").style.display = "block";
+			} else {
+				document.getElementById("back-to-top").style.display = "none";
+			}
+		};
+		</script>
+
+		<script>
+		// Add this script at the bottom of your page
+		document.addEventListener('DOMContentLoaded', function() {
+			const sections = document.querySelectorAll('section');
+			
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+					}
+				});
+			});
+
+			sections.forEach(section => {
+				section.classList.add('fade-in');
+				observer.observe(section);
+			});
+		});
+		</script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+		<script>
+		// Initialize lightbox
+		lightbox.option({
+			'resizeDuration': 200,
+			'wrapAround': true,
+			'maxWidth': 1200,
+			'maxHeight': 900
+		});
+		</script>
+
+	</body>
+</html>
