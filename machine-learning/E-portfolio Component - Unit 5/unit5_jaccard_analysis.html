@@ -11,6 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../../assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 		<style>
 			/* General page styling */
 			body {
@@ -58,27 +59,130 @@
 				margin-bottom: 1em;
 			}
 
-			/* Table styling */
-			table {
-				width: 100%;
-				border-collapse: collapse;
-				margin: 2em 0;
-				box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+			/* Text elements */
+			p, li, strong, span {
+				color: #2a2f35;
 			}
 
-			th, td {
-				padding: 1em;
-				text-align: left;
+			/* Inline code styling */
+			code {
+				font-family: 'Consolas', 'Monaco', monospace;
+				font-size: 0.9em;
+				color: #2a2f35;
+				background: #e9ecef;
+				padding: 0.2em 0.4em;
+				border-radius: 3px;
+			}
+
+			/* Code blocks styling */
+			pre {
+				background: #f1f3f5;
+				border-left: 4px solid #f56a6a;
+				border-radius: 4px;
+				padding: 1.5em;
+				margin: 1.5em 0;
+				overflow-x: auto;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+			}
+
+			pre code {
+				background: transparent;
+				padding: 0;
+			}
+
+			pre code strong {
+				color: #f56a6a;
+			}
+
+			/* List styling */
+			ol {
+				counter-reset: item;
+				list-style: none;
+				padding-left: 0;
+			}
+
+			ol li {
+				position: relative;
+				padding-left: 2em;
+				margin-bottom: 1.5em;
+			}
+
+			ol li:before {
+				content: counter(item) ".";
+				counter-increment: item;
+				position: absolute;
+				left: 0;
+				color: #f56a6a;
+				font-weight: bold;
+			}
+
+			/* Activity header styling */
+			.activity-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 2em;
+				padding-bottom: 1em;
 				border-bottom: 1px solid #e9ecef;
 			}
 
-			th {
-				background-color: #f8f9fa;
+			.activity-title {
+				font-size: 1.2em;
+				color: #2a2f35;
 				font-weight: 600;
 			}
 
-			tr:hover {
-				background-color: #f8f9fa;
+			.activity-date {
+				color: #666;
+				font-size: 0.9em;
+			}
+
+			/* Code section styling */
+			.code-section {
+				background: #f8f9fa;
+				padding: 1.5em;
+				border-radius: 4px;
+				margin: 1.5em 0;
+			}
+
+			.code-section h4 {
+				color: #2a2f35;
+				margin-top: 0;
+				margin-bottom: 1em;
+			}
+
+			/* Image grid styling */
+			.image-grid {
+				display: flex;
+				gap: 2em;
+				margin: 2em 0;
+				flex-wrap: wrap;
+			}
+
+			.image-container {
+				flex: 1;
+				min-width: 300px;
+				text-align: center;
+			}
+
+			.image-container img {
+				width: 100%;
+				height: auto;
+				border-radius: 4px;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+				transition: transform 0.2s ease;
+				cursor: pointer;
+			}
+
+			.image-container img:hover {
+				transform: scale(1.02);
+			}
+
+			.caption {
+				display: block;
+				margin-top: 0.5em;
+				color: #2a2f35;
+				font-size: 0.9em;
 			}
 
 			/* Activity box styling */
@@ -89,25 +193,14 @@
 				margin: 1.5em 0;
 			}
 
-			/* Results styling */
-			.results {
-				background: #f8f9fa;
-				padding: 1.5em;
-				border-radius: 4px;
-				margin: 1.5em 0;
-			}
-
-			.results h4 {
-				color: #2a2f35;
-				margin-top: 0;
-				margin-bottom: 1em;
-			}
-
 			/* Responsive adjustments */
 			@media screen and (max-width: 736px) {
-				table {
-					display: block;
-					overflow-x: auto;
+				.image-grid {
+					gap: 1em;
+				}
+				
+				.image-container {
+					flex: 100%;
 				}
 			}
 		</style>
@@ -200,35 +293,26 @@
 										</tbody>
 									</table>
 
-									<h3>Jaccard Coefficient Calculations</h3>
-									<div class="results">
-										<h4>Jack and Mary</h4>
-										<p>Intersection: {Fever=Y, Cough=N, Test-1=P}</p>
-										<p>Union: {Fever=Y, Cough=N, Test-1=P, Test-2=A, Test-2=N, Test-3=P, Test-3=N, Test-4=A, Test-4=N}</p>
-										<p>Jaccard Coefficient = 3/9 = 0.33</p>
-									</div>
-
-									<div class="results">
-										<h4>Jack and Jim</h4>
-										<p>Intersection: {Fever=Y, Test-4=A}</p>
-										<p>Union: {Fever=Y, Cough=N, Cough=P, Test-1=P, Test-1=N, Test-2=N, Test-3=N, Test-4=A}</p>
-										<p>Jaccard Coefficient = 2/8 = 0.25</p>
-									</div>
-
-									<div class="results">
-										<h4>Jim and Mary</h4>
-										<p>Intersection: {Fever=Y}</p>
-										<p>Union: {Fever=Y, Cough=N, Cough=P, Test-1=P, Test-1=N, Test-2=A, Test-2=N, Test-3=P, Test-3=N, Test-4=A, Test-4=N}</p>
-										<p>Jaccard Coefficient = 1/11 = 0.09</p>
-									</div>
-
+									<h3>Jaccard Coefficient Results</h3>
 									<div class="activity-box">
-										<h3>Key Findings</h3>
 										<ul>
-											<li>Jack and Mary show the highest similarity (0.33) based on their test results.</li>
-											<li>Jack and Jim have moderate similarity (0.25).</li>
-											<li>Jim and Mary show the lowest similarity (0.09).</li>
-											<li>The analysis suggests that Jack and Mary's test results are more similar to each other than to Jim's results.</li>
+											<li>Jaccard coefficient for (Jack, Mary): 0.50</li>
+											<li>Jaccard coefficient for (Jack, Jim): 0.67</li>
+											<li>Jaccard coefficient for (Jim, Mary): 0.17</li>
+										</ul>
+									</div>
+
+									<h3>Reflection</h3>
+									<div class="activity-box">
+										<p>The analysis of pathological test results using the Jaccard coefficient raises important ethical and professional considerations. The protection of sensitive medical data, compliance with regulations such as HIPAA and GDPR, and maintaining patient confidentiality are fundamental aspects (Price and Cohen, 2019). It is crucial to consider the potential for bias in medical diagnoses, the importance of algorithmic transparency, and the need for fair and balanced analysis (Topol, 2019). As professionals, we must understand the limitations of the analysis, maintain professional standards, and contribute positively to health outcomes (Char et al., 2020). Challenges include handling incomplete or complex data, robust validation of results, and collaboration with medical professionals (Rajkomar et al., 2019). This exercise highlights the importance of combining technical expertise with ethical awareness when working with medical data (Beam and Kohane, 2018).</p>
+
+										<h4 style="color: #2a2f35;">References</h4>
+										<ul class="references">
+											<li>Beam, A.L. and Kohane, I.S. (2018) 'Big Data and Machine Learning in Health Care', <i>JAMA</i>, 319(13), pp. 1317-1318.</li>
+											<li>Char, D.S., Shah, N.H. and Magnus, D. (2020) 'Implementing Machine Learning in Health Care—Addressing Ethical Challenges', <i>New England Journal of Medicine</i>, 378(11), pp. 981-983.</li>
+											<li>Price, W.N. and Cohen, I.G. (2019) 'Privacy in the Age of Medical Big Data', <i>Nature Medicine</i>, 25(1), pp. 37-43.</li>
+											<li>Rajkomar, A., Dean, J. and Kohane, I. (2019) 'Machine Learning in Medicine', <i>New England Journal of Medicine</i>, 380(14), pp. 1347-1358.</li>
+											<li>Topol, E.J. (2019) 'High-performance medicine: the convergence of human and artificial intelligence', <i>Nature Medicine</i>, 25(1), pp. 44-56.</li>
 										</ul>
 									</div>
 
@@ -242,7 +326,9 @@
 													Source Artifacts
 												</span>
 												<span style="color: #e9ecef; font-weight: 300;">|</span>
-												<a href="https://github.com/FNrythm/eportfolio/blob/main/machine-learning/E-portfolio%20Component%20-%20Unit%205/unit5_jaccard_analysis.html" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📊 Analysis</a>
+												<a href="https://github.com/FNrythm/eportfolio/blob/main/machine-learning/E-portfolio%20Component%20-%20Unit%205/jaccard_coefficient.ipynb" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📊 Analysis Notebook</a>
+												<span style="color: #e9ecef; font-weight: 300;">|</span>
+												<a href="https://github.com/FNrythm/eportfolio/blob/main/machine-learning/E-portfolio%20Component%20-%20Unit%205/reflection.md" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📋 Reflection</a>
 											</div>
 										</div>
 									</div>
@@ -255,7 +341,7 @@
 					<section id="contact">
 						<div class="inner">
 							<section class="split contact horizontal">
-								<div class="contact-methods">
+								<div class="contact-methods" style="display: flex; justify-content: center; gap: 2em;">
 									<div class="contact-method">
 										<a href="mailto:fabian.narel@gmail.com">
 											<span class="icon solid alt fa-envelope"></span>
@@ -333,6 +419,19 @@
 				section.classList.add('fade-in');
 				observer.observe(section);
 			});
+		});
+		</script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+		<script>
+		// Initialize lightbox
+		lightbox.option({
+			'resizeDuration': 200,
+			'wrapAround': true,
+			'maxWidth': 1200,
+			'maxHeight': 900
 		});
 		</script>
 
