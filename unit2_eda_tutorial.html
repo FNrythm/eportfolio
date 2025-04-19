@@ -9,8 +9,8 @@
 		<title>Unit 2 - EDA Tutorial - MSc AI Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 		<style>
 			/* General page styling */
@@ -376,8 +376,8 @@ print(df.head())</code></pre>
 
 									<div class="image-grid">
 										<div class="image-container">
-											<a href="assets/images/auto_mpg_head.png" data-lightbox="dataset" data-title="First few rows of the Auto-mpg dataset">
-												<img src="assets/images/auto_mpg_head.png" alt="Dataset Preview" />
+											<a href="../../images/auto_mpg_head.png" data-lightbox="dataset" data-title="First few rows of the Auto-mpg dataset">
+												<img src="../../images/auto_mpg_head.png" alt="Dataset Preview" />
 											</a>
 											<span class="caption">First few rows of the Auto-mpg dataset</span>
 										</div>
@@ -393,8 +393,8 @@ print(missing_values)</code></pre>
 
 									<div class="image-grid">
 										<div class="image-container">
-											<a href="assets/images/missing_values.png" data-lightbox="missing" data-title="Missing values analysis">
-												<img src="assets/images/missing_values.png" alt="Missing Values Analysis" />
+											<a href="../../images/missing_values.png" data-lightbox="missing" data-title="Missing values analysis">
+												<img src="../../images/missing_values.png" alt="Missing Values Analysis" />
 											</a>
 											<span class="caption">Missing values analysis</span>
 										</div>
@@ -410,8 +410,8 @@ print(stats)</code></pre>
 
 									<div class="image-grid">
 										<div class="image-container">
-											<a href="assets/images/statistics.png" data-lightbox="stats" data-title="Statistical analysis results">
-												<img src="assets/images/statistics.png" alt="Statistics" style="max-width: 100%; height: auto;" />
+											<a href="../../images/statistics.png" data-lightbox="stats" data-title="Statistical analysis results">
+												<img src="../../images/statistics.png" alt="Statistical Analysis" />
 											</a>
 											<span class="caption">Statistical analysis results</span>
 										</div>
@@ -432,8 +432,8 @@ plt.show()</code></pre>
 
 									<div class="image-grid">
 										<div class="image-container">
-											<a href="assets/images/correlation_heatmap.png" data-lightbox="correlation" data-title="Correlation heatmap">
-												<img src="assets/images/correlation_heatmap.png" alt="Correlation Heatmap" />
+											<a href="../../images/correlation_heatmap.png" data-lightbox="correlation" data-title="Correlation heatmap">
+												<img src="../../images/correlation_heatmap.png" alt="Correlation Heatmap" />
 											</a>
 											<span class="caption">Correlation heatmap showing relationships between variables</span>
 										</div>
@@ -448,8 +448,8 @@ plt.show()</code></pre>
 
 									<div class="image-grid">
 										<div class="image-container">
-											<a href="assets/images/scatter_plots.png" data-lightbox="scatter" data-title="Scatter plots">
-												<img src="assets/images/scatter_plots.png" alt="Scatter Plots" style="max-width: 100%; height: auto;" />
+											<a href="../../images/scatter_plots.png" data-lightbox="scatter" data-title="Scatter plots">
+												<img src="../../images/scatter_plots.png" alt="Scatter Plots" />
 											</a>
 											<span class="caption">Scatter plots showing relationships between variables</span>
 										</div>
@@ -465,36 +465,22 @@ df = pd.get_dummies(df, columns=['origin'])</code></pre>
 
 									<div class="image-grid">
 										<div class="image-container">
-											<a href="assets/images/transformed_data.png" data-lightbox="transformed" data-title="Transformed dataset">
-												<img src="assets/images/transformed_data.png" alt="Transformed Data" style="max-width: 100%; height: auto;" />
+											<a href="../../images/transformed_data.png" data-lightbox="transformed" data-title="Transformed dataset">
+												<img src="../../images/transformed_data.png" alt="Transformed Dataset" />
 											</a>
 											<span class="caption">Dataset after preprocessing</span>
 										</div>
 									</div>
 
-									<div class="activity-box">
-										<h3>Key Findings</h3>
+									<div class="findings-section">
+										<h4>Key Findings</h4>
 										<ul>
-											<li>Missing values were found in the horsepower column, which were imputed using the median value.</li>
-											<li>The dataset shows a strong negative correlation between mpg and weight, indicating that heavier cars tend to have lower fuel efficiency.</li>
-											<li>Origin 3 (likely European cars) shows the highest average mpg, suggesting better fuel efficiency in European models.</li>
-											<li>Later model years show a trend towards higher mpg values, indicating improvements in fuel efficiency over time.</li>
+											<li>Strong negative correlation between mpg and weight (-0.83)</li>
+											<li>Positive correlation between horsepower and weight (0.86)</li>
+											<li>Higher number of cylinders generally associated with lower mpg</li>
+											<li>European and Japanese cars tend to be more fuel-efficient than American cars</li>
+											<li>Displacement shows a strong positive correlation with horsepower (0.90)</li>
 										</ul>
-									</div>
-
-									<div style="margin-top: 1em; border-top: 1px solid #e9ecef;">
-										<div style="max-width: 700px; margin: 0 auto; text-align: center; padding: 0.8em 0;">
-											<div style="display: flex; align-items: center; justify-content: center; gap: 1.2em; flex-wrap: wrap; font-size: 0.95em;">
-												<span style="color: #2a2f35; display: flex; align-items: center; gap: 0.5em; font-weight: 600; opacity: 0.8;">
-													<svg height="20" viewBox="0 0 16 16" width="20" style="fill: #2a2f35;">
-														<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-													</svg>
-													Source Artifacts
-												</span>
-												<span style="color: #e9ecef; font-weight: 300;">|</span>
-												<a href="https://github.com/FNrythm/eportfolio/blob/main/machine-learning/seminars/auto_mpg_eda.ipynb" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 EDA Notebook</a>
-											</div>
-										</div>
 									</div>
 								</div>
 							</section>
