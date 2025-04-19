@@ -1,40 +1,15 @@
 # Reflection: Jaccard Coefficient Analysis in Medical Data
 
-The analysis of pathological test results using the Jaccard coefficient raises several important ethical and professional considerations for machine learning practitioners.
+The analysis of pathological test results using the Jaccard coefficient raises important ethical and professional considerations. The protection of sensitive medical data, compliance with regulations such as HIPAA and GDPR, and maintaining patient confidentiality are fundamental aspects (Price and Cohen, 2019). It is crucial to consider the potential for bias in medical diagnoses, the importance of algorithmic transparency, and the need for fair and balanced analysis (Topol, 2019). As professionals, we must understand the limitations of the analysis, maintain professional standards, and contribute positively to health outcomes (Char et al., 2020). Challenges include handling incomplete or complex data, robust validation of results, and collaboration with medical professionals (Rajkomar et al., 2019). This exercise highlights the importance of combining technical expertise with ethical awareness when working with medical data (Beam and Kohane, 2018).
 
-## Data Privacy and Confidentiality
-The dataset contains sensitive medical information about individuals, including their gender and test results. This highlights the critical importance of:
-- Ensuring proper data anonymization
-- Implementing strict access controls
-- Complying with data protection regulations (e.g., HIPAA, GDPR)
-- Maintaining patient confidentiality
+## References
 
-## Ethical Implications
-The analysis demonstrates how machine learning can identify patterns in medical data, which has significant implications:
-- The potential for bias in medical diagnosis
-- The importance of considering demographic factors
-- The need for transparency in algorithmic decision-making
-- The responsibility to ensure fair and unbiased analysis
+Beam, A.L. and Kohane, I.S. (2018) 'Big Data and Machine Learning in Health Care', *JAMA*, 319(13), pp. 1317-1318.
 
-## Professional Considerations
-As machine learning professionals, we must:
-- Understand the limitations of our analysis
-- Consider the broader context of medical data
-- Maintain professional standards in data handling
-- Ensure our work contributes positively to healthcare outcomes
+Char, D.S., Shah, N.H. and Magnus, D. (2020) 'Implementing Machine Learning in Health Care—Addressing Ethical Challenges', *New England Journal of Medicine*, 378(11), pp. 981-983.
 
-## Dataset Challenges
-The analysis revealed several challenges in working with medical data:
-- Handling missing or incomplete test results
-- Interpreting different test outcomes (P, N, A)
-- Managing the complexity of multiple test variables
-- Ensuring data quality and consistency
+Price, W.N. and Cohen, I.G. (2019) 'Privacy in the Age of Medical Big Data', *Nature Medicine*, 25(1), pp. 37-43.
 
-## Future Applications
-This analysis demonstrates the potential for machine learning in medical diagnostics, but also emphasizes the need for:
-- Robust validation of results
-- Clear communication of findings
-- Consideration of ethical implications
-- Collaboration with medical professionals
+Rajkomar, A., Dean, J. and Kohane, I. (2019) 'Machine Learning in Medicine', *New England Journal of Medicine*, 380(14), pp. 1347-1358.
 
-The exercise underscores the importance of approaching medical data analysis with both technical expertise and ethical awareness, ensuring that our work as machine learning professionals contributes positively to healthcare while respecting patient privacy and maintaining professional standards. 
+Topol, E.J. (2019) 'High-performance medicine: the convergence of human and artificial intelligence', *Nature Medicine*, 25(1), pp. 44-56. 
