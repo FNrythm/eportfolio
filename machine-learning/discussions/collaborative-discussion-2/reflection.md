@@ -4,12 +4,4 @@ The discussion on AI writers and their impact across different domains has been 
 
 What struck me most was the parallel between the discussion topic and our own use of AI in education. As we debated the risks of AI writers potentially hampering critical thinking in students, we ourselves demonstrated the importance of human-led critical analysis and peer review. The framework suggested by peers—using AI as either a drafting assistant or feedback tool—resonated with my own evolving understanding of how to balance AI's capabilities with human oversight.
 
-This discussion reinforced that while AI can be an incredibly powerful tool for augmenting human capabilities, its role should be carefully considered within each context. The key is not to avoid AI tools entirely, but to develop frameworks for their responsible use that preserve and enhance human agency rather than diminish it.
-
-## References
-
-Goetz, L., Trengove, M., Trotsyuk, A. and Federico, C.A. (2023) Unreliable LLM bioethics assistants: Ethical and pedagogical risks. The American Journal of Bioethics, 23(10), pp.89–91.
-
-Hutson, M. (2021) Robo-writers: the rise and risks of language-generating AI. Nature, 591(7848), pp.22–25.
-
-Kapuściński, M. (2025) ChatGPT 4.5 – What's New? Practical Examples and Applications. TTMS. 
+This discussion reinforced that while AI can be an incredibly powerful tool for augmenting human capabilities, its role should be carefully considered within each context. The key is not to avoid AI tools entirely, but to develop frameworks for their responsible use that preserve and enhance human agency rather than diminish it. 

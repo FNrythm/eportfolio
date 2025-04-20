@@ -1,0 +1,538 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Unit 4-6 - Collaborative Discussion 2 - MSc AI Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+		<style>
+			/* General page styling */
+			body {
+				line-height: 1.7;
+				color: #2a2f35;
+				background: #ffffff;
+			}
+
+			/* Main content styling */
+			#main {
+				background: #ffffff;
+				padding: 0 0 2em 0;
+			}
+
+			.inner {
+				max-width: 1000px;
+				margin: 0 auto;
+				padding: 0 2em;
+			}
+
+			/* Headers styling */
+			h2 {
+				color: #2a2f35;
+				font-size: 2.5em;
+				font-weight: 600;
+				margin: 0 0 0.8em 0;
+				position: relative;
+				padding-bottom: 0.5em;
+			}
+
+			h2:after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100px;
+				height: 3px;
+				background: #f56a6a;
+			}
+
+			h3 {
+				color: #2a2f35;
+				font-size: 1.5em;
+				margin-top: 2em;
+				margin-bottom: 1em;
+			}
+
+			/* Text elements */
+			p, li, strong, span {
+				color: #2a2f35;
+			}
+
+			/* Inline code styling */
+			code {
+				font-family: 'Consolas', 'Monaco', monospace;
+				font-size: 0.9em;
+				color: #2a2f35;
+				background: #e9ecef;
+				padding: 0.2em 0.4em;
+				border-radius: 3px;
+			}
+
+			/* Code blocks styling */
+			pre {
+				background: #f1f3f5;
+				border-left: 4px solid #f56a6a;
+				border-radius: 4px;
+				padding: 1.5em;
+				margin: 1.5em 0;
+				overflow-x: auto;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+			}
+
+			pre code {
+				background: transparent;
+				padding: 0;
+			}
+
+			pre code strong {
+				color: #f56a6a;
+			}
+
+			/* List styling */
+			ol {
+				counter-reset: item;
+				list-style: none;
+				padding-left: 0;
+			}
+
+			ol li {
+				position: relative;
+				padding-left: 2em;
+				margin-bottom: 1.5em;
+			}
+
+			ol li:before {
+				content: counter(item) ".";
+				counter-increment: item;
+				position: absolute;
+				left: 0;
+				color: #f56a6a;
+				font-weight: bold;
+			}
+
+			/* Contact section styling */
+			#contact {
+				background: #ffffff;
+				padding: 2em 0 1em 0;
+				border-top: 1px solid #e9ecef;
+			}
+
+			.contact-methods {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 3em;
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 1em 0;
+			}
+
+			.contact-method {
+				display: flex;
+				align-items: center;
+				gap: 0.8em;
+				transition: transform 0.2s ease;
+			}
+
+			.contact-method:hover {
+				transform: translateY(-2px);
+			}
+
+			.contact-method a {
+				border-bottom: none;
+				color: #2a2f35;
+				transition: color 0.2s ease;
+			}
+
+			.contact-method a:hover {
+				color: #f56a6a;
+			}
+
+			.contact-method .title {
+				font-size: 1em;
+				font-weight: 600;
+				color: #2a2f35;
+			}
+
+			/* Footer styling */
+			#footer {
+				background: #2a2f35;
+				color: rgba(255,255,255,0.9);
+				padding: 1em 0;
+				text-align: center;
+			}
+
+			#footer .copyright {
+				font-size: 0.9em;
+				margin: 0;
+			}
+
+			/* Responsive design */
+			@media screen and (max-width: 736px) {
+				.inner {
+					padding: 0 1.5em;
+				}
+
+				h2 {
+					font-size: 2em;
+				}
+
+				.contact-methods {
+					flex-direction: column;
+					gap: 1.5em;
+				}
+
+				pre {
+					padding: 1em;
+				}
+			}
+
+			/* Main content spacing */
+			#main {
+				padding: 0 0 2em 0;
+			}
+
+			#one {
+				padding-top: 1em;
+			}
+
+			/* Title spacing */
+			h2 {
+				color: #2a2f35;
+				font-size: 2.5em;
+				font-weight: 600;
+				margin: 0 0 0.8em 0;
+				position: relative;
+				padding-bottom: 0.5em;
+			}
+
+			/* First paragraph after title */
+			h2 + p {
+				margin-top: 0;
+			}
+
+			/* Activity header styling */
+			.activity-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 2em;
+				padding-bottom: 1em;
+				border-bottom: 1px solid #e9ecef;
+			}
+
+			.activity-title {
+				font-size: 1.2em;
+				color: #2a2f35;
+				font-weight: 600;
+			}
+
+			.activity-date {
+				color: #666;
+				font-size: 0.9em;
+			}
+
+			/* Discussion post styling */
+			.discussion-post {
+				background: #f8f9fa;
+				border-left: 4px solid #f56a6a;
+				padding: 1.5em;
+				margin: 1.5em 0;
+				border-radius: 4px;
+			}
+
+			.discussion-post .metadata {
+				color: #2a2f35;
+				font-size: 0.9em;
+				margin-bottom: 1em;
+				background: #f0f1f2;
+				padding: 0.8em;
+				border-radius: 4px;
+			}
+
+			.discussion-post .metadata strong {
+				color: #f56a6a;
+				margin-right: 0.5em;
+			}
+
+			.discussion-post .content {
+				margin-bottom: 0;
+				color: #2a2f35;
+			}
+
+			.discussion-post h4 {
+				color: #2a2f35;
+				margin-bottom: 0.5em;
+			}
+
+			.discussion-post p {
+				color: #2a2f35;
+				margin-bottom: 0.8em;
+			}
+
+			.discussion-post p:last-child {
+				margin-bottom: 0;
+			}
+
+			.references {
+				margin-top: 1em;
+				padding-top: 0.8em;
+				border-top: 1px solid #ddd;
+			}
+
+			.references h4 {
+				color: #2a2f35;
+				margin-bottom: 0.5em;
+			}
+
+			.references ul {
+				list-style-type: none;
+				padding-left: 0;
+				color: #2a2f35;
+				margin: 0;
+			}
+
+			.references ul li {
+				margin-bottom: 0.3em;
+				padding-left: 1em;
+				text-indent: -1em;
+				color: #2a2f35;
+			}
+
+			.references ul li:last-child {
+				margin-bottom: 0;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="../../index.html" class="logo"><strong>MSc AI</strong> <span>Portfolio</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="../../index.html">Home</a></li>
+							<li><a href="../../landing.html">Portfolio</a></li>
+							<li><a href="../../generic.html">About</a></li>
+							<li><a href="../../elements.html">Contact</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+						<section id="one">
+							<div class="inner">
+								<div class="activity-header">
+									<div class="activity-title">Units 4-6 - Collaborative Discussion 2</div>
+								</div>
+
+								<h2>The Risks and Benefits of AI Writers</h2>
+								<p>This three-week collaborative discussion explores the impact of Large Language Models (LLMs) on writing and communication, focusing on their benefits and risks across different contexts. Based on recent research in AI and language models, the discussion examines real-world applications and challenges, incorporating peer feedback and insights from Units 4-6 course materials.</p>
+
+								<h3>Initial Post</h3>
+								<div class="discussion-post">
+									<div class="metadata">
+										<strong>Topic:</strong> The Risks and Benefits of AI Writers<br>
+										<strong>Posted:</strong> Tuesday, 8 April 2025, 1:55 AM
+									</div>
+									<div class="content">
+										<p>Large Language Models (LLMs) like GPT-3 have become wildly popular for their human-like writing ability and they're now used for everything from business memos to creative fiction (Hutson, 2021), however it comes at a price of both risks and benefits.</p>
+
+										<p>In low-risk administrative tasks, LLMs are mostly beneficial with minimal downside, they can draft a polite email or a meeting summary in seconds (Hutson, 2021), saving time and helping with writer's block. Any minor errors or awkward phrasing are easy for a human to catch and fix, so the overall risk stays low.</p>
+
+										<p>In medium-risk professional writing (marketing, journalism, etc.), LLMs offer speed but need caution. They can generate a solid press release or news blurb in a flash, yet over-reliance can backfire. For example, when the tech site CNET used an AI to write finance articles, it later issued corrections for numerous factual errors (Farhi, 2023). Here the benefit of a quick drafts is balanced by the risk of inaccuracies or bland, boilerplate prose. Human editors must stay in the loop to fact-check and refine the output.</p>
+
+										<p>For higher-risk creative writing such as fiction, poetry, and the like the stakes are highest. LLMs can mimic an author's style and pour out pages of text, but their originality suffers. The AI's stories often feel derivative because it's remixing past works rather than truly inventing (Wenger and Kenett, 2023). This also raises plagiarism worries; a model might inadvertently paste chunks of its training data (Tang, 2023). Moreover, because it's so easy to generate text, there's a risk of overproduction a flood of formulaic AI content that could overwhelm readers and devalue genuine creativity. In these nuanced tasks, LLMs make intriguing collaborators, but they can't replace the originality and judgment of a human writer.</p>
+
+										<p>Another layer of risk when using LLMs comes from their tendency to be agreeable but unreliable (Goetz et al., 2023). These models are built to please the user, not to challenge them. That might be fine when drafting an email, but in something like ethics education, where students are supposed to develop critical thinking, it's a real problem. Instead of encouraging students to think deeply, LLMs might just echo back the kind of answer the user wants to hear.</p>
+
+										<p>As Coeckelbergh (2025) points out, these models are optimized to produce plausible-sounding text, not necessarily true statements. That means even when they're wrong, they sound right. This is dangerous, especially in political or educational settings, where people may trust the output without questioning it as it happens often with other phenomenas like fake news.</p>
+									</div>
+									<div class="references">
+										<h4>References</h4>
+										<ul>
+											<li>Coeckelbergh, M. (2025) Truth, post-truth, and democracy in the age of artificial intelligence: Epistemological and political risks of language models. AI and Society. Available from: https://doi.org/10.1007/s00148-025-00529-0 [Accessed 7 April 2025].</li>
+											<li>Farhi, P. (2023) A news site used AI to write articles. It was a journalistic disaster. The Washington Post, 17 January. Available from: https://www.washingtonpost.com/media/2023/01/17/cnet-ai-articles-journalism-corrections/ [Accessed 5 April 2025].</li>
+											<li>Goetz, L., Trengove, M., Trotsyuk, A. and Federico, C.A. (2023) Unreliable LLM bioethics assistants: Ethical and pedagogical risks. The American Journal of Bioethics, 23(10), pp.89–91. Available from: https://doi.org/10.1080/15265161.2023.2249843 [Accessed 7 April 2025].</li>
+											<li>Hutson, M. (2021) Robo-writers: the rise and risks of language-generating AI. Nature 591(7848): 22–25.</li>
+											<li>Tang, B. L. (2023) The underappreciated wrong of AIgiarism – bypass plagiarism that risks propagation of erroneous and bias content. EXCLI Journal 22: 907–910. DOI: 10.17179/excli2023-6435.</li>
+											<li>Wenger, E. and Kenett, Y. (2023) We're Different, We're the Same: Creative Homogeneity Across LLMs. arXiv preprint arXiv:2304.00008.</li>
+										</ul>
+									</div>
+								</div>
+
+								<h3>Discussion Summary</h3>
+								<div class="discussion-post">
+									<div class="metadata">
+										<strong>Posted by:</strong> Fabian Narel<br>
+										<strong>Date:</strong> Sunday, 20 April 2025, 3:32 AM
+									</div>
+									<div class="content">
+										<p>Large Language Models (LLMs) like GPT-3 have transformed the writing landscape, offering fluent and efficient text generation. My initial post highlighted how their impact varies depending on the context—from helpful drafting tools in low-risk scenarios to potentially problematic agents in high-risk domains such as journalism or creative writing.</p>
+
+										<p>Peers expanded on these ideas with insightful contributions. One peer warned about the erosion of users' own communication skills due to over-reliance on AI for routine tasks (Hutson, 2021). Another highlighted the political and ethical dangers of AI-generated content influencing public opinion, as LLMs can sound convincingly accurate even when they are factually wrong (Coeckelbergh, 2025; Goetz et al., 2023). This supports the need for careful supervision and responsible deployment.</p>
+
+										<p>A useful framework was also introduced: using AI either as a drafting assistant or as a feedback tool (Kapuściński, 2025; Thornburn, 2024). This approach allows humans to remain in control while still benefiting from AI's efficiency. The dual-use strategy reflects the broader theme across the posts—that AI is a collaborator, not a replacement.</p>
+
+										<p>Across all contributions, the consensus is clear: while LLMs offer undeniable advantages in terms of speed and accessibility, they pose risks related to reliability, originality, and ethical integrity. Their "agreeable" tone (Goetz et al., 2023) can mask inaccuracies and reinforce confirmation bias. Used without critical thinking, they may undermine the very skills they aim to support.</p>
+									</div>
+									<div class="references">
+										<h4>References</h4>
+										<ul>
+											<li>Coeckelbergh, M. (2025) Truth, post-truth, and democracy in the age of artificial intelligence: Epistemological and political risks of language models. AI and Society. Available from: https://doi.org/10.1007/s00148-025-00529-0 [Accessed 7 April 2025].</li>
+											<li>Goetz, L., Trengove, M., Trotsyuk, A. and Federico, C.A. (2023) Unreliable LLM bioethics assistants: Ethical and pedagogical risks. The American Journal of Bioethics, 23(10), pp.89–91. Available from: https://doi.org/10.1080/15265161.2023.2249843 [Accessed 7 April 2025].</li>
+											<li>Hutson, M. (2021) Robo-writers: the rise and risks of language-generating AI. Nature, 591(7848), pp.22–25.</li>
+											<li>Kapuściński, M. (2025) ChatGPT 4.5 – What's New? Practical Examples and Applications. TTMS. Available from: https://ttms.com/chatgpt-whats-new [Accessed 17 April 2025].</li>
+											<li>Thornburn, R. (2024) How to use AI to Generate Student Feedback. English for Asia. Available from: https://hongkongtesol.com/ai-feedback [Accessed 17 April 2025].</li>
+										</ul>
+									</div>
+								</div>
+
+								<h3>Reflection</h3>
+								<div class="discussion-post">
+									<div class="content">
+										<p>The discussion on AI writers and their impact across different domains has been particularly enlightening. The initial analysis of risk levels in different writing contexts, from administrative to creative work, helped frame the broader implications of LLM technology. Peer responses enriched this perspective by highlighting specific concerns about skill erosion and the subtle ways AI can influence public discourse.</p>
+
+										<p>What struck me most was the parallel between the discussion topic and our own use of AI in education. As we debated the risks of AI writers potentially hampering critical thinking in students, we ourselves demonstrated the importance of human-led critical analysis and peer review. The framework suggested by peers—using AI as either a drafting assistant or feedback tool—resonated with my own evolving understanding of how to balance AI's capabilities with human oversight.</p>
+
+										<p>This discussion reinforced that while AI can be an incredibly powerful tool for augmenting human capabilities, its role should be carefully considered within each context. The key is not to avoid AI tools entirely, but to develop frameworks for their responsible use that preserve and enhance human agency rather than diminish it.</p>
+									</div>
+								</div>
+
+								<div style="margin-top: 1em; border-top: 1px solid #e9ecef;">
+									<div style="max-width: 700px; margin: 0 auto; text-align: center; padding: 0.8em 0;">
+										<div style="display: flex; align-items: center; justify-content: center; gap: 1.2em; flex-wrap: wrap; font-size: 0.95em;">
+											<span style="color: #2a2f35; display: flex; align-items: center; gap: 0.5em; font-weight: 600; opacity: 0.8;">
+												<svg height="20" viewBox="0 0 16 16" width="20" style="fill: #2a2f35;">
+													<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+												</svg>
+												Source Artifacts
+											</span>
+											<span style="color: #e9ecef; font-weight: 300;">|</span>
+											<a href="https://github.com/FNrythm/eportfolio/blob/main/machine-learning/discussions/collaborative-discussion-2/initial-post.md" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 Initial Post</a>
+											<span style="color: #e9ecef; font-weight: 300;">|</span>
+											<a href="https://github.com/FNrythm/eportfolio/blob/main/machine-learning/discussions/collaborative-discussion-2/summary.md" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 Discussion Summary</a>
+											<span style="color: #e9ecef; font-weight: 300;">|</span>
+											<a href="https://github.com/FNrythm/eportfolio/blob/main/machine-learning/discussions/collaborative-discussion-2/reflection.md" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 Reflection</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+							<section class="split contact horizontal">
+								<div class="contact-methods">
+									<div class="contact-method">
+										<a href="mailto:fabian.narel@gmail.com">
+											<span class="icon solid alt fa-envelope"></span>
+										</a>
+										<span class="title">Email</span>
+									</div>
+								
+									<div class="contact-method">
+										<a href="https://github.com/FNrythm" target="_blank" rel="noopener noreferrer">
+											<span class="icon brands alt fa-github"></span>
+										</a>
+										<span class="title">GitHub</span>
+									</div>
+								
+									<div class="contact-method">
+										<a href="https://www.linkedin.com/in/fabiannarel/" target="_blank" rel="noopener noreferrer">
+											<span class="icon brands alt fa-linkedin-in"></span>
+										</a>
+										<span class="title">LinkedIn</span>
+									</div>
+								</div>
+							</section>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="copyright">
+								<li>&copy; Fabian Narel</li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+
+		<div id="back-to-top" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99;">
+			<a href="#" class="button primary icon solid fa-arrow-up">Top</a>
+		</div>
+
+		<script>
+		// Back to top button
+		window.onscroll = function() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				document.getElementById("back-to-top").style.display = "block";
+			} else {
+				document.getElementById("back-to-top").style.display = "none";
+			}
+		};
+		</script>
+
+		<script>
+		// Add this script at the bottom of your page
+		document.addEventListener('DOMContentLoaded', function() {
+			const sections = document.querySelectorAll('section');
+			
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+					}
+				});
+			});
+
+			sections.forEach(section => {
+				section.classList.add('fade-in');
+				observer.observe(section);
+			});
+		});
+		</script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+		<script>
+		// Initialize lightbox
+		lightbox.option({
+			'resizeDuration': 200,
+			'wrapAround': true,
+			'maxWidth': 1200,
+			'maxHeight': 900
+		});
+		</script>
+
+	</body>
+</html> 
