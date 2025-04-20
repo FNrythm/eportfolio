@@ -549,12 +549,13 @@ df = pd.get_dummies(df, columns=['origin'])</code></pre>
 			<script src="../../assets/js/util.js"></script>
 			<script src="../../assets/js/main.js"></script>
 
+		<!-- Navigation Buttons -->
 		<div id="back-to-top" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99;">
 			<a href="#" class="button primary icon solid fa-arrow-up">Top</a>
 		</div>
 
 		<div id="back-to-bottom" style="display: none; position: fixed; bottom: 20px; right: 120px; z-index: 99;">
-			<a href="#footer" class="button primary icon solid fa-arrow-down">Bottom <i class="fas fa-chevron-down"></i></a>
+			<a href="#footer" class="button primary icon solid fa-arrow-down">Bottom</a>
 		</div>
 
 		<div id="back-button" style="display: none; position: fixed; bottom: 20px; right: 220px; z-index: 99;">
@@ -562,7 +563,7 @@ df = pd.get_dummies(df, columns=['origin'])</code></pre>
 		</div>
 
 		<script>
-		// Navigation buttons
+		// Navigation buttons visibility
 		window.onscroll = function() {
 			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
 				document.getElementById("back-to-top").style.display = "block";
