@@ -367,6 +367,40 @@ gdp_df['mean_gdp'] = gdp_df[years].mean(axis=1)</code></pre>
 
 			</div>
 
+		<!-- Navigation Buttons -->
+		<div class="nav-buttons" style="position: fixed; bottom: 20px; right: 20px; z-index: 99; display: flex; gap: 10px;">
+			<div id="back-button" style="display: none;">
+				<a href="../../ML_Index.html" class="button primary icon solid fa-arrow-left" style="margin: 0;">Back</a>
+			</div>
+			<div id="back-to-bottom" style="display: none;">
+				<a href="#footer" class="button primary icon solid fa-arrow-down" style="margin: 0;">Bottom</a>
+			</div>
+			<div id="back-to-top" style="display: none;">
+				<a href="#" class="button primary icon solid fa-arrow-up" style="margin: 0;">Top</a>
+			</div>
+		</div>
+
+		<script>
+		// Navigation buttons visibility
+		let timeout;
+		window.onscroll = function() {
+			// Show buttons
+			document.getElementById("back-to-top").style.display = "block";
+			document.getElementById("back-to-bottom").style.display = "block";
+			document.getElementById("back-button").style.display = "block";
+			
+			// Clear the existing timeout
+			clearTimeout(timeout);
+			
+			// Set a new timeout to hide buttons after 2 seconds of no scrolling
+			timeout = setTimeout(function() {
+				document.getElementById("back-to-top").style.display = "none";
+				document.getElementById("back-to-bottom").style.display = "none";
+				document.getElementById("back-button").style.display = "none";
+			}, 2000);
+		};
+		</script>
+
 		<!-- Scripts -->
 			<script src="../../assets/js/jquery.min.js"></script>
 			<script src="../../assets/js/jquery.scrolly.min.js"></script>
@@ -375,21 +409,6 @@ gdp_df['mean_gdp'] = gdp_df[years].mean(axis=1)</code></pre>
 			<script src="../../assets/js/breakpoints.min.js"></script>
 			<script src="../../assets/js/util.js"></script>
 			<script src="../../assets/js/main.js"></script>
-
-		<div id="back-to-top" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99;">
-			<a href="#" class="button primary icon solid fa-arrow-up">Top</a>
-		</div>
-
-		<script>
-		// Back to top button
-		window.onscroll = function() {
-			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-				document.getElementById("back-to-top").style.display = "block";
-			} else {
-				document.getElementById("back-to-top").style.display = "none";
-			}
-		};
-		</script>
 
 		<script>
 		// Add this script at the bottom of your page
