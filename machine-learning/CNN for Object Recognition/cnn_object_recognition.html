@@ -1,0 +1,1000 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNN Analysis - CIFAR-10 Object Recognition</title>
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <style>
+        :root {
+            --primary-color: #333333;
+            --secondary-color: #4a90e2;
+            --accent-color: #e74c3c;
+            --text-color: #2c3e50;
+            --light-bg: #ffffff;
+            --dark-bg: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        .conclusion {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .conclusion h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .comparison-table th {
+            background-color: var(--light-bg);
+            font-weight: bold;
+            color: #2a2f35;
+        }
+
+        .improvement {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .validation-accuracy-basic {
+            color: #ff0000;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            color: var(--text-color);
+            margin-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .architecture-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .architecture-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .architecture-title {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .model-description {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .model-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .model-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .model-card .image-container {
+            width: 100%;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            background: white;
+            border-radius: 4px;
+            padding: 1.5rem;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+        }
+
+        .model-card .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: none;
+            background: white;
+        }
+
+        .model-card .image-container:hover img {
+            transform: none;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "→";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .feature-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .performance-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .metric-group {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .metric-group.overall {
+            grid-column: 1 / -1;
+            text-align: center;
+            background: linear-gradient(to right, #f8f9fa, white, #f8f9fa);
+            border: 1px solid #eee;
+        }
+
+        .metric-group.overall .metric-value {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            border: none;
+            padding: 0;
+            margin: 0.5rem 0;
+        }
+
+        .metric-group.overall h4 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-group h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .metric-value {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            padding-left: 0.5rem;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .metric-value:last-child {
+            margin-bottom: 0;
+        }
+
+        .improvement-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .improvement-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .improvement-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .improvement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .improvement-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.4rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .improvement-icon {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .improvement-icon img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .improvement-details {
+            list-style: none;
+            padding: 0;
+        }
+
+        .improvement-details li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.4;
+            color: var(--text-color);
+        }
+
+        .improvement-details li:before {
+            content: "•";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .improvement-citation {
+            margin-top: 1rem;
+            font-style: italic;
+            color: var(--text-color);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Lightbox styles */
+        .lightbox {
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            margin: auto;
+            display: block;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .zoomable {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .zoomable:hover {
+            transform: scale(1.02);
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
+
+        .close-lightbox:hover {
+            color: var(--secondary-color);
+        }
+
+        .conclusion-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 1024px) {
+            .conclusion-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .conclusion-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .conclusion-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .conclusion-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .conclusion-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .conclusion-list li:before {
+            content: "→";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .highlight-text {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        /* Navigation buttons styling */
+        #back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+        }
+
+        #back-to-top a {
+            background: #2a2f35;
+            color: white !important;
+            padding: 0.5em 1em;
+            border-radius: 4px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        #back-to-top a:hover {
+            background: #f56a6a;
+            transform: translateY(-2px);
+        }
+
+        #menu {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        #menu .links a {
+            color: var(--primary-color);
+        }
+
+        #menu .links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Reset banner styles */
+        #banner, #banner .inner, #banner .major, #banner .content {
+            background: transparent !important;
+        }
+
+        #banner {
+            background-image: url('../../assets/images/cnn_analysis/backgroundproject.png') !important;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            padding: 4rem 0;
+            color: white;
+        }
+
+        #banner .major h1 {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 0.05em;
+            background: transparent !important;
+        }
+
+        #banner .content p {
+            color: white;
+            font-size: 1.4rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            background: transparent !important;
+        }
+
+        .major {
+            background: transparent !important;
+        }
+
+        header.major {
+            background: transparent !important;
+        }
+
+        .copyright {
+            list-style: none;
+            padding: 0;
+            color: #2a2f35;
+        }
+
+        .copyright li {
+            color: #2a2f35;
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header" class="alt">
+            <a href="../../ML_Index.html" class="logo"><strong>MSc AI</strong> <span>Portfolio</span></a>
+            <nav>
+                <a href="#menu">Menu</a>
+            </nav>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <ul class="links">
+                <li><a href="../../ML_Index.html">Home</a></li>
+                <li><a href="../../landing.html">Portfolio</a></li>
+                <li><a href="../../generic.html">About</a></li>
+                <li><a href="../../elements.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Banner -->
+        <section id="banner" class="major">
+            <div class="inner">
+                <header class="major">
+                    <h1>CNN Analysis - CIFAR-10 Object Recognition</h1>
+                </header>
+                <div class="content">
+                    <p>Detailed analysis of Convolutional Neural Network models for object recognition</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- One -->
+            <section id="one">
+                <div class="inner">
+                    <section class="section">
+                        <h2>Introduction</h2>
+                        <p>This project implements and compares two Convolutional Neural Network (CNN) models for object recognition using the CIFAR-10 dataset. We analyze a basic model and an improved version with advanced techniques to enhance performance.</p>
+                        
+                        <div class="model-description">
+                            <div class="model-card">
+                                <h3>Dataset Overview</h3>
+                                <div class="image-container">
+                                    <img src="../../assets/images/cnn_analysis/cifar10_samples.png" alt="CIFAR-10 Dataset Samples" class="zoomable">
+                                </div>
+                                <p>The CIFAR-10 dataset consists of 60,000 32x32 color images in 10 classes, with 6,000 images per class. The dataset is divided into 50,000 training images and 10,000 test images.</p>
+                            </div>
+
+                            <div class="model-card">
+                                <h3>Class Distribution</h3>
+                                <div class="image-container">
+                                    <img src="../../assets/images/cnn_analysis/class distribution.png" alt="Class Distribution" class="zoomable">
+                                </div>
+                                <p>Each class in the dataset is equally represented, with a balanced distribution of 6,000 images per category. This balanced distribution helps in training models without class imbalance issues.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2>Model Architectures</h2>
+                        <div class="architecture-container">
+                            <div class="architecture-title">Improved CNN Architecture</div>
+                            <img src="../../assets/images/cnn_analysis/cnn_architecture.drawio copy.drawio (4).png" alt="Improved CNN Architecture" class="zoomable">
+                        </div>
+                        
+                        <div class="model-description">
+                            <div class="model-card">
+                                <h3>Basic Model Architecture</h3>
+                                <ul class="feature-list">
+                                    <li>Two convolutional blocks with convolution and max pooling layers</li>
+                                    <li>Flatten layer for feature vector transformation</li>
+                                    <li>Hidden dense layer with 256 neurons</li>
+                                    <li>Output layer with 10 neurons (one per class)</li>
+                                </ul>
+                            </div>
+
+                            <div class="model-card">
+                                <h3>Improved Model Architecture</h3>
+                                <ul class="feature-list">
+                                    <li>Three convolutional blocks with increasing filter sizes (32, 64, 128)</li>
+                                    <li>Batch normalization after each convolutional layer</li>
+                                    <li>Dropout layers (0.25) after each max pooling</li>
+                                    <li>Larger dense layer (512 neurons) with batch normalization</li>
+                                    <li>Output layer with 10 neurons</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2>Model Comparison</h2>
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Metric</th>
+                                <th>Basic Model</th>
+                                <th>Improved Model</th>
+                            </tr>
+                            <tr>
+                                <td>Total Parameters</td>
+                                <td>545,098</td>
+                                <td>1,222,762</td>
+                            </tr>
+                            <tr>
+                                <td>Training Accuracy</td>
+                                <td>0.7773</td>
+                                <td class="improvement">0.7797</td>
+                            </tr>
+                            <tr>
+                                <td>Validation Accuracy</td>
+                                <td class="validation-accuracy-basic">0.6738</td>
+                                <td class="improvement">0.8135</td>
+                            </tr>
+                            <tr>
+                                <td>Test Accuracy</td>
+                                <td>N/A</td>
+                                <td class="improvement">0.8118</td>
+                            </tr>
+                            <tr>
+                                <td>Training Loss</td>
+                                <td>0.6392</td>
+                                <td class="improvement">0.8063</td>
+                            </tr>
+                            <tr>
+                                <td>Validation Loss</td>
+                                <td>1.0339</td>
+                                <td class="improvement">0.7062</td>
+                            </tr>
+                        </table>
+                    </section>
+
+                    <section class="section">
+                        <h2>Performance Analysis</h2>
+                        <div class="model-description">
+                            <div class="model-card">
+                                <h3>Improved Model Performance</h3>
+                                <div class="image-container">
+                                    <img src="../../assets/images/cnn_analysis/performance_metrics_improved_model.png" alt="Improved Model Performance Metrics" class="zoomable">
+                                </div>
+                                <div class="image-container">
+                                    <img src="../../assets/images/cnn_analysis/confusion_matrix_best_model.png" alt="Improved Model Confusion Matrix" class="zoomable">
+                                </div>
+                            </div>
+
+                            <div class="model-card">
+                                <h3>Class Performance Analysis</h3>
+                                <div class="performance-metrics">
+                                    <div class="metric-group">
+                                        <h4>Best Performing Classes</h4>
+                                        <div class="metric-value">Automobile: 93%</div>
+                                        <div class="metric-value">Ship: 90%</div>
+                                        <div class="metric-value">Truck: 90%</div>
+                                    </div>
+                                    <div class="metric-group">
+                                        <h4>Most Challenging Classes</h4>
+                                        <div class="metric-value">Cat: 56%</div>
+                                        <div class="metric-value">Bird: 67%</div>
+                                        <div class="metric-value">Dog: 70%</div>
+                                    </div>
+                                    <div class="metric-group overall">
+                                        <h4>Overall Performance</h4>
+                                        <div class="metric-value">Mean AUC: 0.9819</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2>Implemented Improvements</h2>
+                        <div class="improvement-grid">
+                            <div class="improvement-card">
+                                <h3>Data Augmentation</h3>
+                                <div class="improvement-icon">
+                                    <img src="../../assets/images/cnn_analysis/data augmentation.png" alt="Data Augmentation Techniques" class="zoomable">
+                                </div>
+                                <ul class="improvement-details">
+                                    <li>Random rotations (±15°), flips, shifts</li>
+                                    <li>Increases data variety without extra labels</li>
+                                    <li>Prevents memorization of training samples</li>
+                                    <li>Boosted validation accuracy + reduced overfitting</li>
+                                </ul>
+                            </div>
+
+                            <div class="improvement-card">
+                                <h3>Dropout (0.2 → 0.5)</h3>
+                                <div class="improvement-icon">
+                                    <img src="../../assets/images/cnn_analysis/dropout.png" alt="Dropout Regularization" class="zoomable">
+                                </div>
+                                <ul class="improvement-details">
+                                    <li>Randomly disables neurons during training</li>
+                                    <li>Reduces co-adaptation and forces redundancy</li>
+                                    <li>Narrowed gap between training/validation accuracy</li>
+                                    <li>Training accuracy ↓ (expected) → Validation accuracy ↑</li>
+                                </ul>
+                            </div>
+
+                            <div class="improvement-card">
+                                <h3>Batch Normalization</h3>
+                                <div class="improvement-icon">
+                                    <img src="../../assets/images/cnn_analysis/batchnormalization.png" alt="Batch Normalization" class="zoomable">
+                                </div>
+                                <ul class="improvement-details">
+                                    <li>Normalizes activations → stable layer input distribution</li>
+                                    <li>Enables faster training with higher learning rates</li>
+                                    <li>Smoother convergence + slight regularizing effect</li>
+                                    <li>Improved deeper layer stability and learnability</li>
+                                </ul>
+                            </div>
+
+                            <div class="improvement-card">
+                                <h3>L2 Regularization (λ = 0.01)</h3>
+                                <div class="improvement-icon">
+                                    <img src="../../assets/images/cnn_analysis/l2regularization.png" alt="L2 Regularization" class="zoomable">
+                                </div>
+                                <ul class="improvement-details">
+                                    <li>Penalizes large weights → favors simpler models</li>
+                                    <li>Encourages generalization by smoothing learned functions</li>
+                                    <li>Slight reduction in training accuracy</li>
+                                    <li>Lower variance in validation performance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2>Conclusions</h2>
+                        <div class="conclusion-grid">
+                            <div class="conclusion-card">
+                                <h3>Key Findings</h3>
+                                <ul class="conclusion-list">
+                                    <li>Validation accuracy improved by <span class="highlight-text">14%</span> (from 67.38% to 81.35%)</li>
+                                    <li>Significant reduction in validation loss from <span class="highlight-text">1.0339</span> to <span class="highlight-text">0.7062</span></li>
+                                    <li>Best performance in object categories: automobiles (93%), ships (90%), trucks (90%)</li>
+                                    <li>Most challenging categories: cats (56%), birds (67%), dogs (70%)</li>
+                                    <li>Successful mitigation of overfitting through multiple techniques</li>
+                                </ul>
+                            </div>
+
+                            <div class="conclusion-card">
+                                <h3>Key Improvements</h3>
+                                <ul class="conclusion-list">
+                                    <li>Data augmentation significantly enhanced model generalization</li>
+                                    <li>Batch normalization stabilized training and improved convergence</li>
+                                    <li>Dropout effectively reduced overfitting and improved robustness</li>
+                                    <li>L2 regularization helped in achieving more stable validation performance</li>
+                                    <li>Increased model capacity led to better feature extraction</li>
+                                </ul>
+                            </div>
+
+                            <div class="conclusion-card">
+                                <h3>Future Directions</h3>
+                                <ul class="conclusion-list">
+                                    <li>Implement advanced architectures (ResNet, DenseNet) for improved performance</li>
+                                    <li>Explore transfer learning from pre-trained models</li>
+                                    <li>Optimize hyperparameters using grid search or Bayesian optimization</li>
+                                    <li>Develop ensemble methods combining multiple model architectures</li>
+                                    <li>Investigate advanced data augmentation techniques for challenging classes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <!-- Source Artifacts -->
+            <div class="inner" style="text-align: center; padding: 2rem 0; background: #f8f9fa;">
+                <div style="display: inline-block; padding: 1rem 2rem; border-radius: 8px; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <span class="icon brands alt fa-github" style="color: #2a2f35; margin-right: 5px;"></span>
+                    <span style="font-weight: 600; color: #2a2f35;">
+                        Source Artifacts
+                    </span>
+                    <span style="color: #e9ecef; font-weight: 300;">|</span>
+                    <a href="CNN Analysis - CIFAR-10 Object Recognition.pptx" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📊 Presentation</a>
+                    <span style="color: #e9ecef; font-weight: 300;">|</span>
+                    <a href="CNN Analysis - CIFAR-10 Object Recognition.ipynb" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📓 Jupyter Notebook</a>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <div class="inner">
+                    <ul class="copyright">
+                        <li>&copy; Fabian Narel</li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Lightbox container -->
+    <div class="lightbox" id="lightbox">
+        <button class="close-lightbox">&times;</button>
+        <img src="" alt="" id="lightbox-img">
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons" style="position: fixed; bottom: 20px; right: 20px; z-index: 99; display: flex; gap: 10px;">
+        <div id="back-button" style="display: none;">
+            <a href="../../ML_Index.html" class="button primary icon solid fa-arrow-left" style="margin: 0;">Back</a>
+        </div>
+        <div id="back-to-bottom" style="display: none;">
+            <a href="#footer" class="button primary icon solid fa-arrow-down" style="margin: 0;">Bottom</a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../../assets/js/browser.min.js"></script>
+    <script src="../../assets/js/breakpoints.min.js"></script>
+    <script src="../../assets/js/util.js"></script>
+    <script src="../../assets/js/main.js"></script>
+
+    <script>
+    // Navigation buttons visibility
+    let timeout;
+    window.onscroll = function() {
+        // Show buttons
+        document.getElementById("back-to-bottom").style.display = "block";
+        document.getElementById("back-button").style.display = "block";
+        
+        // Clear the existing timeout
+        clearTimeout(timeout);
+        
+        // Set a new timeout to hide buttons after 2 seconds of no scrolling
+        timeout = setTimeout(function() {
+            document.getElementById("back-to-bottom").style.display = "none";
+            document.getElementById("back-button").style.display = "none";
+        }, 2000);
+    };
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeButton = document.querySelector('.close-lightbox');
+
+        // Function to open lightbox
+        function openLightbox(imgSrc) {
+            lightboxImg.src = imgSrc;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Function to close lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Add click event to zoomable images
+        document.querySelectorAll('.zoomable').forEach(img => {
+            img.addEventListener('click', function() {
+                openLightbox(this.src);
+            });
+        });
+
+        // Close lightbox when clicking close button
+        closeButton.addEventListener('click', closeLightbox);
+
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Close lightbox with escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    });
+    </script>
+</body>
+</html> 

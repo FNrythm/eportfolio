@@ -13,15 +13,108 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 		<style>
-			.bg-alt1 {
-				background-color: #1f2937 !important;
+			/* Navigation buttons styling */
+			.nav-buttons {
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				z-index: 99;
+				display: flex;
+				gap: 10px;
+				flex-direction: column;
+				background: rgba(255, 255, 255, 0.7);
+				padding: 10px;
+				border-radius: 8px;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+				backdrop-filter: blur(5px);
 			}
-			.bg-alt2 {
-				background-color: #374151 !important;
+
+			.nav-buttons a {
+				background: #2a2f35;
+				color: white;
+				padding: 0.5em 1em;
+				border-radius: 4px;
+				text-decoration: none;
+				display: flex;
+				align-items: center;
+				gap: 0.5em;
+				transition: all 0.3s ease;
+				font-size: 0.9em;
 			}
-			.bg-alt3 {
-				background-color: #111827 !important;
+
+			.nav-buttons a:hover {
+				background: #f56a6a;
+				transform: translateY(-2px);
 			}
+
+			/* Add padding to main content to account for fixed nav */
+			#main {
+				padding-bottom: 4rem;
+			}
+
+			/* Section anchors */
+			.section-anchor {
+				scroll-margin-top: 2rem;
+			}
+
+			/* Smooth scroll behavior */
+			html {
+				scroll-behavior: smooth;
+			}
+
+			/* Navigation menu styling */
+			.nav-menu {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				background: rgba(255, 255, 255, 0.95);
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+				z-index: 1000;
+				padding: 1rem 2rem;
+				display: flex;
+				justify-content: center;
+				gap: 2rem;
+				backdrop-filter: blur(10px);
+			}
+
+			.nav-menu a {
+				color: var(--text-color);
+				text-decoration: none;
+				font-weight: 500;
+				padding: 0.5rem 1rem;
+				border-radius: 4px;
+				transition: all 0.3s ease;
+			}
+
+			.nav-menu a:hover {
+				background: #f56a6a;
+				color: white;
+			}
+
+			/* Back to top button */
+			.back-to-top {
+				position: fixed;
+				bottom: 2rem;
+				right: 2rem;
+				background: #f56a6a;
+				color: white;
+				width: 3rem;
+				height: 3rem;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+				z-index: 1000;
+			}
+
+			.back-to-top.visible {
+				opacity: 1;
+			}
+
 			/* General page styling */
 			body {
 				line-height: 1.7;
@@ -352,6 +445,14 @@
 		</style>
 	</head>
 	<body class="is-preload">
+		<!-- Navigation Buttons -->
+		<div class="nav-buttons">
+			<a href="#overview" class="button primary icon solid fa-home">Overview</a>
+			<a href="#projects" class="button primary icon solid fa-project-diagram">Projects</a>
+			<a href="#discussions" class="button primary icon solid fa-comments">Discussions</a>
+			<a href="#activities" class="button primary icon solid fa-tasks">Activities</a>
+			<a href="#outcomes" class="button primary icon solid fa-graduation-cap">Outcomes</a>
+		</div>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -392,7 +493,7 @@
 							<div class="inner">
 								<h2>Machine Learning Portfolio</h2>
 								
-								<div class="activity-box">
+								<div class="activity-box section-anchor" id="overview">
 									<h3>Module Overview</h3>
 									<p>This module explores the fundamental concepts and practical applications of machine learning in artificial intelligence. Through a combination of theoretical understanding and hands-on practice, we delve into various aspects of machine learning, including:</p>
 									<ul>
@@ -404,7 +505,21 @@
 									</ul>
 								</div>
 
-								<div class="activity-box">
+								<div class="activity-box section-anchor" id="projects">
+									<h3>Projects</h3>
+									<div class="activity">
+										<a href="machine-learning/CNN for Object Recognition/cnn_object_recognition.html" class="activity-link">
+											<div class="title-boxes">
+												<span class="activity-number">CNN Project</span>
+												<span class="activity-title">Object Recognition with CNNs</span>
+												<span class="unit-number">Unit 11</span>
+											</div>
+											<p class="activity-description">A comprehensive analysis of Convolutional Neural Networks for object recognition using the CIFAR-10 dataset, including model architecture comparison, performance analysis, and implementation of various improvements.</p>
+										</a>
+									</div>
+								</div>
+
+								<div class="activity-box section-anchor" id="discussions">
 									<h3>Discussions</h3>
 									<div class="activity">
 										<a href="machine-learning/discussions/collaborative-discussion-1.html" class="activity-link">
@@ -428,7 +543,7 @@
 									</div>
 								</div>
 
-								<div class="activity-box">
+								<div class="activity-box section-anchor" id="activities">
 									<h3>Formative & e-Portfolio Activities</h3>
 									<div class="activity">
 										<a href="machine-learning/Seminar Preparation - Unit 2/unit2_eda_tutorial.html" class="activity-link">
@@ -532,7 +647,7 @@
 									</div>
 								</div>
 
-								<div class="activity-box">
+								<div class="activity-box section-anchor" id="outcomes">
 									<h3>Learning Outcomes</h3>
 									<ol>
 										<li>Articulate the legal, social, ethical and professional issues faced by machine learning professionals</li>
@@ -596,6 +711,40 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+		<!-- Add this script at the end of the body -->
+		<script>
+			// Show/hide back to top button
+			window.addEventListener('scroll', function() {
+				const backToTop = document.querySelector('.back-to-top');
+				if (window.scrollY > 300) {
+					backToTop.classList.add('visible');
+				} else {
+					backToTop.classList.remove('visible');
+				}
+			});
+
+			// Highlight current section in nav
+			window.addEventListener('scroll', function() {
+				const sections = document.querySelectorAll('.section-anchor');
+				const navLinks = document.querySelectorAll('.nav-menu a');
+				
+				let current = '';
+				sections.forEach(section => {
+					const sectionTop = section.offsetTop;
+					if (window.scrollY >= sectionTop - 100) {
+						current = section.getAttribute('id');
+					}
+				});
+
+				navLinks.forEach(link => {
+					link.classList.remove('active');
+					if (link.getAttribute('href').slice(1) === current) {
+						link.classList.add('active');
+					}
+				});
+			});
+		</script>
 
 	</body>
 </html> 
