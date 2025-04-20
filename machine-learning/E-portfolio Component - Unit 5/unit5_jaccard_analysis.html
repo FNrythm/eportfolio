@@ -293,12 +293,24 @@
 										</tbody>
 									</table>
 
+									<h3>Calculation Method</h3>
+									<div class="activity-box">
+										<p>To calculate the Jaccard coefficient, we first convert the asymmetric variables to binary values and re-write the table. Since Gender is a symmetric variable (that is, male, female have the same weight), it is not converted.</p>
+										<p>For the conversion:</p>
+										<ul>
+											<li>Y & P = 1</li>
+											<li>N & A = 0</li>
+										</ul>
+										<p>The Jaccard coefficient is calculated using the formula:</p>
+										<p style="text-align: center; font-style: italic;">Jaccard = (f₀₁ + f₁₀) / (f₀₁ + f₁₀ + f₁₁)</p>
+									</div>
+
 									<h3>Jaccard Coefficient Results</h3>
 									<div class="activity-box">
 										<ul>
-											<li>Jaccard coefficient for (Jack, Mary): 0.50</li>
+											<li>Jaccard coefficient for (Jack, Mary): 0.33</li>
 											<li>Jaccard coefficient for (Jack, Jim): 0.67</li>
-											<li>Jaccard coefficient for (Jim, Mary): 0.17</li>
+											<li>Jaccard coefficient for (Jim, Mary): 0.75</li>
 										</ul>
 									</div>
 
