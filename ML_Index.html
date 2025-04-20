@@ -212,8 +212,9 @@
 				background: #ffffff;
 				padding: 2em;
 				margin-bottom: 2em;
-				border-radius: 4px;
-				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+				border-radius: 8px;
+				box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+				border: 1px solid #e5e7eb;
 			}
 
 			.activity-box h3 {
@@ -221,79 +222,90 @@
 				margin-top: 0;
 				border-bottom: 2px solid #f56a6a;
 				padding-bottom: 0.5em;
+				font-size: 1.5em;
 			}
 
-			.activity-box p {
-				margin-bottom: 1em;
+			/* Activity container styling */
+			.activity {
+				background: #ffffff;
+				padding: 1.5em;
+				margin-bottom: 1.5em;
+				border-radius: 6px;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+				border: 1px solid #e5e7eb;
+				transition: transform 0.2s ease, box-shadow 0.2s ease;
+			}
+
+			.activity:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 			}
 
 			/* Activity title boxes styling */
 			.title-boxes {
 				display: flex;
 				align-items: center;
-				margin-bottom: 0.8em;
+				margin-bottom: 1em;
 				gap: 1em;
+				flex-wrap: wrap;
 			}
 
 			.activity-number {
 				background-color: #f56a6a;
 				color: #ffffff;
-				padding: 0.3em 0.6em;
+				padding: 0.4em 0.8em;
 				border-radius: 4px;
 				font-size: 0.9em;
 				white-space: nowrap;
 				min-width: 180px;
 				text-align: center;
 				display: inline-block;
+				font-weight: 600;
 			}
 
 			.unit-number {
 				background-color: #2a2f35;
 				color: #ffffff;
-				padding: 0.3em 0.6em;
+				padding: 0.4em 0.8em;
 				border-radius: 4px;
 				font-size: 0.9em;
 				white-space: nowrap;
 				min-width: 80px;
 				text-align: center;
-			}
-
-			/* Activity link styling */
-			.activity-link {
-				text-decoration: none;
-				color: inherit;
-				display: block;
-				transition: transform 0.2s ease;
-			}
-
-			.activity-link:hover {
-				transform: translateY(-2px);
-			}
-
-			.activity-link .title-boxes {
-				display: flex;
-				align-items: center;
-				margin-bottom: 0.8em;
-				gap: 1em;
+				font-weight: 600;
 			}
 
 			.activity-title {
-				color: #000000;
-				font-weight: bold;
-				margin: 0;
+				font-size: 1.2em;
+				font-weight: 600;
+				color: #2a2f35;
 				flex-grow: 1;
 			}
 
 			.activity-description {
-				display: none;
-				color: #2a2f35;
-				margin-top: 0.5em;
-				padding-left: 0.6em;
+				color: #4b5563;
+				margin-top: 0.8em;
+				padding-left: 1em;
 				border-left: 3px solid #f56a6a;
+				font-size: 0.95em;
+				line-height: 1.6;
 			}
 
-			.activity-link:hover .activity-description {
-				display: block;
+			/* Responsive adjustments */
+			@media screen and (max-width: 736px) {
+				.title-boxes {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+
+				.activity-number, .unit-number {
+					width: 100%;
+					text-align: left;
+				}
+
+				.activity-title {
+					margin-top: 0.5em;
+				}
 			}
 		</style>
 	</head>
