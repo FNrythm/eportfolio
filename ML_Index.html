@@ -307,6 +307,48 @@
 					margin-top: 0.5em;
 				}
 			}
+
+			/* Banner styling */
+			#banner {
+				background-image: url('assets/images/background.png');
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				position: relative;
+				color: #ffffff;
+			}
+
+			#banner:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5);
+			}
+
+			#banner .inner {
+				position: relative;
+				z-index: 1;
+			}
+
+			#banner h1, #banner p {
+				color: #ffffff;
+			}
+
+			header#header .logo span {
+				color: #ffffff;
+				opacity: 0.95;
+				text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+			}
+
+			header#header nav a {
+				color: #ffffff;
+				opacity: 0.95;
+				text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+				font-weight: 400;
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -479,7 +521,7 @@
 										</a>
 									</div>
 									<div class="activity" style="margin-top: 2em;">
-										<a href="machine-learning/Seminar Preparation - Unitt 12/Unit12_Future_ML_Seminar.md" class="activity-link">
+										<a href="machine-learning/Seminar Preparation - Unitt 12/unit12_future_ml.html" class="activity-link">
 											<div class="title-boxes">
 												<span class="activity-number">Seminar Preparation</span>
 												<span class="activity-title">Future of Machine Learning</span>
