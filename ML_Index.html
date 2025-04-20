@@ -232,6 +232,7 @@
 				display: flex;
 				align-items: center;
 				margin-bottom: 0.8em;
+				gap: 1em;
 			}
 
 			.activity-number {
@@ -240,6 +241,10 @@
 				padding: 0.3em 0.6em;
 				border-radius: 4px;
 				font-size: 0.9em;
+				white-space: nowrap;
+				min-width: 180px;
+				text-align: center;
+				display: inline-block;
 			}
 
 			.unit-number {
@@ -248,7 +253,9 @@
 				padding: 0.3em 0.6em;
 				border-radius: 4px;
 				font-size: 0.9em;
-				margin-left: auto;
+				white-space: nowrap;
+				min-width: 80px;
+				text-align: center;
 			}
 
 			/* Activity link styling */
@@ -263,15 +270,30 @@
 				transform: translateY(-2px);
 			}
 
-			.activity-link h4 {
-				color: #000000;
-				font-weight: bold;
-				margin-top: 0.5em;
+			.activity-link .title-boxes {
+				display: flex;
+				align-items: center;
 				margin-bottom: 0.8em;
+				gap: 1em;
 			}
 
-			.activity-link p {
+			.activity-title {
+				color: #000000;
+				font-weight: bold;
+				margin: 0;
+				flex-grow: 1;
+			}
+
+			.activity-description {
+				display: none;
 				color: #2a2f35;
+				margin-top: 0.5em;
+				padding-left: 0.6em;
+				border-left: 3px solid #f56a6a;
+			}
+
+			.activity-link:hover .activity-description {
+				display: block;
 			}
 		</style>
 	</head>
@@ -329,85 +351,99 @@
 								</div>
 
 								<div class="activity-box">
-									<h3>Activities</h3>
+									<h3>Discussions</h3>
 									<div class="activity">
 										<a href="machine-learning/discussions/collaborative-discussion-1.html" class="activity-link">
 											<div class="title-boxes">
 												<span class="activity-number">Collaborative Discussion 1</span>
+												<span class="activity-title">Cloud Computing and AI in Industry 4.0</span>
 												<span class="unit-number">Units 1-3</span>
 											</div>
-											<h4>Cloud Computing and AI in Industry 4.0</h4>
-											<p>Analysis of the AWS outage incident and its implications for Industry 4.0, exploring the balance between automation and resilience in cloud computing.</p>
+											<p class="activity-description">Analysis of the AWS outage incident and its implications for Industry 4.0, exploring the balance between automation and resilience in cloud computing.</p>
 										</a>
 									</div>
 									<div class="activity" style="margin-top: 2em;">
+										<a href="machine-learning/discussions/collaborative-discussion-2.html" class="activity-link">
+											<div class="title-boxes">
+												<span class="activity-number">Collaborative Discussion 2</span>
+												<span class="activity-title">Ethical Implications of AI in Healthcare</span>
+												<span class="unit-number">Units 8-10</span>
+											</div>
+											<p class="activity-description">Analysis of the ethical considerations and challenges in implementing AI systems in healthcare, focusing on patient privacy, bias, and decision-making.</p>
+										</a>
+									</div>
+								</div>
+
+								<div class="activity-box">
+									<h3>Formative & e-Portfolio Activities</h3>
+									<div class="activity">
 										<a href="machine-learning/Seminar Preparation - Unit 2/unit2_eda_tutorial.html" class="activity-link">
 											<div class="title-boxes">
-												<span class="activity-number" style="background-color: #f56a6a;">Seminar Preparation</span>
+												<span class="activity-number">Seminar Preparation</span>
+												<span class="activity-title">EDA Tutorial</span>
 												<span class="unit-number">Unit 2</span>
 											</div>
-											<h4>EDA Tutorial</h4>
-											<p>A comprehensive tutorial on Exploratory Data Analysis using the Auto-mpg dataset, demonstrating key techniques in data visualization and statistical analysis.</p>
+											<p class="activity-description">A comprehensive tutorial on Exploratory Data Analysis using the Auto-mpg dataset, demonstrating key techniques in data visualization and statistical analysis.</p>
 										</a>
 									</div>
 									<div class="activity" style="margin-top: 2em;">
 										<a href="machine-learning/Seminar Preparation - Unit 4/unit4_linear_regression.html" class="activity-link">
 											<div class="title-boxes">
-												<span class="activity-number" style="background-color: #f56a6a;">Seminar Preparation</span>
+												<span class="activity-number">Seminar Preparation</span>
+												<span class="activity-title">Linear Regression with Scikit-Learn</span>
 												<span class="unit-number">Unit 4</span>
 											</div>
-											<h4>Linear Regression with Scikit-Learn</h4>
-											<p>An in-depth analysis of the relationship between global population and GDP per capita using linear regression techniques, including correlation analysis and model evaluation.</p>
+											<p class="activity-description">An in-depth analysis of the relationship between global population and GDP per capita using linear regression techniques, including correlation analysis and model evaluation.</p>
 										</a>
 									</div>
 									<div class="activity" style="margin-top: 2em;">
 										<a href="machine-learning/E-portfolio Component - Unit 5/unit5_jaccard_analysis.html" class="activity-link">
 											<div class="title-boxes">
-												<span class="activity-number" style="background-color: #f56a6a;">E-portfolio Component</span>
+												<span class="activity-number">e-Portfolio Component</span>
+												<span class="activity-title">Jaccard Analysis</span>
 												<span class="unit-number">Unit 5</span>
 											</div>
-											<h4>Jaccard Analysis</h4>
-											<p>An analysis of the Jaccard similarity index and its applications in machine learning.</p>
+											<p class="activity-description">An analysis of the Jaccard similarity index and its applications in machine learning.</p>
 										</a>
 									</div>
 									<div class="activity" style="margin-top: 2em;">
 										<a href="machine-learning/seminar preparation - unit 6 /unit6_kmeans_clustering.html" class="activity-link">
 											<div class="title-boxes">
-												<span class="activity-number" style="background-color: #f56a6a;">Seminar Preparation</span>
+												<span class="activity-number">Seminar Preparation</span>
+												<span class="activity-title">K-Means Clustering Tutorial</span>
 												<span class="unit-number">Unit 6</span>
 											</div>
-											<h4>K-Means Clustering Tutorial</h4>
-											<p>Analysis of K-Means clustering techniques applied to different datasets, including Iris, Wine, and WeatherAUS.</p>
+											<p class="activity-description">Analysis of K-Means clustering techniques applied to different datasets, including Iris, Wine, and WeatherAUS.</p>
 										</a>
 									</div>
 									<div class="activity" style="margin-top: 2em;">
 										<a href="machine-learning/E-portfolio Component - Unit 7/unit7_perceptron_analysis.html" class="activity-link">
 											<div class="title-boxes">
-												<span class="activity-number" style="background-color: #f56a6a;">E-portfolio Component</span>
+												<span class="activity-number">e-Portfolio Component</span>
+												<span class="activity-title">Perceptron Analysis</span>
 												<span class="unit-number">Unit 7</span>
 											</div>
-											<h4>Perceptron Analysis</h4>
-											<p>Exploration of neural networks through perceptron implementations.</p>
+											<p class="activity-description">Exploration of neural networks through perceptron implementations.</p>
 										</a>
 									</div>
 									<div class="activity" style="margin-top: 2em;">
 										<a href="machine-learning/Seminar Preparation - Unit 8/unit8_emerging_research_ann.html" class="activity-link">
 											<div class="title-boxes">
-												<span class="activity-number" style="background-color: #f56a6a;">Seminar Preparation</span>
+												<span class="activity-number">Seminar Preparation</span>
+												<span class="activity-title">Emerging Research in ANN</span>
 												<span class="unit-number">Unit 8</span>
 											</div>
-											<h4>Emerging Research in ANN</h4>
-											<p>Analysis of fraud detection in finance and ethical implications of AI in personal insurance.</p>
+											<p class="activity-description">Analysis of fraud detection in finance and ethical implications of AI in personal insurance.</p>
 										</a>
 									</div>
 									<div class="activity" style="margin-top: 2em;">
-										<a href="machine-learning/E-portfolio Component - Unit 8/unit8_ann_implementation.html" class="activity-link">
+										<a href="machine-learning/E-portfolio Component - Unit 8/unit8_gradient_descent.html" class="activity-link">
 											<div class="title-boxes">
-												<span class="activity-number" style="background-color: #f56a6a;">E-portfolio Component</span>
+												<span class="activity-number">e-Portfolio Component</span>
+												<span class="activity-title">Gradient Descent Analysis</span>
 												<span class="unit-number">Unit 8</span>
 											</div>
-											<h4>Implementation</h4>
-											<p>Practical implementation of neural networks and analysis of their applications in real-world scenarios.</p>
+											<p class="activity-description">Implementation and analysis of gradient descent algorithm, exploring the impact of learning rate and iterations on model convergence.</p>
 										</a>
 									</div>
 								</div>
@@ -423,33 +459,6 @@
 								</div>
 							</div>
 						</section>
-
-						<section id="seven" class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
-							<div class="content">
-								<h2>Unit 7 - Perceptron Analysis</h2>
-								<p>Implementation and analysis of perceptron models, including simple perceptron, AND operator, and multi-layer perceptron for XOR problem.</p>
-								<ul class="actions stacked">
-									<li><a href="machine-learning/E-portfolio Component - Unit 7/unit7_perceptron_analysis.html" class="button">Learn More</a></li>
-								</ul>
-							</div>
-							<div class="image">
-								<img src="assets/images/simple_perceptron.png" alt="Perceptron Analysis" />
-							</div>
-						</section>
-
-						<section id="eight" class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
-							<div class="content">
-								<h2>Unit 8 - Gradient Descent Analysis</h2>
-								<p>Implementation and analysis of gradient descent algorithm, exploring the impact of learning rate and iterations on model convergence.</p>
-								<ul class="actions stacked">
-									<li><a href="machine-learning/E-portfolio Component - Unit 8/unit8_gradient_descent.html" class="button">Learn More</a></li>
-								</ul>
-							</div>
-							<div class="image">
-								<img src="assets/images/correlation_plot.png" alt="Gradient Descent Analysis" />
-							</div>
-						</section>
-					</div>
 
 				<!-- Contact -->
 					<section id="contact">
