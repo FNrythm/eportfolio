@@ -553,13 +553,19 @@ df = pd.get_dummies(df, columns=['origin'])</code></pre>
 			<a href="#" class="button primary icon solid fa-arrow-up">Top</a>
 		</div>
 
+		<div id="back-to-bottom" style="display: none; position: fixed; bottom: 20px; right: 120px; z-index: 99;">
+			<a href="#footer" class="button primary icon solid fa-arrow-down">Bottom</a>
+		</div>
+
 		<script>
-		// Back to top button
+		// Back to top and bottom buttons
 		window.onscroll = function() {
 			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
 				document.getElementById("back-to-top").style.display = "block";
+				document.getElementById("back-to-bottom").style.display = "block";
 			} else {
 				document.getElementById("back-to-top").style.display = "none";
+				document.getElementById("back-to-bottom").style.display = "none";
 			}
 		};
 		</script>
