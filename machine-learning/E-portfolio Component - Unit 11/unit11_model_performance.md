@@ -71,7 +71,3 @@ As machine learning professionals, we must:
 - Avoid metric over-optimization without considering fairness, explainability, and real-world impact
 
 Metrics are tools, not truths. Responsible model evaluation requires a critical mindset.
-
----
-
-[📊 Analysis Notebook](https://github.com/FNrythm/eportfolio/blob/main/machine-learning/E-portfolio%20Component%20-%20Unit%2011/Unit11_model_Performance_Measurement.ipynb) 
