@@ -70,7 +70,7 @@ As machine learning professionals, we must:
 - Clearly document parameter choices and their impact
 - Avoid metric over-optimization without considering fairness, explainability, and real-world impact
 
-**In short:** Metrics are tools, not truths. Responsible model evaluation requires a critical mindset.
+Metrics are tools, not truths. Responsible model evaluation requires a critical mindset.
 
 ---
 
