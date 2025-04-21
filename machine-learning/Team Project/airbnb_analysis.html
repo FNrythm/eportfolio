@@ -184,6 +184,40 @@
             'resizeDuration': 200,
             'wrapAround': true
         });
+
+        // Show/hide navigation buttons based on scroll position
+        window.addEventListener('scroll', function() {
+            const backButton = document.getElementById('back-button');
+            const backToTop = document.getElementById('back-to-top');
+            const backToBottom = document.getElementById('back-to-bottom');
+            
+            if (window.scrollY > 100) {
+                backButton.style.display = 'block';
+                backToTop.style.display = 'block';
+            } else {
+                backButton.style.display = 'none';
+                backToTop.style.display = 'none';
+            }
+            
+            if (window.scrollY < document.documentElement.scrollHeight - window.innerHeight - 100) {
+                backToBottom.style.display = 'block';
+            } else {
+                backToBottom.style.display = 'none';
+            }
+        });
     </script>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons" style="position: fixed; bottom: 20px; right: 20px; z-index: 99; display: flex; gap: 10px;">
+        <div id="back-button" style="display: none;">
+            <a href="../../ML_Index.html" class="button primary icon solid fa-arrow-left" style="margin: 0;">Back</a>
+        </div>
+        <div id="back-to-bottom" style="display: none;">
+            <a href="#footer" class="button primary icon solid fa-arrow-down" style="margin: 0;">Bottom</a>
+        </div>
+        <div id="back-to-top" style="display: none;">
+            <a href="#" class="button primary icon solid fa-arrow-up" style="margin: 0;">Top</a>
+        </div>
+    </div>
 </body>
 </html> 
