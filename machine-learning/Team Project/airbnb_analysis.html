@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airbnb NYC Analysis - Team Project Contribution</title>
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <style>
+        .section {
+            margin-bottom: 3em;
+        }
+        .image-container {
+            margin: 2em 0;
+            text-align: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .metric-group {
+            background: #f8f9fa;
+            padding: 1.5em;
+            border-radius: 8px;
+            margin: 1em 0;
+        }
+        .metric-value {
+            margin: 0.5em 0;
+            color: #666;
+        }
+        .highlight-text {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+        #banner {
+            background-image: url('../../assets/images/airbnb_analysis/backgroundproject.png');
+            background-size: 60% auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        #banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+        #banner .inner {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+        #banner h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        #banner p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Banner -->
+        <section id="banner">
+            <div class="inner">
+                <h1>🧠 My Individual Contribution to the Group Project</h1>
+                <p>Units 6 & 11 - Airbnb NYC Analysis</p>
+            </div>
+        </section>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- One -->
+            <section id="one">
+                <div class="inner">
+                    <!-- Project Overview -->
+                    <section class="section">
+                        <h2>📋 Project Overview</h2>
+                        <p>Our group project focused on analyzing Airbnb listings in New York City using statistical and machine learning techniques. The main goal was to explore the factors affecting listing prices and guest engagement, and to segment the market using both <strong>exploratory data analysis (EDA)</strong> and models such as <strong>linear regression and K-Means clustering</strong>.</p>
+                        
+                        <div class="image-container">
+                            <img src="../../assets/images/airbnb_analysis/OverallPriceDistribution.png" alt="Overall Price Distribution" class="zoomable">
+                        </div>
+                        
+                        <p>The final report, titled <em>"Machine Learning Analysis of Airbnb Listings in New York City"</em>, was a collective effort. During the early phase of the project, we all contributed to the EDA, testing different visualizations and statistical summaries. <strong>For the final report, we selected elements from all members' work in the EDA stage, especially visualizations that clearly communicated the distribution of prices and review patterns across neighborhoods</strong>.</p>
+                        
+                        <div class="image-container">
+                            <img src="../../assets/images/airbnb_analysis/priceDistributionByBorough.png" alt="Price Distribution by Borough" class="zoomable">
+                        </div>
+                    </section>
+
+                    <!-- Main Contribution -->
+                    <section class="section">
+                        <h2>🔧 My Main Contribution: K-Means Clustering</h2>
+                        <p>I was responsible for implementing the clustering approach that segmented NYC neighborhoods by <strong>average listing price</strong> and <strong>average number of reviews</strong> per listing.</p>
+
+                        <h3>My contributions included:</h3>
+                        <ul>
+                            <li>Aggregating the dataset by neighborhood to calculate relevant metrics</li>
+                            <li>Normalizing the variables to ensure proper clustering performance</li>
+                            <li>Testing different values of <code>k</code> using:
+                                <ul>
+                                    <li>The <strong>Elbow Method</strong></li>
+                                    <li><strong>Silhouette Analysis</strong></li>
+                                </ul>
+                            </li>
+                            <li>Visualizing the resulting clusters and profiling each group</li>
+                        </ul>
+
+                        <div class="image-container">
+                            <img src="../../assets/images/airbnb_analysis/kmeans_cluster.png" alt="K-Means Clustering Results" class="zoomable">
+                        </div>
+
+                        <div class="metric-group">
+                            <h4>Identified Clusters</h4>
+                            <div class="metric-value">Luxury markets (high price, low reviews)</div>
+                            <div class="metric-value">Mid-range markets (moderate price and reviews)</div>
+                            <div class="metric-value">Budget/high-occupancy markets (low price, high reviews)</div>
+                        </div>
+                    </section>
+
+                    <!-- Reflection -->
+                    <section class="section">
+                        <h2>💡 Reflection and Learning</h2>
+                        <p>This task strengthened my understanding of <strong>unsupervised learning</strong> and practical clustering applications in a real-world context. I developed skills in:</p>
+                        <ul>
+                            <li>Data aggregation and normalization for machine learning</li>
+                            <li>Interpreting cluster patterns and validating them</li>
+                            <li>Integrating visuals and code into a team project workflow</li>
+                        </ul>
+                        <p>Additionally, the project gave me hands-on experience working collaboratively on a technical analysis, aligning individual contributions within a cohesive team deliverable.</p>
+                    </section>
+
+                    <!-- Artefacts -->
+                    <section class="section">
+                        <h2>📎 Artefacts</h2>
+                        <ul>
+                            <li>📄 <strong>Group Project Report</strong>: <em>Machine Learning Analysis of Airbnb Listings in NYC</em></li>
+                            <li>📓 <strong>Jupyter Notebook</strong>: My individual contribution with K-Means clustering implementation and EDA graphs</li>
+                            <li>📸 Screenshots of clustering outputs and plots (some of which were used in the final report)</li>
+                        </ul>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../../assets/js/browser.min.js"></script>
+    <script src="../../assets/js/breakpoints.min.js"></script>
+    <script src="../../assets/js/util.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script>
+        // Initialize lightbox for image zooming
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true
+        });
+    </script>
+</body>
+</html> 
