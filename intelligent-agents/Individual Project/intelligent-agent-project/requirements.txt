@@ -1,0 +1,40 @@
+# Email Forensics System - Python Dependencies
+# Compatible with Python 3.8+
+
+# Core Data Processing
+pandas>=1.5.0          # Data manipulation and analysis
+numpy>=1.23.0          # Numerical computing
+
+# Visualization Libraries
+matplotlib>=3.6.0      # Core plotting library
+seaborn>=0.12.0        # Statistical data visualization
+wordcloud>=1.9.0       # Word cloud generation for text analysis
+
+# Template Rendering
+jinja2>=3.1.0          # HTML report template engine
+
+# Testing Framework
+pytest>=7.2.0          # Unit testing framework
+pytest-cov>=4.0.0      # Code coverage reporting
+pytest-mock>=3.10.0    # Mock objects for testing
+
+# Code Quality
+flake8>=6.0.0          # Linting and style checking
+black>=23.0.0          # Code formatting
+mypy>=1.0.0            # Static type checking
+
+# Development Tools (optional but recommended)
+ipython>=8.0.0         # Enhanced interactive Python shell
+jupyter>=1.0.0         # Jupyter notebook support for interactive analysis
+
+# Package Information
+# Last updated: 2025-01-10
+# Python version requirement: >=3.8,<4.0
+# Installation: pip install -r requirements.txt
+#
+# For development environment:
+# pip install -r requirements.txt
+# 
+# For production (minimal):
+# pip install pandas numpy matplotlib seaborn wordcloud jinja2
+

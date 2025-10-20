@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Forensics Analysis Report</title>
+    <style>
+        /* Modern, professional styling following web design best practices */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background-color: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        
+        /* Gradient header for visual appeal and brand identity */
+        .header { text-align: center; margin-bottom: 30px; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 8px; }
+        
+        .section { margin: 25px 0; }
+        
+        /* Finding cards with hover effects for interactivity */
+        .finding { 
+            background-color: #f8f9fa; 
+            padding: 15px; 
+            margin: 15px 0; 
+            border-radius: 8px; 
+            border-left: 5px solid #ffc107; 
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .finding:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        
+        /* Severity-based color coding (traffic light metaphor) */
+        .high { border-left-color: #e74c3c; background-color: #fbeae5; }
+        .medium { border-left-color: #f39c12; background-color: #fef5e7; }
+        .low { border-left-color: #2ecc71; background-color: #eafaf1; }
+        
+        /* Responsive grid for statistics display */
+        .stats { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 20px; 
+            margin: 20px 0; 
+        }
+        .stat-box { 
+            text-align: center; 
+            padding: 20px; 
+            background-color: #34495e; 
+            color: white; 
+            border-radius: 10px; 
+        }
+        .stat-number { font-size: 2.2em; font-weight: 700; }
+        
+        /* Responsive grid for visualization gallery */
+        .visualizations { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+            gap: 20px; 
+            margin: 20px 0; 
+        }
+        .viz-item { text-align: center; padding: 15px; background-color: #f8f9fa; border-radius: 8px; }
+        .viz-item img { max-width: 100%; height: auto; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        footer { text-align: center; margin-top: 30px; color: #7f8c8d; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Email Forensics Analysis Report</h1>
+            <p>Multi-Agent System & Advanced Analytics Dashboard</p>
+        </div>
+
+        <div class="section">
+            <h2>Executive Summary</h2>
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">50</div>
+                    <div>Total Emails</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">15</div>
+                    <div>Suspicious Emails</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">0</div>
+                    <div>Security Findings</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">0</div>
+                    <div>High Risk</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Key Findings</h2>
+            
+            <div class="finding medium">
+                <h4>Suspicious Keywords - Medium Severity</h4>
+                <p><strong>Email:</strong> email_015</p>
+                <p><strong>Description:</strong> Email contains suspicious keywords: Inheritance fund transfer</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding high">
+                <h4>Suspicious Keywords - High Severity</h4>
+                <p><strong>Email:</strong> email_001</p>
+                <p><strong>Description:</strong> Email contains suspicious keywords: Immediate action required - Account suspended</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding medium">
+                <h4>Suspicious Keywords - Medium Severity</h4>
+                <p><strong>Email:</strong> email_014</p>
+                <p><strong>Description:</strong> Email contains suspicious keywords: Winner notification - Claim your prize</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding high">
+                <h4>Suspicious Keywords - High Severity</h4>
+                <p><strong>Email:</strong> email_002</p>
+                <p><strong>Description:</strong> Email contains suspicious keywords: CRITICAL: Security breach detected</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding high">
+                <h4>Suspicious Keywords - High Severity</h4>
+                <p><strong>Email:</strong> email_003</p>
+                <p><strong>Description:</strong> Email contains suspicious keywords: URGENT: Account verification required</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding medium">
+                <h4>Suspicious Keywords - Medium Severity</h4>
+                <p><strong>Email:</strong> email_007</p>
+                <p><strong>Description:</strong> Email contains suspicious keywords: Confidential: Payment processing error</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding high">
+                <h4>Suspicious Keywords - High Severity</h4>
+                <p><strong>Email:</strong> email_013</p>
+                <p><strong>Description:</strong> Email contains suspicious keywords: Immediate action required - Account suspended</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding high">
+                <h4>Suspicious Keywords - High Severity</h4>
+                <p><strong>Email:</strong> email_012</p>
+                <p><strong>Description:</strong> Email contains suspicious keywords: CRITICAL: Security breach detected</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding high">
+                <h4>Suspicious Keywords - High Severity</h4>
+                <p><strong>Email:</strong> email_006</p>
+                <p><strong>Description:</strong> Email contains suspicious keywords: URGENT: Account verification required</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding high">
+                <h4>Suspicious Keywords - High Severity</h4>
+                <p><strong>Email:</strong> email_010</p>
+                <p><strong>Description:</strong> Email contains suspicious keywords: URGENT: Account verification required</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding medium">
+                <h4>Suspicious Keywords - Medium Severity</h4>
+                <p><strong>Email:</strong> email_004</p>
+                <p><strong>Description:</strong> Email contains suspicious keywords: Winner notification - Claim your prize</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding medium">
+                <h4>Suspicious Keywords - Medium Severity</h4>
+                <p><strong>Email:</strong> email_005</p>
+                <p><strong>Description:</strong> Email contains suspicious keywords: Secret project information</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding high">
+                <h4>Suspicious Keywords - High Severity</h4>
+                <p><strong>Email:</strong> email_011</p>
+                <p><strong>Description:</strong> Email contains suspicious keywords: Immediate action required - Account suspended</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding medium">
+                <h4>Suspicious Keywords - Medium Severity</h4>
+                <p><strong>Email:</strong> email_008</p>
+                <p><strong>Description:</strong> Email contains suspicious keywords: Confidential: Payment processing error</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding medium">
+                <h4>Suspicious Keywords - Medium Severity</h4>
+                <p><strong>Email:</strong> email_009</p>
+                <p><strong>Description:</strong> Email contains suspicious keywords: Download invoice immediately</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding medium">
+                <h4>After Hours Communication - Medium Severity</h4>
+                <p><strong>Email:</strong> email_014</p>
+                <p><strong>Description:</strong> Email sent outside business hours: 02:54</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding medium">
+                <h4>After Hours Communication - Medium Severity</h4>
+                <p><strong>Email:</strong> email_002</p>
+                <p><strong>Description:</strong> Email sent outside business hours: 02:02</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding medium">
+                <h4>After Hours Communication - Medium Severity</h4>
+                <p><strong>Email:</strong> email_007</p>
+                <p><strong>Description:</strong> Email sent outside business hours: 03:43</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding medium">
+                <h4>After Hours Communication - Medium Severity</h4>
+                <p><strong>Email:</strong> email_008</p>
+                <p><strong>Description:</strong> Email sent outside business hours: 03:23</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_015</p>
+                <p><strong>Description:</strong> Email from external domain: support@malicious-site.org</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_001</p>
+                <p><strong>Description:</strong> Email from external domain: noreply@suspicious-bank.net</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_014</p>
+                <p><strong>Description:</strong> Email from external domain: admin@phishing-site.com</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_002</p>
+                <p><strong>Description:</strong> Email from external domain: support@malicious-site.org</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_003</p>
+                <p><strong>Description:</strong> Email from external domain: support@malicious-site.org</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_007</p>
+                <p><strong>Description:</strong> Email from external domain: noreply@suspicious-bank.net</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_013</p>
+                <p><strong>Description:</strong> Email from external domain: noreply@suspicious-bank.net</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_012</p>
+                <p><strong>Description:</strong> Email from external domain: winner@lottery-scam.org</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_006</p>
+                <p><strong>Description:</strong> Email from external domain: support@malicious-site.org</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_038</p>
+                <p><strong>Description:</strong> Email from external domain: security@fake-company.com</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_010</p>
+                <p><strong>Description:</strong> Email from external domain: winner@lottery-scam.org</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_004</p>
+                <p><strong>Description:</strong> Email from external domain: winner@lottery-scam.org</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_005</p>
+                <p><strong>Description:</strong> Email from external domain: admin@phishing-site.com</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_011</p>
+                <p><strong>Description:</strong> Email from external domain: noreply@suspicious-bank.net</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_008</p>
+                <p><strong>Description:</strong> Email from external domain: admin@phishing-site.com</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_009</p>
+                <p><strong>Description:</strong> Email from external domain: support@malicious-site.org</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_021</p>
+                <p><strong>Description:</strong> Email from external domain: security@fake-company.com</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_035</p>
+                <p><strong>Description:</strong> Email from external domain: security@fake-company.com</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_033</p>
+                <p><strong>Description:</strong> Email from external domain: security@fake-company.com</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_019</p>
+                <p><strong>Description:</strong> Email from external domain: security@fake-company.com</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_025</p>
+                <p><strong>Description:</strong> Email from external domain: security@fake-company.com</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding low">
+                <h4>External Communication - Low Severity</h4>
+                <p><strong>Email:</strong> email_043</p>
+                <p><strong>Description:</strong> Email from external domain: security@fake-company.com</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding medium">
+                <h4>High Volume Sender - Medium Severity</h4>
+                <p><strong>Email:</strong> multiple</p>
+                <p><strong>Description:</strong> Sender has 6 emails in dataset</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding medium">
+                <h4>High Volume Sender - Medium Severity</h4>
+                <p><strong>Email:</strong> multiple</p>
+                <p><strong>Description:</strong> Sender has 7 emails in dataset</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding medium">
+                <h4>High Volume Sender - Medium Severity</h4>
+                <p><strong>Email:</strong> multiple</p>
+                <p><strong>Description:</strong> Sender has 6 emails in dataset</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+            <div class="finding medium">
+                <h4>High Volume Sender - Medium Severity</h4>
+                <p><strong>Email:</strong> multiple</p>
+                <p><strong>Description:</strong> Sender has 7 emails in dataset</p>
+                <p><strong>Detected:</strong> 2025-10-11 21:20:11</p>
+            </div>
+            
+        </div>
+
+        <div class="section">
+            <h2>Visualizations Dashboard</h2>
+            <div class="visualizations">
+                <div class="viz-item">
+                    <h3>Summary Statistics</h3>
+                    <img src="../visualizations/summary_chart.png" alt="Summary Chart">
+                </div>
+                <div class="viz-item">
+                    <h3>Email Distribution</h3>
+                    <img src="../visualizations/email_distribution_pie.png" alt="Distribution Pie Chart">
+                </div>
+                <div class="viz-item">
+                    <h3>Hourly Activity</h3>
+                    <img src="../visualizations/hourly_distribution.png" alt="Hourly Distribution">
+                </div>
+                <div class="viz-item">
+                    <h3>Subject Analysis</h3>
+                    <img src="../visualizations/wordcloud.png" alt="Word Cloud">
+                </div>
+                <div class="viz-item">
+                    <h3>Timeline Analysis</h3>
+                    <img src="../visualizations/timeline.png" alt="Timeline">
+                </div>
+                <div class="viz-item">
+                    <h3>Activity Heatmap</h3>
+                    <img src="../visualizations/activity_heatmap.png" alt="Activity Heatmap">
+                </div>
+                <div class="viz-item">
+                    <h3>Communication Patterns</h3>
+                    <img src="../visualizations/network_analysis.png" alt="Network Analysis">
+                </div>
+                <div class="viz-item">
+                    <h3>Risk Assessment</h3>
+                    <img src="../visualizations/severity_distribution.png" alt="Severity Distribution">
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Report generated by Multi-Agent Email Forensics System | 2025-10-11 21:20:13</p>
+        </footer>
+    </div>
+</body>
+</html>
+        

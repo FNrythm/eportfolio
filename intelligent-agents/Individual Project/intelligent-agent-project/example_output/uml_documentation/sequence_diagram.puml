@@ -1,0 +1,62 @@
+@startuml EmailForensicsSequence
+!theme plain
+title Email Forensics System - Analysis Pipeline
+
+participant "Main Controller" as Main
+participant "EnhancedEmailGenerator" as Generator
+participant "DiscoveryAgent" as Discovery
+participant "AnalysisAgent" as Analysis
+participant "DashboardAgent" as Dashboard
+participant "ReportAgent" as Report
+
+== Data Generation Phase ==
+Main -> Generator: generate_emails(50, 30%)
+activate Generator
+Generator -> Generator: create_test_data()
+Generator -> Main: emails[]
+deactivate Generator
+
+== Discovery Phase ==
+Main -> Discovery: find_email_files()
+activate Discovery
+Discovery -> Discovery: scan_directory()
+Discovery --> Main: file_paths[]
+
+Main -> Discovery: load_emails()
+Discovery -> Discovery: parse_files()
+Discovery --> Main: loaded_emails[]
+deactivate Discovery
+
+== Analysis Phase ==
+Main -> Analysis: analyze_emails(loaded_emails)
+activate Analysis
+Analysis -> Analysis: _keyword_analysis()
+Analysis -> Analysis: _timing_analysis()
+Analysis -> Analysis: _external_communication_analysis()
+Analysis -> Analysis: _volume_analysis()
+Analysis --> Main: findings[]
+deactivate Analysis
+
+== Visualization Phase ==
+Main -> Dashboard: generate_dashboard(emails, findings)
+activate Dashboard
+Dashboard -> Dashboard: _generate_summary_chart()
+Dashboard -> Dashboard: _generate_pie_chart()
+Dashboard -> Dashboard: _generate_histogram()
+Dashboard -> Dashboard: _generate_wordcloud()
+Dashboard -> Dashboard: _generate_timeline()
+Dashboard -> Dashboard: _generate_heatmap()
+Dashboard -> Dashboard: _generate_network_analysis()
+Dashboard -> Dashboard: _generate_severity_distribution()
+Dashboard --> Main: visualizations_created
+deactivate Dashboard
+
+== Reporting Phase ==
+Main -> Report: generate_comprehensive_report(emails, findings)
+activate Report
+Report -> Report: _generate_text_report()
+Report -> Report: _generate_html_report()
+Report --> Main: reports_created
+deactivate Report
+
+@enduml
