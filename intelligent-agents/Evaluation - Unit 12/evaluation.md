@@ -1,11 +1,4 @@
 # Intelligent Agents Module - Reflective Piece
-**Student:** Fabian Narel  
-**Module:** Intelligent Agents  
-**Institution:** University of Essex  
-**Academic Year:** 2024/2025  
-**Framework:** Rolfe et al.'s (2001) Reflective Model
-
----
 
 ### WHAT? - Description of Experience
 
