@@ -127,9 +127,4 @@ Yan, B., Zhou, Z., Zhang, L., Zhang, L., Zhou, Z., Miao, D., Li, Z., Li, C. and 
 
 Zimmerman, V. (2019) *Getting to grips with parse trees*. Available at: https://towardsdatascience.com/getting-to-grips-with-parse-trees-6e19e7cd3c3c
 
----
-
-**Word Count:** ~1,030 words (3% over target - within acceptable range)
-
-**Note:** This reflective piece is supplemented by the complete e-portfolio (discussions, activities, and projects) which constitutes the supporting documentation.
 
