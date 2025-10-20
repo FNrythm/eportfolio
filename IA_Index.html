@@ -1,0 +1,713 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Intelligent Agents Module - MSc AI Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+		<style>
+			/* Navigation buttons styling */
+			.nav-buttons {
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				z-index: 99;
+				display: flex;
+				gap: 10px;
+				flex-direction: column;
+				background: rgba(255, 255, 255, 0.7);
+				padding: 10px;
+				border-radius: 8px;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+				backdrop-filter: blur(5px);
+			}
+
+			.nav-buttons a {
+				background: #2a2f35;
+				color: white;
+				padding: 0.5em 1em;
+				border-radius: 4px;
+				text-decoration: none;
+				display: flex;
+				align-items: center;
+				gap: 0.5em;
+				transition: all 0.3s ease;
+				font-size: 0.9em;
+			}
+
+			.nav-buttons a:hover {
+				background: #f56a6a;
+				transform: translateY(-2px);
+			}
+
+			/* Add padding to main content to account for fixed nav */
+			#main {
+				padding-bottom: 4rem;
+			}
+
+			/* Section anchors */
+			.section-anchor {
+				scroll-margin-top: 2rem;
+			}
+
+			/* Smooth scroll behavior */
+			html {
+				scroll-behavior: smooth;
+			}
+
+			/* Navigation menu styling */
+			.nav-menu {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				background: rgba(255, 255, 255, 0.95);
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+				z-index: 1000;
+				padding: 1rem 2rem;
+				display: flex;
+				justify-content: center;
+				gap: 2rem;
+				backdrop-filter: blur(10px);
+			}
+
+			.nav-menu a {
+				color: var(--text-color);
+				text-decoration: none;
+				font-weight: 500;
+				padding: 0.5rem 1rem;
+				border-radius: 4px;
+				transition: all 0.3s ease;
+			}
+
+			.nav-menu a:hover {
+				background: #f56a6a;
+				color: white;
+			}
+
+			/* Back to top button */
+			.back-to-top {
+				position: fixed;
+				bottom: 2rem;
+				right: 2rem;
+				background: #f56a6a;
+				color: white;
+				width: 3rem;
+				height: 3rem;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+				z-index: 1000;
+			}
+
+			.back-to-top.visible {
+				opacity: 1;
+			}
+
+			/* General page styling */
+			body {
+				line-height: 1.7;
+				color: #2a2f35;
+				background: #ffffff;
+			}
+
+			/* Main content styling */
+			#main {
+				background: #ffffff;
+				padding: 0 0 2em 0;
+			}
+
+			.inner {
+				max-width: 1000px;
+				margin: 0 auto;
+				padding: 0 2em;
+			}
+
+			/* Headers styling */
+			h2 {
+				color: #2a2f35;
+				font-size: 2.5em;
+				font-weight: 600;
+				margin: 0 0 0.8em 0;
+				position: relative;
+				padding-bottom: 0.5em;
+			}
+
+			h2:after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100px;
+				height: 3px;
+				background: #f56a6a;
+			}
+
+			h3 {
+				color: #2a2f35;
+				font-size: 1.5em;
+				margin-top: 2em;
+				margin-bottom: 1em;
+			}
+
+			/* Text elements */
+			p, li, strong, span {
+				color: #2a2f35;
+			}
+
+			/* Inline code styling */
+			code {
+				font-family: 'Consolas', 'Monaco', monospace;
+				font-size: 0.9em;
+				color: #2a2f35;
+				background: #e9ecef;
+				padding: 0.2em 0.4em;
+				border-radius: 3px;
+			}
+
+			/* Code blocks styling */
+			pre {
+				background: #f1f3f5;
+				border-left: 4px solid #f56a6a;
+				border-radius: 4px;
+				padding: 1.5em;
+				margin: 1.5em 0;
+				overflow-x: auto;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+			}
+
+			pre code {
+				background: transparent;
+				padding: 0;
+			}
+
+			pre code strong {
+				color: #f56a6a;
+			}
+
+			/* List styling */
+			ol {
+				counter-reset: item;
+				list-style: none;
+				padding-left: 0;
+			}
+
+			ol li {
+				position: relative;
+				padding-left: 2em;
+				margin-bottom: 1.5em;
+			}
+
+			ol li:before {
+				content: counter(item) ".";
+				counter-increment: item;
+				position: absolute;
+				left: 0;
+				color: #f56a6a;
+				font-weight: bold;
+			}
+
+			/* Contact section styling */
+			#contact {
+				background: #ffffff;
+				padding: 2em 0 1em 0;
+				border-top: 1px solid #e9ecef;
+			}
+
+			.contact-methods {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 3em;
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 1em 0;
+			}
+
+			.contact-method {
+				display: flex;
+				align-items: center;
+				gap: 0.8em;
+				transition: transform 0.2s ease;
+			}
+
+			.contact-method:hover {
+				transform: translateY(-2px);
+			}
+
+			.contact-method a {
+				border-bottom: none;
+				color: #2a2f35;
+				transition: color 0.2s ease;
+			}
+
+			.contact-method a:hover {
+				color: #f56a6a;
+			}
+
+			.contact-method .title {
+				font-size: 1em;
+				font-weight: 600;
+				color: #2a2f35;
+			}
+
+			/* Footer styling */
+			#footer {
+				background: #2a2f35;
+				color: rgba(255,255,255,0.9);
+				padding: 1em 0;
+				text-align: center;
+			}
+
+			#footer .copyright {
+				font-size: 0.9em;
+				margin: 0;
+			}
+
+			/* Responsive design */
+			@media screen and (max-width: 736px) {
+				.inner {
+					padding: 0 1.5em;
+				}
+
+				h2 {
+					font-size: 2em;
+				}
+
+				.contact-methods {
+					flex-direction: column;
+					gap: 1.5em;
+				}
+
+				pre {
+					padding: 1em;
+				}
+			}
+
+			/* Main content spacing */
+			#main {
+				padding: 0 0 2em 0;
+			}
+
+			/* Activity styling */
+			.activity-box {
+				background: #ffffff;
+				padding: 2em;
+				margin-bottom: 2em;
+				border-radius: 8px;
+				box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+				border: 1px solid #e5e7eb;
+			}
+
+			.activity-box h3 {
+				color: #f56a6a;
+				margin-top: 0;
+				border-bottom: 2px solid #f56a6a;
+				padding-bottom: 0.5em;
+				font-size: 1.5em;
+			}
+
+			/* Activity container styling */
+			.activity {
+				background: #ffffff;
+				padding: 1.5em;
+				margin-bottom: 1.5em;
+				border-radius: 6px;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+				border: 1px solid #e5e7eb;
+				transition: transform 0.2s ease, box-shadow 0.2s ease;
+			}
+
+			.activity:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+			}
+
+			/* Activity title boxes styling */
+			.title-boxes {
+				display: flex;
+				align-items: center;
+				margin-bottom: 1em;
+				gap: 1em;
+				flex-wrap: wrap;
+			}
+
+			.activity-number {
+				background-color: #f56a6a;
+				color: #ffffff;
+				padding: 0.4em 0.8em;
+				border-radius: 4px;
+				font-size: 0.9em;
+				white-space: nowrap;
+				min-width: 180px;
+				text-align: center;
+				display: inline-block;
+				font-weight: 600;
+			}
+
+			.unit-number {
+				background-color: #2a2f35;
+				color: #ffffff;
+				padding: 0.4em 0.8em;
+				border-radius: 4px;
+				font-size: 0.9em;
+				white-space: nowrap;
+				min-width: 80px;
+				text-align: center;
+				font-weight: 600;
+			}
+
+			.activity-title {
+				font-size: 1.2em;
+				font-weight: 600;
+				color: #2a2f35;
+				flex-grow: 1;
+			}
+
+			.activity-description {
+				color: #4b5563;
+				margin-top: 0.8em;
+				padding-left: 1em;
+				border-left: 3px solid #f56a6a;
+				font-size: 0.95em;
+				line-height: 1.6;
+			}
+
+			/* Responsive adjustments */
+			@media screen and (max-width: 736px) {
+				.title-boxes {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+
+				.activity-number, .unit-number {
+					width: 100%;
+					text-align: left;
+				}
+
+				.activity-title {
+					margin-top: 0.5em;
+				}
+			}
+
+			/* Banner styling */
+			#banner {
+				background-image: url('assets/images/background.png');
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				position: relative;
+				color: #ffffff;
+			}
+
+			#banner:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5);
+			}
+
+			#banner .inner {
+				position: relative;
+				z-index: 1;
+			}
+
+			#banner h1, #banner p {
+				color: #ffffff;
+			}
+
+			header#header .logo span {
+				color: #ffffff;
+				opacity: 0.95;
+				text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+			}
+
+			header#header nav a {
+				color: #ffffff;
+				opacity: 0.95;
+				text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+				font-weight: 400;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Navigation Buttons -->
+		<div class="nav-buttons">
+			<a href="#overview" class="button primary icon solid fa-home">Overview</a>
+			<a href="#projects" class="button primary icon solid fa-project-diagram">Projects</a>
+			<a href="#discussions" class="button primary icon solid fa-comments">Discussions</a>
+			<a href="#activities" class="button primary icon solid fa-tasks">Activities</a>
+			<a href="#outcomes" class="button primary icon solid fa-graduation-cap">Evaluation & Reflection</a>
+		</div>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<a href="index.html" class="logo"><strong>Fabian Narel</strong> <span>MSc AI Portfolio</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="#about">About Me</a></li>
+							<li><a href="#modules">Modules</a></li>
+							<li><a href="#contact">Contact</a></li>
+						</ul>
+					</nav>
+
+				<!-- Banner -->
+					<section id="banner" class="major">
+						<div class="inner">
+							<header class="major">
+								<h1>Intelligent Agents</h1>
+							</header>
+							<div class="content">
+								<p>Exploring autonomous agents, multi-agent systems, and intelligent decision-making</p>
+							</div>
+						</div>
+					</section>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+						<section id="one">
+							<div class="inner">
+								<h2>Intelligent Agents Portfolio</h2>
+								
+								<div class="activity-box section-anchor" id="overview">
+									<h3>Module Overview</h3>
+									<p>This module explores the fundamental concepts and practical applications of intelligent agents in artificial intelligence. Through a combination of theoretical understanding and hands-on practice, we delve into various aspects of intelligent agents, including:</p>
+									<ul>
+										<li>Agent architectures and design principles</li>
+										<li>Multi-agent systems and coordination</li>
+										<li>Learning and adaptation in agents</li>
+										<li>Reasoning and planning mechanisms</li>
+										<li>Real-world applications and case studies</li>
+									</ul>
+
+									<h4 style="margin-top: 2em; color: #f56a6a;">Learning Outcomes</h4>
+									<ol>
+										<li>Understand the fundamental concepts of intelligent agents and multi-agent systems</li>
+										<li>Apply agent-based modeling techniques to real-world problems</li>
+										<li>Analyze and evaluate different agent architectures and coordination strategies</li>
+										<li>Develop effective solutions using agent-based approaches</li>
+									</ol>
+								</div>
+
+								<div class="activity-box section-anchor" id="projects">
+									<h3>Projects</h3>
+									<div class="activity">
+										<a href="intelligent-agents/Individual Project/individual_project.html" class="activity-link">
+											<div class="title-boxes">
+												<span class="activity-number">Individual Project</span>
+												<span class="activity-title">Advanced Agent Implementation</span>
+												<span class="unit-number">Unit 11</span>
+											</div>
+											<p class="activity-description">An in-depth individual project focusing on the implementation and analysis of intelligent agents, demonstrating advanced concepts in agent design and coordination.</p>
+										</a>
+									</div>
+									<div class="activity" style="margin-top: 2em;">
+										<a href="intelligent-agents/Team Project/team_project.html" class="activity-link">
+											<div class="title-boxes">
+												<span class="activity-number">Team Project</span>
+												<span class="activity-title">Multi-Agent System Design</span>
+												<span class="unit-number">Unit 6</span>
+											</div>
+											<p class="activity-description">Collaborative team project focusing on designing and implementing a multi-agent system to solve complex coordination problems.</p>
+										</a>
+									</div>
+								</div>
+
+								<div class="activity-box section-anchor" id="discussions">
+									<h3>Discussions</h3>
+									<div class="activity">
+										<a href="intelligent-agents/discussions/collaborative-discussion-1/collaborative-discussion-1.html" class="activity-link">
+											<div class="title-boxes">
+												<span class="activity-number">Collaborative Discussion 1</span>
+												<span class="activity-title">Agent-Based Systems: Rise and Organisational Benefits</span>
+												<span class="unit-number">Units 1-3</span>
+											</div>
+											<p class="activity-description">Exploration of agent-based systems and their benefits for organisations, examining how autonomous agents model complex problems, provide simulation tools for decision support, and solve decentralised control challenges.</p>
+										</a>
+									</div>
+									<div class="activity" style="margin-top: 2em;">
+										<a href="intelligent-agents/discussions/collaborative-discussion-2/collaborative-discussion-2.html" class="activity-link">
+											<div class="title-boxes">
+												<span class="activity-number">Collaborative Discussion 2</span>
+												<span class="activity-title">Agent Communication Languages: Evolution and Adaptation</span>
+												<span class="unit-number">Units 5-7</span>
+											</div>
+											<p class="activity-description">Analysis of agent communication languages (ACLs) like KQML, examining their advantages in enabling interoperability through speech acts, limitations from ontology dependence, and evolution toward learned, adaptive communication strategies.</p>
+										</a>
+									</div>
+									<div class="activity" style="margin-top: 2em;">
+										<a href="intelligent-agents/discussions/collaborative-discussion-3/collaborative-discussion-3.html" class="activity-link">
+											<div class="title-boxes">
+												<span class="activity-number">Collaborative Discussion 3</span>
+												<span class="activity-title">Ethics of Deep Learning and Generative AI</span>
+												<span class="unit-number">Units 9-11</span>
+											</div>
+											<p class="activity-description">Critical examination of ethical implications of deep learning and generative AI, including bias amplification, copyright issues, misinformation risks, and the need for governance frameworks like the EU AI Act and NIST standards.</p>
+										</a>
+									</div>
+								</div>
+
+								<div class="activity-box section-anchor" id="activities">
+									<h3>e-Portfolio Activities</h3>
+									<div class="activity">
+										<a href="intelligent-agents/E-portfolio Component - Unit 6/unit6_agent_dialogue.html" class="activity-link">
+											<div class="title-boxes">
+												<span class="activity-number">e-Portfolio Component</span>
+												<span class="activity-title">Agent Dialogue with KQML and KIF</span>
+												<span class="unit-number">Unit 6</span>
+											</div>
+											<p class="activity-description">Implementation of agent-to-agent communication using KQML and KIF protocols, demonstrating procurement agent (Alice) querying warehouse agent (Bob) about television inventory and specifications.</p>
+										</a>
+									</div>
+									<div class="activity" style="margin-top: 2em;">
+										<a href="intelligent-agents/E-portfolio Component - Unit 8/unit8_parse_trees.html" class="activity-link">
+											<div class="title-boxes">
+												<span class="activity-number">e-Portfolio Component</span>
+												<span class="activity-title">Constituency-Based Parse Trees</span>
+												<span class="unit-number">Unit 8</span>
+											</div>
+											<p class="activity-description">Analysis of natural language sentence structure using constituency-based parsing, demonstrating syntactic analysis and structural ambiguity resolution in intelligent agent language processing.</p>
+										</a>
+									</div>
+									<div class="activity" style="margin-top: 2em;">
+										<a href="intelligent-agents/E-portfolio Component - Unit 10/unit10_deep_learning_impact.html" class="activity-link">
+											<div class="title-boxes">
+												<span class="activity-number">e-Portfolio Component</span>
+												<span class="activity-title">Deep Learning and Societal Impact</span>
+												<span class="unit-number">Unit 10</span>
+											</div>
+											<p class="activity-description">Critical analysis of Large Language Model agents, examining their technical capabilities and ethical, privacy, and socio-technical implications for society.</p>
+										</a>
+									</div>
+								</div>
+
+								<div class="activity-box section-anchor" id="outcomes">
+									<h3>Final Evaluation & Reflective Analysis</h3>
+									<div class="activity">
+										<a href="intelligent-agents/Evaluation - Unit 12/evaluation.html" class="activity-link">
+											<div class="title-boxes">
+												<span class="activity-number">Evaluation</span>
+												<span class="activity-title">Intelligent Agents Module Evaluation</span>
+												<span class="unit-number">Unit 12</span>
+											</div>
+											<p class="activity-description">A comprehensive evaluation of the Intelligent Agents module, reflecting on key learnings, challenges encountered, and the development of skills throughout the course.</p>
+										</a>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					</div>
+
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+							<section class="split contact horizontal">
+								<div class="contact-methods">
+									<div class="contact-method">
+										<a href="mailto:fabian.narel@gmail.com">
+											<span class="icon solid alt fa-envelope"></span>
+										</a>
+										<span class="title">Email</span>
+									</div>
+								
+									<div class="contact-method">
+										<a href="https://github.com/FNrythm" target="_blank" rel="noopener noreferrer">
+											<span class="icon brands alt fa-github"></span>
+										</a>
+										<span class="title">GitHub</span>
+									</div>
+								
+									<div class="contact-method">
+										<a href="https://www.linkedin.com/in/fabiannarel/" target="_blank" rel="noopener noreferrer">
+											<span class="icon brands alt fa-linkedin-in"></span>
+										</a>
+										<span class="title">LinkedIn</span>
+									</div>
+								</div>
+							</section>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="copyright">
+								<li>&copy; Fabian Narel</li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+		<!-- Add this script at the end of the body -->
+		<script>
+			// Show/hide back to top button
+			window.addEventListener('scroll', function() {
+				const backToTop = document.querySelector('.back-to-top');
+				if (window.scrollY > 300) {
+					backToTop.classList.add('visible');
+				} else {
+					backToTop.classList.remove('visible');
+				}
+			});
+
+			// Highlight current section in nav
+			window.addEventListener('scroll', function() {
+				const sections = document.querySelectorAll('.section-anchor');
+				const navLinks = document.querySelectorAll('.nav-menu a');
+				
+				let current = '';
+				sections.forEach(section => {
+					const sectionTop = section.offsetTop;
+					if (window.scrollY >= sectionTop - 100) {
+						current = section.getAttribute('id');
+					}
+				});
+
+				navLinks.forEach(link => {
+					link.classList.remove('active');
+					if (link.getAttribute('href').slice(1) === current) {
+						link.classList.add('active');
+					}
+				});
+			});
+		</script>
+
+	</body>
+</html>
+

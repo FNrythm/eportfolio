@@ -1,0 +1,542 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Individual Project - Multi-Agent Email Forensics System</title>
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <style>
+        :root {
+            --primary-color: #333333;
+            --secondary-color: #4a90e2;
+            --accent-color: #f56a6a;
+            --text-color: #2c3e50;
+            --light-bg: #ffffff;
+            --dark-bg: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #ffffff;
+        }
+
+        p, li, span, td, th, strong {
+            color: var(--text-color);
+        }
+
+        ul, ol {
+            color: var(--text-color);
+        }
+
+        strong {
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.4rem;
+        }
+
+        h4 {
+            color: var(--secondary-color);
+            margin: 1rem 0 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .section p, .section li, .section td, .section th, .section strong, .section span {
+            color: var(--text-color);
+        }
+
+        .section h3, .section h4 {
+            color: var(--primary-color);
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background: white;
+            padding: 1rem;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            text-align: center;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            color: white;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .agent-card {
+            background: white;
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .agent-card h4 {
+            color: var(--secondary-color);
+            margin-top: 0;
+        }
+
+        .agent-card p, .agent-card strong {
+            color: var(--text-color);
+        }
+
+        .workflow-box {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .workflow-box h4 {
+            color: var(--accent-color);
+            margin-top: 0;
+        }
+
+        .workflow-box p, .workflow-box ol, .workflow-box li, .workflow-box strong {
+            color: var(--text-color);
+        }
+
+        .reflection {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .reflection h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .reflection p {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        pre code {
+            background: transparent;
+            color: #ecf0f1;
+            padding: 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            background: var(--dark-bg);
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <header>
+        <div class="container">
+            <h1>Individual Project - Unit 11</h1>
+            <p style="font-size: 1.2rem; margin-top: 0.5rem;">Multi-Agent Email Forensics System</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Overview Section -->
+        <div class="section">
+            <h2>Overview</h2>
+            <p>The Multi-Agent Email Forensics System is an intelligent agent-based solution for automated security analysis of email communications. The system employs four specialized autonomous agents working in a coordinated pipeline to discover, analyze, visualize, and report on potential security threats.</p>
+
+            <h3>Key Capabilities</h3>
+            <ul>
+                <li><strong>Automated Threat Detection:</strong> Identifies suspicious emails based on keywords, temporal patterns, source analysis, and volume anomalies</li>
+                <li><strong>Multi-Strategy Analysis:</strong> Employs four parallel detection strategies for comprehensive coverage</li>
+                <li><strong>Visual Analytics:</strong> Generates 8 different visualization types for pattern recognition</li>
+                <li><strong>Comprehensive Reporting:</strong> Produces both technical (text) and executive (HTML) reports</li>
+                <li><strong>Forensic Quality:</strong> Designed following digital forensics best practices (NIST SP 800-86)</li>
+            </ul>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="metrics">
+            <div class="metric-card">
+                <div class="metric-value">4</div>
+                <div class="metric-label">Specialized Agents</div>
+            </div>
+            <div class="metric-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <div class="metric-value">29</div>
+                <div class="metric-label">Tests (100% Passing)</div>
+            </div>
+            <div class="metric-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                <div class="metric-value">8</div>
+                <div class="metric-label">Visualizations</div>
+            </div>
+            <div class="metric-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                <div class="metric-value">6</div>
+                <div class="metric-label">Pipeline Stages</div>
+            </div>
+        </div>
+
+        <!-- System Architecture -->
+        <div class="section">
+            <h2>System Architecture</h2>
+            <p>The system implements a <strong>cooperative multi-agent architecture</strong> where four specialized agents work sequentially in a pipeline:</p>
+
+            <pre><code>┌─────────────────┐     ┌──────────────┐     ┌─────────────────┐     ┌────────────────┐
+│  Discovery      │────▶│  Analysis    │────▶│  Dashboard      │────▶│  Report        │
+│  Agent          │     │  Agent       │     │  Agent          │     │  Agent         │
+└─────────────────┘     └──────────────┘     └─────────────────┘     └────────────────┘
+        │                       │                      │                       │
+        ▼                       ▼                      ▼                       ▼
+   Email Files            Findings List         Visualizations          Reports</code></pre>
+
+            <div class="agent-grid">
+                <div class="agent-card">
+                    <h4>1. DiscoveryAgent</h4>
+                    <p><strong>Role:</strong> Autonomous data acquisition</p>
+                    <p>Locates email files and parses them into structured objects</p>
+                    <p><strong>Pattern:</strong> Repository</p>
+                </div>
+
+                <div class="agent-card" style="border-left-color: #9c27b0;">
+                    <h4>2. AnalysisAgent</h4>
+                    <p><strong>Role:</strong> Threat detection</p>
+                    <p>Applies 4 parallel detection strategies</p>
+                    <p><strong>Pattern:</strong> Strategy</p>
+                </div>
+
+                <div class="agent-card" style="border-left-color: #4caf50;">
+                    <h4>3. DashboardAgent</h4>
+                    <p><strong>Role:</strong> Visual analytics</p>
+                    <p>Creates 8 visualization types</p>
+                    <p><strong>Pattern:</strong> Factory</p>
+                </div>
+
+                <div class="agent-card" style="border-left-color: #ff9800;">
+                    <h4>4. ReportAgent</h4>
+                    <p><strong>Role:</strong> Report generation</p>
+                    <p>Produces text and HTML reports</p>
+                    <p><strong>Pattern:</strong> Template Method</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Results -->
+        <div class="section">
+            <h2>Analysis Results & Visualizations</h2>
+            
+            <h3>Summary Statistics</h3>
+            <div class="image-container">
+                <a href="intelligent-agent-project/example_output/visualizations/summary_chart.png" data-lightbox="results" data-title="Email Forensics Summary Statistics">
+                    <img src="intelligent-agent-project/example_output/visualizations/summary_chart.png" alt="Summary Statistics Chart">
+                </a>
+                <div class="image-caption">Email Forensics Summary Statistics - Total emails, suspicious emails, external communications, and findings</div>
+            </div>
+
+            <h3>Key Visualizations</h3>
+            <div class="image-grid">
+                <div class="image-container">
+                    <a href="intelligent-agent-project/example_output/visualizations/activity_heatmap.png" data-lightbox="results" data-title="Activity Heatmap - Email patterns by hour and day">
+                        <img src="intelligent-agent-project/example_output/visualizations/activity_heatmap.png" alt="Activity Heatmap">
+                    </a>
+                    <div class="image-caption">Activity Heatmap - Email patterns by hour and day</div>
+                </div>
+
+                <div class="image-container">
+                    <a href="intelligent-agent-project/example_output/visualizations/severity_distribution.png" data-lightbox="results" data-title="Severity Distribution - Classification of findings">
+                        <img src="intelligent-agent-project/example_output/visualizations/severity_distribution.png" alt="Severity Distribution">
+                    </a>
+                    <div class="image-caption">Severity Distribution - Classification of findings</div>
+                </div>
+
+                <div class="image-container">
+                    <a href="intelligent-agent-project/example_output/visualizations/wordcloud.png" data-lightbox="results" data-title="Word Cloud - Common terms in suspicious emails">
+                        <img src="intelligent-agent-project/example_output/visualizations/wordcloud.png" alt="Word Cloud">
+                    </a>
+                    <div class="image-caption">Word Cloud - Common terms in suspicious emails</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pipeline Architecture -->
+        <div class="section">
+            <h2>Six-Stage Pipeline</h2>
+            
+            <div class="workflow-box">
+                <h4>Stage 1: Data Generation</h4>
+                <p>EnhancedEmailGenerator creates 50 test emails (30% suspicious, 70% normal) with realistic subjects, timestamps, and sender domains.</p>
+                <p><strong>Output:</strong> Email files in <code>output/emails/</code></p>
+            </div>
+
+            <div class="workflow-box">
+                <h4>Stage 2: Discovery</h4>
+                <p>DiscoveryAgent autonomously locates and loads emails, parsing structure (ID, Subject, From, To, Date, Content) into SimpleEmail objects.</p>
+                <p><strong>Output:</strong> List of SimpleEmail objects</p>
+            </div>
+
+            <div class="workflow-box">
+                <h4>Stage 3: Analysis</h4>
+                <p>AnalysisAgent applies four parallel detection strategies:</p>
+                <ol>
+                    <li><strong>Keyword Analysis:</strong> Scans for 21 suspicious terms (urgent, confidential, bitcoin, phishing, etc.)</li>
+                    <li><strong>Temporal Analysis:</strong> Flags after-hours emails (outside 8 AM - 6 PM)</li>
+                    <li><strong>Source Analysis:</strong> Identifies external domain communications</li>
+                    <li><strong>Volume Analysis:</strong> Detects anomalous sending patterns</li>
+                </ol>
+                <p><strong>Output:</strong> List of Finding objects with severity classification (High/Medium/Low)</p>
+            </div>
+
+            <div class="workflow-box">
+                <h4>Stage 4: Visualization</h4>
+                <p>DashboardAgent generates 8 visualizations using matplotlib, seaborn, and wordcloud:</p>
+                <ol>
+                    <li>Summary statistics chart</li>
+                    <li>Email distribution pie chart</li>
+                    <li>Hourly activity histogram</li>
+                    <li>Subject word cloud</li>
+                    <li>Activity timeline</li>
+                    <li>Day-hour heatmap</li>
+                    <li>Network analysis</li>
+                    <li>Severity distribution</li>
+                </ol>
+                <p><strong>Output:</strong> PNG files in <code>output/visualizations/</code></p>
+            </div>
+
+            <div class="workflow-box">
+                <h4>Stage 5: Reporting</h4>
+                <p>ReportAgent consolidates results using Jinja2 templates into text and HTML formats with embedded visualizations.</p>
+                <p><strong>Output:</strong> <code>forensics_report.html</code> and <code>forensics_report.txt</code> in <code>output/reports/</code></p>
+            </div>
+
+            <div class="workflow-box">
+                <h4>Stage 6: UML Documentation</h4>
+                <p>Auto-generates PlantUML class and sequence diagrams documenting system architecture.</p>
+                <p><strong>Output:</strong> Documentation in <code>output/uml_documentation/</code></p>
+            </div>
+        </div>
+
+        <!-- Technical Implementation -->
+        <div class="section">
+            <h2>Technical Implementation</h2>
+            
+            <h3>Data Models</h3>
+            <p><strong>SimpleEmail:</strong> Email dataclass with fields <code>id</code>, <code>subject</code>, <code>sender</code>, <code>recipient</code>, <code>date</code>, <code>content</code>, <code>file_path</code></p>
+            <p><strong>Methods:</strong></p>
+            <ul>
+                <li><code>is_suspicious()</code> - Checks for 21 suspicious keywords</li>
+                <li><code>is_after_hours()</code> - Detects outside business hours (8 AM - 6 PM)</li>
+                <li><code>is_external()</code> - Checks if sender is from external domain</li>
+            </ul>
+
+            <p><strong>Finding:</strong> Investigation finding with <code>finding_type</code>, <code>description</code>, <code>email_id</code>, <code>severity</code>, <code>timestamp</code></p>
+
+            <h3>Dependencies</h3>
+            <ul>
+                <li><strong>Data:</strong> pandas ≥1.5.0, numpy ≥1.23.0</li>
+                <li><strong>Visualization:</strong> matplotlib ≥3.6.0, seaborn ≥0.12.0, wordcloud ≥1.9.0</li>
+                <li><strong>Templating:</strong> jinja2 ≥3.1.0</li>
+                <li><strong>Testing:</strong> pytest ≥7.2.0, pytest-cov ≥4.0.0</li>
+            </ul>
+
+            <h3>Testing & Validation</h3>
+            <p><strong>29 tests, 100% passing:</strong></p>
+            <ul>
+                <li>25 unit tests (individual methods)</li>
+                <li>3 integration tests (agent coordination)</li>
+                <li>1 end-to-end test (complete pipeline)</li>
+            </ul>
+        </div>
+
+        <!-- Reflection -->
+        <div class="reflection">
+            <h3>Personal Reflection</h3>
+            <p>Building this multi-agent system from scratch revealed the practical value of autonomous, specialized agents working in coordinated pipelines. The separation of concerns between discovery, analysis, visualization, and reporting made the system easier to develop, test, and maintain.</p>
+
+            <p>Implementing four detection strategies taught me that effective security analysis requires multiple perspectives. Keyword detection alone misses after-hours anomalies, while temporal analysis misses sophisticated phishing from normal hours. The comprehensive testing (29 tests, 100% passing) caught integration bugs early, particularly in data flow between agents.</p>
+
+            <p>This project connected theoretical concepts about agent architectures (Wooldridge, 2009) with practical concerns like error handling and user experience. Generating professional visualizations taught me that intelligent systems must present results in accessible formats for non-technical stakeholders.</p>
+        </div>
+
+        <!-- Source Artifacts -->
+        <div style="margin-top: 2rem; padding-top: 1rem; border-top: 2px solid #e9ecef;">
+            <div style="text-align: center; padding: 1rem 0;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 1.2em; flex-wrap: wrap; font-size: 0.95em;">
+                    <span style="color: #2a2f35; display: flex; align-items: center; gap: 0.5em; font-weight: 600; opacity: 0.8;">
+                        <svg height="20" viewBox="0 0 16 16" width="20" style="fill: #2a2f35;">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                        </svg>
+                        Source Artifacts
+                    </span>
+                    <span style="color: #e9ecef; font-weight: 300;">|</span>
+                    <a href="intelligent-agent-project/README.md" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 README</a>
+                    <span style="color: #e9ecef; font-weight: 300;">|</span>
+                    <a href="intelligent-agent-project/src/agent.py" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">💻 agent.py</a>
+                    <span style="color: #e9ecef; font-weight: 300;">|</span>
+                    <a href="intelligent-agent-project/src/main.py" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">💻 main.py</a>
+                    <span style="color: #e9ecef; font-weight: 300;">|</span>
+                    <a href="intelligent-agent-project/src/utils.py" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">💻 utils.py</a>
+                    <span style="color: #e9ecef; font-weight: 300;">|</span>
+                    <a href="Intelligent Agents individual presentation.pptx" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📊 Presentation</a>
+                </div>
+            </div>
+        </div>
+
+        <a href="../../IA_Index.html" class="back-link">← Back to Intelligent Agents Portfolio</a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../../assets/js/browser.min.js"></script>
+    <script src="../../assets/js/breakpoints.min.js"></script>
+    <script src="../../assets/js/util.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Unit 8: Constituency-Based Parse Trees - Intelligent Agents</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../../assets/css/main.css" />
+	<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+	<style>
+		body {
+			line-height: 1.7;
+			color: #2a2f35;
+			background: #ffffff;
+		}
+
+		.inner {
+			max-width: 1000px;
+			margin: 0 auto;
+			padding: 2em;
+		}
+
+		p, li, span, strong {
+			color: #2a2f35;
+		}
+
+		ul, ol {
+			color: #2a2f35;
+		}
+
+		h1 {
+			color: #2a2f35;
+			border-bottom: 3px solid #f56a6a;
+			padding-bottom: 0.5em;
+			margin-bottom: 1em;
+		}
+
+		h2 {
+			color: #f56a6a;
+			margin-top: 2em;
+			border-bottom: 2px solid #e5e7eb;
+			padding-bottom: 0.3em;
+		}
+
+		h3 {
+			color: #2a2f35;
+			margin-top: 1.5em;
+		}
+
+		h4 {
+			color: #2a2f35;
+			margin-top: 1em;
+		}
+
+		pre {
+			background: #f1f3f5;
+			border-left: 4px solid #f56a6a;
+			border-radius: 4px;
+			padding: 1.5em;
+			overflow-x: auto;
+			margin: 1.5em 0;
+			color: #2a2f35;
+		}
+
+		code {
+			font-family: 'Consolas', 'Monaco', monospace;
+			font-size: 0.9em;
+			background: #e9ecef;
+			padding: 0.2em 0.4em;
+			border-radius: 3px;
+			color: #2a2f35;
+		}
+
+		pre code {
+			background: transparent;
+			padding: 0;
+			color: #2a2f35;
+		}
+
+		.parse-tree-box {
+			background: #ffffff;
+			border: 2px solid #e5e7eb;
+			border-radius: 8px;
+			padding: 2em;
+			margin: 2em 0;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+		}
+
+		.parse-tree-box h3 {
+			color: #f56a6a;
+			margin-top: 0;
+			border-bottom: 2px solid #f56a6a;
+			padding-bottom: 0.5em;
+		}
+
+		.tree-structure {
+			background: #f8f9fa;
+			padding: 1.5em;
+			border-radius: 4px;
+			margin: 1em 0;
+			font-family: monospace;
+			overflow-x: auto;
+			color: #2a2f35;
+		}
+
+		.analysis-box {
+			background: #e3f2fd;
+			border-left: 4px solid #2196f3;
+			padding: 1em;
+			margin: 1em 0;
+			border-radius: 4px;
+		}
+
+		.analysis-box h4 {
+			color: #1976d2;
+			margin-top: 0;
+		}
+
+		.analysis-box p, .analysis-box ul, .analysis-box li {
+			color: #2a2f35;
+		}
+
+		.ambiguity-warning {
+			background: #fff3cd;
+			border-left: 4px solid #ffc107;
+			padding: 1em;
+			margin: 1em 0;
+			border-radius: 4px;
+		}
+
+		.ambiguity-warning strong {
+			color: #f57c00;
+		}
+
+		.ambiguity-warning p, .ambiguity-warning ul, .ambiguity-warning li {
+			color: #2a2f35;
+		}
+
+		.significance-box {
+			background: #e8f5e9;
+			border-left: 4px solid #4caf50;
+			padding: 1.5em;
+			margin: 2em 0;
+			border-radius: 4px;
+		}
+
+		.significance-box h4 {
+			color: #2e7d32;
+			margin-top: 0;
+		}
+
+		.significance-box p, .significance-box ul, .significance-box li {
+			color: #2a2f35;
+		}
+
+		.back-link {
+			display: inline-block;
+			margin-top: 2em;
+			padding: 0.5em 1em;
+			background: #2a2f35;
+			color: white;
+			text-decoration: none;
+			border-radius: 4px;
+			transition: background 0.3s;
+		}
+
+		.back-link:hover {
+			background: #f56a6a;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin: 1.5em 0;
+		}
+
+		table th, table td {
+			padding: 0.75em;
+			border: 1px solid #e5e7eb;
+			text-align: left;
+			color: #2a2f35;
+		}
+
+		table th {
+			background: #f8f9fa;
+			font-weight: 600;
+		}
+
+		table tr:hover {
+			background: #f8f9fa;
+		}
+	</style>
+</head>
+<body class="is-preload">
+	<div id="wrapper">
+		<div id="main" class="alt">
+			<section id="one">
+				<div class="inner">
+					<h1>Unit 8 Activity: Constituency-Based Parse Trees</h1>
+
+					<h2>Activity Overview</h2>
+					<p>This activity demonstrates the application of constituency-based parsing to natural language sentences. Constituency parsing breaks down sentences into nested constituents (phrases) based on their syntactic structure, which is fundamental to natural language understanding in intelligent agent systems.</p>
+
+					<div class="parse-tree-box">
+						<h3>Parse Tree 1: "The government raised interest rates."</h3>
+						
+						<h4>Tree Structure</h4>
+						<div class="tree-structure">
+<pre>                    S
+         ___________|___________
+        |                       VP
+        |            ___________|___________
+        NP          |           |           NP
+    ____|____       |           |       ____|____
+   DT        N      V          N       N         N
+   |         |      |          |       |         |
+  The   government raised   interest rates      .</pre>
+						</div>
+
+						<div class="analysis-box">
+							<h4>Breakdown</h4>
+							<ul>
+								<li><strong>S (Sentence)</strong>: The root of the parse tree</li>
+								<li><strong>NP (Noun Phrase)</strong>: "The government"
+									<ul>
+										<li><strong>DT (Determiner)</strong>: "The"</li>
+										<li><strong>N (Noun)</strong>: "government"</li>
+									</ul>
+								</li>
+								<li><strong>VP (Verb Phrase)</strong>: "raised interest rates"
+									<ul>
+										<li><strong>V (Verb)</strong>: "raised"</li>
+										<li><strong>NP (Noun Phrase)</strong>: "interest rates"
+											<ul>
+												<li><strong>N (Noun)</strong>: "interest"</li>
+												<li><strong>N (Noun)</strong>: "rates"</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<p><strong>Analysis:</strong> This is a straightforward sentence with a simple Subject-Verb-Object (SVO) structure. The verb phrase contains a transitive verb "raised" followed by its direct object, the noun phrase "interest rates," which is a compound noun.</p>
+						</div>
+					</div>
+
+					<div class="parse-tree-box">
+						<h3>Parse Tree 2: "The internet gives everyone a voice."</h3>
+						
+						<h4>Tree Structure</h4>
+						<div class="tree-structure">
+<pre>                         S
+         ________________|________________
+        |                                 VP
+        |                  _______________|_______________
+        NP                |               |               NP
+    ____|____             |               NP          ____|____
+   DT        N            V           ____|____      DT       N
+   |         |            |           |         |     |       |
+  The     internet      gives     everyone     .     a     voice</pre>
+						</div>
+
+						<div class="analysis-box">
+							<h4>Breakdown</h4>
+							<ul>
+								<li><strong>S (Sentence)</strong>: The root of the parse tree</li>
+								<li><strong>NP (Noun Phrase)</strong>: "The internet"
+									<ul>
+										<li><strong>DT (Determiner)</strong>: "The"</li>
+										<li><strong>N (Noun)</strong>: "internet"</li>
+									</ul>
+								</li>
+								<li><strong>VP (Verb Phrase)</strong>: "gives everyone a voice"
+									<ul>
+										<li><strong>V (Verb)</strong>: "gives"</li>
+										<li><strong>NP (Noun Phrase)</strong>: "everyone" (indirect object)</li>
+										<li><strong>NP (Noun Phrase)</strong>: "a voice" (direct object)
+											<ul>
+												<li><strong>DT (Determiner)</strong>: "a"</li>
+												<li><strong>N (Noun)</strong>: "voice"</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<p><strong>Analysis:</strong> This sentence follows a ditransitive verb structure (Subject-Verb-Indirect Object-Direct Object). The verb "gives" takes two objects: the indirect object "everyone" and the direct object "a voice."</p>
+						</div>
+					</div>
+
+					<div class="parse-tree-box">
+						<h3>Parse Tree 3: "The man saw the dog with the telescope."</h3>
+						
+						<div class="ambiguity-warning">
+							<p><strong>⚠️ Structural Ambiguity Detected</strong></p>
+							<p>This sentence has two valid interpretations depending on where the prepositional phrase "with the telescope" attaches:</p>
+						</div>
+
+						<h4>Interpretation 1: PP attaches to VP (Instrument Reading)</h4>
+						<div class="tree-structure">
+<pre>                              S
+         _____________________|_____________________
+        |                                           VP
+        |                      _____________________|_____________________
+        NP                    |                     |                     PP
+    ____|____                 |                     NP              ______|______
+   DT        N                V                 ____|____          |            NP
+   |         |                |                |         |         |        ____|____
+  The       man              saw              DT        N         P       DT        N
+                                              |         |         |       |         |
+                                             the       dog      with     the    telescope</pre>
+						</div>
+						<p><strong>Meaning:</strong> The man used the telescope to see the dog.</p>
+
+						<h4>Interpretation 2: PP attaches to NP (Modifier Reading)</h4>
+						<div class="tree-structure">
+<pre>                              S
+         _____________________|_____________________
+        |                                           VP
+        |                      _____________________|___
+        NP                    |                         NP
+    ____|____                 |          _______________|_______________
+   DT        N                V         |                               PP
+   |         |                |         NP                        ______|______
+  The       man              saw    ____|____                    |            NP
+                                   |         |                   |        ____|____
+                                  DT        N                    P       DT        N
+                                  |         |                    |       |         |
+                                 the       dog                 with     the    telescope</pre>
+						</div>
+						<p><strong>Meaning:</strong> The man saw the dog that had/was holding the telescope.</p>
+
+						<div class="analysis-box">
+							<h4>Analysis of Ambiguity</h4>
+							<p>This sentence demonstrates <strong>structural ambiguity</strong> in natural language processing. The prepositional phrase "with the telescope" can attach to either:</p>
+							<ol>
+								<li><strong>VP (Verb Phrase) Attachment</strong>: The telescope is the instrument used by the man for seeing (he used the telescope to see the dog).</li>
+								<li><strong>NP (Noun Phrase) Attachment</strong>: The telescope is associated with the dog (the dog has or is holding the telescope).</li>
+							</ol>
+							<p>Both interpretations are grammatically valid, and disambiguation requires:</p>
+							<ul>
+								<li><strong>Semantic knowledge</strong>: Understanding the likelihood of each scenario</li>
+								<li><strong>Contextual information</strong>: Previous sentences or world knowledge</li>
+								<li><strong>Pragmatic reasoning</strong>: What makes sense in the given situation</li>
+							</ul>
+							<p>This ambiguity is a classic example in computational linguistics and highlights the challenges intelligent agents face in natural language understanding.</p>
+						</div>
+					</div>
+
+					<a href="../../IA_Index.html" class="back-link">← Back to Intelligent Agents Portfolio</a>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="../../assets/js/jquery.min.js"></script>
+	<script src="../../assets/js/jquery.scrolly.min.js"></script>
+	<script src="../../assets/js/jquery.scrollex.min.js"></script>
+	<script src="../../assets/js/browser.min.js"></script>
+	<script src="../../assets/js/breakpoints.min.js"></script>
+	<script src="../../assets/js/util.js"></script>
+	<script src="../../assets/js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,486 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Units 9-11 - Collaborative Discussion 3 - MSc AI Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+		<style>
+			/* General page styling */
+			body {
+				line-height: 1.7;
+				color: #2a2f35;
+				background: #ffffff;
+			}
+
+			/* Main content styling */
+			#main {
+				background: #ffffff;
+				padding: 0 0 2em 0;
+			}
+
+			.inner {
+				max-width: 1000px;
+				margin: 0 auto;
+				padding: 0 2em;
+			}
+
+			/* Headers styling */
+			h2 {
+				color: #2a2f35;
+				font-size: 2.5em;
+				font-weight: 600;
+				margin: 0 0 0.8em 0;
+				position: relative;
+				padding-bottom: 0.5em;
+			}
+
+			h2:after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100px;
+				height: 3px;
+				background: #f56a6a;
+			}
+
+			h3 {
+				color: #2a2f35;
+				font-size: 1.5em;
+				margin-top: 2em;
+				margin-bottom: 1em;
+			}
+
+			/* Text elements */
+			p, li, strong, span {
+				color: #2a2f35;
+			}
+
+			/* Inline code styling */
+			code {
+				font-family: 'Consolas', 'Monaco', monospace;
+				font-size: 0.9em;
+				color: #2a2f35;
+				background: #e9ecef;
+				padding: 0.2em 0.4em;
+				border-radius: 3px;
+			}
+
+			/* Code blocks styling */
+			pre {
+				background: #f1f3f5;
+				border-left: 4px solid #f56a6a;
+				border-radius: 4px;
+				padding: 1.5em;
+				margin: 1.5em 0;
+				overflow-x: auto;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+			}
+
+			pre code {
+				background: transparent;
+				padding: 0;
+			}
+
+			pre code strong {
+				color: #f56a6a;
+			}
+
+			/* List styling */
+			ol {
+				counter-reset: item;
+				list-style: none;
+				padding-left: 0;
+			}
+
+			ol li {
+				position: relative;
+				padding-left: 2em;
+				margin-bottom: 1.5em;
+			}
+
+			ol li:before {
+				content: counter(item) ".";
+				counter-increment: item;
+				position: absolute;
+				left: 0;
+				color: #f56a6a;
+				font-weight: bold;
+			}
+
+			/* Contact section styling */
+			#contact {
+				background: #ffffff;
+				padding: 2em 0 1em 0;
+				border-top: 1px solid #e9ecef;
+			}
+
+			.contact-methods {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 3em;
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 1em 0;
+			}
+
+			.contact-method {
+				display: flex;
+				align-items: center;
+				gap: 0.8em;
+				transition: transform 0.2s ease;
+			}
+
+			.contact-method:hover {
+				transform: translateY(-2px);
+			}
+
+			.contact-method a {
+				border-bottom: none;
+				color: #2a2f35;
+				transition: color 0.2s ease;
+			}
+
+			.contact-method a:hover {
+				color: #f56a6a;
+			}
+
+			.contact-method .title {
+				font-size: 1em;
+				font-weight: 600;
+				color: #2a2f35;
+			}
+
+			/* Footer styling */
+			#footer {
+				background: #2a2f35;
+				color: rgba(255,255,255,0.9);
+				padding: 1em 0;
+				text-align: center;
+			}
+
+			#footer .copyright {
+				font-size: 0.9em;
+				margin: 0;
+			}
+
+			/* Responsive design */
+			@media screen and (max-width: 736px) {
+				.inner {
+					padding: 0 1.5em;
+				}
+
+				h2 {
+					font-size: 2em;
+				}
+
+				.contact-methods {
+					flex-direction: column;
+					gap: 1.5em;
+				}
+
+				pre {
+					padding: 1em;
+				}
+			}
+
+			/* Main content spacing */
+			#main {
+				padding: 0 0 2em 0;
+			}
+
+			#one {
+				padding-top: 1em;
+			}
+
+			/* Title spacing */
+			h2 {
+				color: #2a2f35;
+				font-size: 2.5em;
+				font-weight: 600;
+				margin: 0 0 0.8em 0;
+				position: relative;
+				padding-bottom: 0.5em;
+			}
+
+			/* First paragraph after title */
+			h2 + p {
+				margin-top: 0;
+			}
+
+			/* Activity header styling */
+			.activity-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 2em;
+				padding-bottom: 1em;
+				border-bottom: 1px solid #e9ecef;
+			}
+
+			.activity-title {
+				font-size: 1.2em;
+				color: #2a2f35;
+				font-weight: 600;
+			}
+
+			.activity-date {
+				color: #666;
+				font-size: 0.9em;
+			}
+
+			/* Discussion post styling */
+			.discussion-post {
+				background: #f8f9fa;
+				border-left: 4px solid #f56a6a;
+				padding: 1.5em;
+				margin: 1.5em 0;
+				border-radius: 4px;
+			}
+
+			.discussion-post .metadata {
+				color: #2a2f35;
+				font-size: 0.9em;
+				margin-bottom: 1em;
+				background: #f0f1f2;
+				padding: 0.8em;
+				border-radius: 4px;
+			}
+
+			.discussion-post .metadata strong {
+				color: #f56a6a;
+				margin-right: 0.5em;
+			}
+
+			.discussion-post .content {
+				margin-bottom: 0;
+				color: #2a2f35;
+			}
+
+			.discussion-post h4 {
+				color: #2a2f35;
+				margin-bottom: 0.5em;
+			}
+
+			.discussion-post p {
+				color: #2a2f35;
+				margin-bottom: 0.8em;
+			}
+
+			.discussion-post p:last-child {
+				margin-bottom: 0;
+			}
+
+			.references {
+				margin-top: 1em;
+				padding-top: 0.8em;
+				border-top: 1px solid #ddd;
+			}
+
+			.references h4 {
+				color: #2a2f35;
+				margin-bottom: 0.5em;
+			}
+
+			.references ul {
+				list-style-type: none;
+				padding-left: 0;
+				color: #2a2f35;
+				margin: 0;
+			}
+
+			.references ul li {
+				margin-bottom: 0.3em;
+				padding-left: 1em;
+				text-indent: -1em;
+				color: #2a2f35;
+			}
+
+			.references ul li:last-child {
+				margin-bottom: 0;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="../../../index.html" class="logo"><strong>MSc AI</strong> <span>Portfolio</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="../../../index.html">Home</a></li>
+							<li><a href="../../../landing.html">Portfolio</a></li>
+							<li><a href="../../../generic.html">About</a></li>
+							<li><a href="../../../elements.html">Contact</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+						<section id="one">
+							<div class="inner">
+								<div class="activity-header">
+									<div class="activity-title">Units 9-11 - Collaborative Discussion 3</div>
+								</div>
+
+								<h2>Ethics of Deep Learning and Generative AI</h2>
+								<p>This three-week collaborative discussion explores the ethical implications of deep learning and generative AI technologies. The discussion examines critical issues including bias amplification, copyright concerns, misinformation risks, and transparency challenges, while considering practical governance solutions through legal frameworks and technical standards.</p>
+
+								<h3>Initial Post</h3>
+								<div class="discussion-post">
+									<div class="content">
+										<p>The arrival of technologies that create content using deep learning models clearly raises serious ethical issues that need to be carefully considered. Deep learning, a part of machine learning, uses complex networks to learn from huge amounts of data (Sarker, 2021), while generative AI uses these models to produce new content, like text or images, that copies the patterns it has learned. The ethical problems that come from this are complex and important.</p>
+
+										<p>First, models trained on huge amounts of unfiltered internet data often pick up and magnify existing biases in society, leading to harmful stereotypes in what they create (Bender et al., 2021). Second, training these models also brings up serious questions about copyright and who owns the data, as they often use copyrighted material without permission or giving credit. Another major issue is the spread of misinformation; very realistic 'deepfakes' and AI-written text can be used as weapons to damage public trust and control conversations. Finally, many of these complex models are not transparent, which makes it hard to hold anyone accountable or to figure out why a system made a harmful or wrong decision.</p>
+
+										<p>While some might say these are just tools to help human creativity, their ability to create content on their own and on a large scale presents new risks. The European Union's Artificial Intelligence Act, an important new law reaching its final stages in 2024, tackles these dangers by requiring more transparency from general-purpose AI models (European Parliament, 2024). In practice, handling these risks requires both technical fixes and better rules. Practical steps should include requiring clear records of the data used for training and how the models behave, as suggested in frameworks like the NIST AI Risk Management Framework (NIST, 2023), and using strong processes where humans review the AI's work in important situations to ensure there is real human control and accountability.</p>
+									</div>
+									<div class="references">
+										<h4>References</h4>
+										<ul>
+											<li>Bender, E. M., Gebru, T., McMillan-Major, A. and Shmitchell, S. (2021) On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?. <em>FAccT '21: Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency</em>, pp. 610-623. DOI: https://doi.org/10.1145/3442188.3445922</li>
+											<li>European Parliament. (2024) <em>EU AI Act: first regulation on artificial intelligence</em>. Available from: https://www.europarl.europa.eu/news/en/headlines/society/20230601STO93804/eu-ai-act-first-regulation-on-artificial-intelligence [Accessed 7 October 2025].</li>
+											<li>NIST. (2023) <em>Artificial Intelligence Risk Management Framework (AI RMF 1.0)</em>. Available from: https://www.nist.gov/itl/ai-risk-management-framework [Accessed 7 October 2025].</li>
+											<li>Sarker, I. H. (2021) Deep Learning: A Comprehensive Overview on Techniques, Taxonomy, Applications and Research Directions. <em>SN Computer Science</em>, 2(6): 420. DOI: https://doi.org/10.1007/s42979-021-00815-1</li>
+										</ul>
+									</div>
+								</div>
+
+								<h3>Summary Post</h3>
+								<div class="discussion-post">
+									<div class="content">
+										<p>Our discussion on the ethics of deep learning and generative AI has been both timely and insightful, confirming that these powerful technologies bring a host of complex challenges alongside their benefits. The conversation has effectively moved from identifying key ethical problems to discussing practical, multi-layered solutions.</p>
+
+										<p>My initial post outlined the core ethical issues: systemic bias inherited from training data, copyright infringement, the potential for widespread misinformation, and a lack of transparency in "black box" models. The peer response from Ali Yousef Ebrahim Mohammed Alshehhi reinforced these points, rightly emphasising the real-world harm that amplified biases can cause and highlighting the value of specific governance tools like bias audits and model cards for improving transparency (Mehrabi et al., 2021; Mitchell et al., 2019).</p>
+
+										<p>Our course readings provide a broader context for this debate. The materials from Unit 9 demonstrate the sheer power and rapid advancement of deep learning, with systems now outperforming humans in complex tasks like image recognition (Forbes, 2015). This capability is precisely what makes the ethical stakes so high. Furthermore, as highlighted in Unit 10, there is immense commercial pressure to deploy these technologies to boost productivity (World Economic Forum, 2022), creating a tension between the drive for innovation and the need for responsible implementation.</p>
+
+										<p>The applications we explored in Unit 11, from creative content generation to the integration of AI in complex industrial systems (Malmi et al., 2016; Wang et al., 2016), show how deeply embedded this technology is becoming in society. This integration makes robust governance essential. Our discussion correctly identified that the solution is not purely technical but requires a combination of legal frameworks like the EU AI Act, industry standards such as the NIST AI Risk Management Framework, and a commitment to meaningful human oversight. By combining these approaches, we can work towards harnessing the benefits of deep learning while mitigating its significant ethical risks.</p>
+									</div>
+									<div class="references">
+										<h4>References</h4>
+										<ul>
+											<li>Bender, E. M., Gebru, T., McMillan-Major, A. and Shmitchell, S. (2021) 'On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?', <em>FAccT '21: Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency</em>, pp. 610-623.</li>
+											<li>Forbes (2015) <em>Microsoft's Deep Learning Project Outperforms Humans In Image Recognition</em>. Available at: https://www.forbes.com/sites/michaelthomsen/2015/02/19/microsofts-deep-learning-project-outperforms-humans-in-image-recognition/ (Accessed: 18 October 2025).</li>
+											<li>Malmi, E., Zosa, E., Kannala, J. and Toivonen, H. (2016) 'Dopelearning: A computational approach to rap lyrics generation', in <em>Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining</em>, pp. 245-254.</li>
+											<li>Mehrabi, N., Morstatter, F., Saxena, N., Lerman, K. and Galstyan, A. (2021) 'A Survey on Bias and Fairness in Machine Learning', <em>ACM Computing Surveys</em>, 54(6), pp. 1–35.</li>
+											<li>Mitchell, M., Wu, S., Zaldivar, A., Barnes, P., Vasserman, L., Hutchinson, B., Spitzer, E., Raji, I.D. and Gebru, T. (2019) 'Model Cards for Model Reporting', in <em>Proceedings of the Conference on Fairness, Accountability, and Transparency</em>, pp. 220–229.</li>
+											<li>Wang, S., Wan, J., Li, D., and Zhang, C. (2016) 'Towards smart factory for industry 4.0: a self-organized multi-agent system with big data based feedback and coordination', <em>Computer Networks</em>, 101, pp. 158–168.</li>
+											<li>World Economic Forum (2022) <em>How Deep Learning can improve productivity and boost business</em>. Available at: https://www.weforum.org/agenda/2022/01/deep-learning-business-productivity-revenue/ (Accessed: 18 October 2025).</li>
+										</ul>
+									</div>
+								</div>
+
+								<h3>Reflection</h3>
+								<div class="discussion-post">
+									<div class="content">
+										<p>This discussion crystallized the fundamental tension in contemporary AI development: the race between capability and accountability. The "stochastic parrots" critique (Bender et al., 2021) particularly resonated—these systems achieve remarkable performance while potentially lacking genuine understanding, creating unique ethical challenges absent in traditional software.</p>
+
+										<p>What struck me most was how the ethical issues compound rather than exist in isolation. Bias amplification doesn't just harm individuals; when combined with deepfakes and lack of transparency, it threatens entire information ecosystems. Peer feedback on governance tools like model cards (Mitchell et al., 2019) offered concrete pathways forward, but the discussion revealed these technical solutions require accompanying regulatory frameworks like the EU AI Act to be effective.</p>
+
+										<p>The integration of deep learning into Industry 4.0 applications (Wang et al., 2016) highlighted a critical insight: as these systems move from experimental to embedded, the window for establishing ethical guardrails narrows. This underscores the urgency of proactive governance rather than reactive regulation after harm occurs.</p>
+									</div>
+									<div class="references">
+										<h4>References</h4>
+										<ul>
+											<li>Bender, E. M., Gebru, T., McMillan-Major, A. and Shmitchell, S. (2021) 'On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?', <em>FAccT '21: Proceedings of the 2021 ACM Conference on Fairness, Accountability, and Transparency</em>, pp. 610-623.</li>
+											<li>Mitchell, M., Wu, S., Zaldivar, A., Barnes, P., Vasserman, L., Hutchinson, B., Spitzer, E., Raji, I.D. and Gebru, T. (2019) 'Model Cards for Model Reporting', in <em>Proceedings of the Conference on Fairness, Accountability, and Transparency</em>, pp. 220–229.</li>
+											<li>Wang, S., Wan, J., Li, D., and Zhang, C. (2016) 'Towards smart factory for industry 4.0: a self-organized multi-agent system with big data based feedback and coordination', <em>Computer Networks</em>, 101, pp. 158–168.</li>
+										</ul>
+									</div>
+								</div>
+
+								<div style="margin-top: 1em; border-top: 1px solid #e9ecef;">
+									<div style="max-width: 700px; margin: 0 auto; text-align: center; padding: 0.8em 0;">
+										<div style="display: flex; align-items: center; justify-content: center; gap: 1.2em; flex-wrap: wrap; font-size: 0.95em;">
+											<span style="color: #2a2f35; display: flex; align-items: center; gap: 0.5em; font-weight: 600; opacity: 0.8;">
+												<svg height="20" viewBox="0 0 16 16" width="20" style="fill: #2a2f35;">
+													<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+												</svg>
+												Source Artifacts
+											</span>
+											<span style="color: #e9ecef; font-weight: 300;">|</span>
+											<a href="https://github.com/FNrythm/eportfolio/blob/main/intelligent-agents/discussions/collaborative-discussion-3/initial-post.md" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 Initial Post</a>
+											<span style="color: #e9ecef; font-weight: 300;">|</span>
+											<a href="https://github.com/FNrythm/eportfolio/blob/main/intelligent-agents/discussions/collaborative-discussion-3/summary-post.md" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 Summary Post</a>
+											<span style="color: #e9ecef; font-weight: 300;">|</span>
+											<a href="https://github.com/FNrythm/eportfolio/blob/main/intelligent-agents/discussions/collaborative-discussion-3/reflection.md" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 Reflection</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+							<section class="split contact horizontal">
+								<div class="contact-methods">
+									<div class="contact-method">
+										<a href="mailto:fabian.narel@gmail.com">
+											<span class="icon solid alt fa-envelope"></span>
+										</a>
+										<span class="title">Email</span>
+									</div>
+								
+									<div class="contact-method">
+										<a href="https://github.com/FNrythm" target="_blank" rel="noopener noreferrer">
+											<span class="icon brands alt fa-github"></span>
+										</a>
+										<span class="title">GitHub</span>
+									</div>
+								
+									<div class="contact-method">
+										<a href="https://www.linkedin.com/in/fabiannarel/" target="_blank" rel="noopener noreferrer">
+											<span class="icon brands alt fa-linkedin-in"></span>
+										</a>
+										<span class="title">LinkedIn</span>
+									</div>
+								</div>
+							</section>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="copyright">
+								<li>&copy; Fabian Narel</li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../../assets/js/jquery.min.js"></script>
+			<script src="../../../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../../../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../../../assets/js/browser.min.js"></script>
+			<script src="../../../assets/js/breakpoints.min.js"></script>
+			<script src="../../../assets/js/util.js"></script>
+			<script src="../../../assets/js/main.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+	</body>
+</html>
+

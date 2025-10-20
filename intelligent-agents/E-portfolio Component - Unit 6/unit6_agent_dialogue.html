@@ -1,0 +1,378 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Unit 6: Agent Dialogue with KQML and KIF - Intelligent Agents</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../../assets/css/main.css" />
+	<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+	<style>
+		body {
+			line-height: 1.7;
+			color: #2a2f35;
+			background: #ffffff;
+		}
+
+		.inner {
+			max-width: 1000px;
+			margin: 0 auto;
+			padding: 2em;
+		}
+
+		p, li, span, strong {
+			color: #2a2f35;
+		}
+
+		ul, ol {
+			color: #2a2f35;
+		}
+
+		h1 {
+			color: #2a2f35;
+			border-bottom: 3px solid #f56a6a;
+			padding-bottom: 0.5em;
+			margin-bottom: 1em;
+		}
+
+		h2 {
+			color: #f56a6a;
+			margin-top: 2em;
+			border-bottom: 2px solid #e5e7eb;
+			padding-bottom: 0.3em;
+		}
+
+		h3 {
+			color: #2a2f35;
+			margin-top: 1.5em;
+		}
+
+		.activity-meta {
+			background: #f8f9fa;
+			padding: 1.5em;
+			border-left: 4px solid #f56a6a;
+			margin-bottom: 2em;
+			border-radius: 4px;
+		}
+
+		.activity-meta p {
+			margin: 0.5em 0;
+			color: #2a2f35;
+		}
+
+		.activity-meta strong {
+			color: #2a2f35;
+		}
+
+		pre {
+			background: #f1f3f5;
+			border-left: 4px solid #f56a6a;
+			border-radius: 4px;
+			padding: 1.5em;
+			overflow-x: auto;
+			margin: 1.5em 0;
+			color: #2a2f35;
+		}
+
+		code {
+			font-family: 'Consolas', 'Monaco', monospace;
+			font-size: 0.9em;
+			background: #e9ecef;
+			padding: 0.2em 0.4em;
+			border-radius: 3px;
+			color: #2a2f35;
+		}
+
+		pre code {
+			background: transparent;
+			padding: 0;
+			color: #2a2f35;
+		}
+
+		.dialogue-box {
+			background: #ffffff;
+			border: 2px solid #e5e7eb;
+			border-radius: 8px;
+			padding: 1.5em;
+			margin: 1.5em 0;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+		}
+
+		.dialogue-box h4 {
+			color: #f56a6a;
+			margin-top: 0;
+			display: flex;
+			align-items: center;
+			gap: 0.5em;
+		}
+
+		.dialogue-box p,
+		.dialogue-box strong,
+		.dialogue-box li {
+			color: #2a2f35;
+		}
+
+		.agent-alice {
+			border-left: 4px solid #4299e1;
+		}
+
+		.agent-bob {
+			border-left: 4px solid #48bb78;
+		}
+
+		.flow-diagram {
+			background: #f8f9fa;
+			padding: 1.5em;
+			border-radius: 4px;
+			margin: 1.5em 0;
+			font-family: monospace;
+			white-space: pre;
+			overflow-x: auto;
+			color: #2a2f35;
+		}
+
+		.key-points {
+			background: #fff3cd;
+			border-left: 4px solid #ffc107;
+			padding: 1em;
+			margin: 1em 0;
+			border-radius: 4px;
+			color: #2a2f35;
+		}
+
+		.key-points strong,
+		.key-points ul,
+		.key-points li,
+		.key-points p {
+			color: #2a2f35;
+		}
+
+		.advantages-list {
+			background: #d4edda;
+			border-left: 4px solid #28a745;
+			padding: 1em 1em 1em 2em;
+			margin: 1em 0;
+			border-radius: 4px;
+			color: #2a2f35;
+		}
+
+		.advantages-list strong,
+		.advantages-list ol,
+		.advantages-list li,
+		.advantages-list p {
+			color: #2a2f35;
+		}
+
+		.limitations-list {
+			background: #f8d7da;
+			border-left: 4px solid #dc3545;
+			padding: 1em 1em 1em 2em;
+			margin: 1em 0;
+			border-radius: 4px;
+			color: #2a2f35;
+		}
+
+		.limitations-list strong,
+		.limitations-list ul,
+		.limitations-list li,
+		.limitations-list p {
+			color: #2a2f35;
+		}
+
+		.back-link {
+			display: inline-block;
+			margin-top: 2em;
+			padding: 0.5em 1em;
+			background: #2a2f35;
+			color: white;
+			text-decoration: none;
+			border-radius: 4px;
+			transition: background 0.3s;
+		}
+
+		.back-link:hover {
+			background: #f56a6a;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin: 1.5em 0;
+		}
+
+		table th, table td {
+			padding: 0.75em;
+			border: 1px solid #e5e7eb;
+			text-align: left;
+		}
+
+		table th {
+			background: #f8f9fa;
+			font-weight: 600;
+			color: #2a2f35;
+		}
+
+		table tr:hover {
+			background: #f8f9fa;
+		}
+	</style>
+</head>
+<body class="is-preload">
+	<div id="wrapper">
+		<div id="main" class="alt">
+			<section id="one">
+				<div class="inner">
+					<h1>Unit 6 Activity: Agent Dialogue with KQML and KIF</h1>
+
+					<h2>Activity Overview</h2>
+					<p>This activity demonstrates agent-to-agent communication using KQML (Knowledge Query and Manipulation Language) and KIF (Knowledge Interchange Format).</p>
+					<p><strong>Scenario:</strong> Alice (procurement agent) queries Bob (warehouse stock control agent) about 50-inch television inventory and specifications.</p>
+
+					<h2>Dialogue Implementation</h2>
+
+					<div class="dialogue-box agent-alice">
+						<h4>Message 1: Alice → Bob</h4>
+						<p><strong>Query: Check if 50-inch TVs are in stock</strong></p>
+						<pre><code>(ask-if
+  :sender Alice
+  :receiver Bob
+  :content (exists ?tv
+              (and (television ?tv)
+                   (screen-size ?tv 50)
+                   (in-stock ?tv)))
+  :language KIF
+  :ontology warehouse-inventory
+  :reply-with query-001)</code></pre>
+						<p><strong>Explanation:</strong> Alice uses <code>ask-if</code> to query whether a statement is true. The content is a KIF expression asking if there exists a television with a 50-inch screen that is in stock.</p>
+					</div>
+
+					<div class="dialogue-box agent-bob">
+						<h4>Message 2: Bob → Alice</h4>
+						<p><strong>Response: Confirm stock availability</strong></p>
+						<pre><code>(reply
+  :sender Bob
+  :receiver Alice
+  :content (exists ?tv
+              (and (television ?tv)
+                   (screen-size ?tv 50)
+                   (in-stock ?tv)
+                   (stock-quantity ?tv 45)))
+  :language KIF
+  :ontology warehouse-inventory
+  :in-reply-to query-001
+  :reply-with response-001)</code></pre>
+						<p><strong>Explanation:</strong> Bob confirms that 50-inch TVs are in stock and provides additional information: 45 units available.</p>
+					</div>
+
+					<div class="dialogue-box agent-alice">
+						<h4>Message 3: Alice → Bob</h4>
+						<p><strong>Query: Request information about HDMI specifications</strong></p>
+						<pre><code>(ask-all
+  :sender Alice
+  :receiver Bob
+  :content (and (television ?tv)
+                (screen-size ?tv 50)
+                (in-stock ?tv)
+                (hdmi-slots ?tv ?slots))
+  :language KIF
+  :ontology warehouse-inventory
+  :reply-with query-002)</code></pre>
+						<p><strong>Explanation:</strong> Alice uses <code>ask-all</code> to retrieve all matching answers for the number of HDMI slots on 50-inch TVs that are in stock.</p>
+					</div>
+
+					<div class="dialogue-box agent-bob">
+						<h4>Message 4: Bob → Alice</h4>
+						<p><strong>Response: Provide HDMI slot information for all matching TVs</strong></p>
+						<pre><code>(reply
+  :sender Bob
+  :receiver Alice
+  :content (
+    (and (television tv-model-sony-x90j)
+         (screen-size tv-model-sony-x90j 50)
+         (in-stock tv-model-sony-x90j)
+         (hdmi-slots tv-model-sony-x90j 4)
+         (hdmi-version tv-model-sony-x90j "HDMI 2.1")
+         (stock-quantity tv-model-sony-x90j 25))
+    (and (television tv-model-samsung-qn50)
+         (screen-size tv-model-samsung-qn50 50)
+         (in-stock tv-model-samsung-qn50)
+         (hdmi-slots tv-model-samsung-qn50 3)
+         (hdmi-version tv-model-samsung-qn50 "HDMI 2.0")
+         (stock-quantity tv-model-samsung-qn50 20)))
+  :language KIF
+  :ontology warehouse-inventory
+  :in-reply-to query-002
+  :reply-with response-002)</code></pre>
+						<p><strong>Explanation:</strong> Bob provides detailed information for all 50-inch TVs in stock:
+							<ul>
+								<li>Sony X90J: 4 HDMI slots (HDMI 2.1), 25 units</li>
+								<li>Samsung QN50: 3 HDMI slots (HDMI 2.0), 20 units</li>
+							</ul>
+						</p>
+					</div>
+
+					<div class="dialogue-box agent-alice">
+						<h4>Message 5: Alice → Bob</h4>
+						<p><strong>Query: Request specific model details</strong></p>
+						<pre><code>(ask-one
+  :sender Alice
+  :receiver Bob
+  :content (and (television tv-model-sony-x90j)
+                (price tv-model-sony-x90j ?price)
+                (warranty tv-model-sony-x90j ?warranty))
+  :language KIF
+  :ontology warehouse-inventory
+  :reply-with query-003)</code></pre>
+						<p><strong>Explanation:</strong> Alice uses <code>ask-one</code> to request price and warranty information for the Sony model.</p>
+					</div>
+
+					<div class="dialogue-box agent-bob">
+						<h4>Message 6: Bob → Alice</h4>
+						<p><strong>Response: Provide pricing and warranty information</strong></p>
+						<pre><code>(reply
+  :sender Bob
+  :receiver Alice
+  :content (and (television tv-model-sony-x90j)
+                (price tv-model-sony-x90j 799.99)
+                (currency price-usd)
+                (warranty tv-model-sony-x90j 24)
+                (warranty-unit months))
+  :language KIF
+  :ontology warehouse-inventory
+  :in-reply-to query-003
+  :reply-with response-003)</code></pre>
+						<p><strong>Explanation:</strong> Bob provides pricing ($799.99 USD) and warranty (24 months) information. Alice now has complete information to make a procurement decision.</p>
+					</div>
+
+					<h3>Complete Dialogue Sequence</h3>
+					<div class="flow-diagram">Alice                                                Bob
+  |                                                   |
+  |-----(1) ask-if: 50" TVs in stock?--------------->|
+  |                                                   |
+  |&lt;----(2) reply: Yes, 45 units available-----------|
+  |                                                   |
+  |-----(3) ask-all: HDMI slots info?--------------->|
+  |                                                   |
+  |&lt;----(4) reply: Sony (4 HDMI), Samsung (3 HDMI)---|
+  |                                                   |
+  |-----(5) ask-one: Sony price & warranty?--------->|
+  |                                                   |
+  |&lt;----(6) reply: $799.99, 24-month warranty--------|
+  |                                                   |</div>
+
+					<a href="../../IA_Index.html" class="back-link">← Back to Intelligent Agents Portfolio</a>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="../../assets/js/jquery.min.js"></script>
+	<script src="../../assets/js/jquery.scrolly.min.js"></script>
+	<script src="../../assets/js/jquery.scrollex.min.js"></script>
+	<script src="../../assets/js/browser.min.js"></script>
+	<script src="../../assets/js/breakpoints.min.js"></script>
+	<script src="../../assets/js/util.js"></script>
+	<script src="../../assets/js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,487 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Units 5-7 - Collaborative Discussion 2 - MSc AI Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+		<style>
+			/* General page styling */
+			body {
+				line-height: 1.7;
+				color: #2a2f35;
+				background: #ffffff;
+			}
+
+			/* Main content styling */
+			#main {
+				background: #ffffff;
+				padding: 0 0 2em 0;
+			}
+
+			.inner {
+				max-width: 1000px;
+				margin: 0 auto;
+				padding: 0 2em;
+			}
+
+			/* Headers styling */
+			h2 {
+				color: #2a2f35;
+				font-size: 2.5em;
+				font-weight: 600;
+				margin: 0 0 0.8em 0;
+				position: relative;
+				padding-bottom: 0.5em;
+			}
+
+			h2:after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100px;
+				height: 3px;
+				background: #f56a6a;
+			}
+
+			h3 {
+				color: #2a2f35;
+				font-size: 1.5em;
+				margin-top: 2em;
+				margin-bottom: 1em;
+			}
+
+			/* Text elements */
+			p, li, strong, span {
+				color: #2a2f35;
+			}
+
+			/* Inline code styling */
+			code {
+				font-family: 'Consolas', 'Monaco', monospace;
+				font-size: 0.9em;
+				color: #2a2f35;
+				background: #e9ecef;
+				padding: 0.2em 0.4em;
+				border-radius: 3px;
+			}
+
+			/* Code blocks styling */
+			pre {
+				background: #f1f3f5;
+				border-left: 4px solid #f56a6a;
+				border-radius: 4px;
+				padding: 1.5em;
+				margin: 1.5em 0;
+				overflow-x: auto;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+			}
+
+			pre code {
+				background: transparent;
+				padding: 0;
+			}
+
+			pre code strong {
+				color: #f56a6a;
+			}
+
+			/* List styling */
+			ol {
+				counter-reset: item;
+				list-style: none;
+				padding-left: 0;
+			}
+
+			ol li {
+				position: relative;
+				padding-left: 2em;
+				margin-bottom: 1.5em;
+			}
+
+			ol li:before {
+				content: counter(item) ".";
+				counter-increment: item;
+				position: absolute;
+				left: 0;
+				color: #f56a6a;
+				font-weight: bold;
+			}
+
+			/* Contact section styling */
+			#contact {
+				background: #ffffff;
+				padding: 2em 0 1em 0;
+				border-top: 1px solid #e9ecef;
+			}
+
+			.contact-methods {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 3em;
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 1em 0;
+			}
+
+			.contact-method {
+				display: flex;
+				align-items: center;
+				gap: 0.8em;
+				transition: transform 0.2s ease;
+			}
+
+			.contact-method:hover {
+				transform: translateY(-2px);
+			}
+
+			.contact-method a {
+				border-bottom: none;
+				color: #2a2f35;
+				transition: color 0.2s ease;
+			}
+
+			.contact-method a:hover {
+				color: #f56a6a;
+			}
+
+			.contact-method .title {
+				font-size: 1em;
+				font-weight: 600;
+				color: #2a2f35;
+			}
+
+			/* Footer styling */
+			#footer {
+				background: #2a2f35;
+				color: rgba(255,255,255,0.9);
+				padding: 1em 0;
+				text-align: center;
+			}
+
+			#footer .copyright {
+				font-size: 0.9em;
+				margin: 0;
+			}
+
+			/* Responsive design */
+			@media screen and (max-width: 736px) {
+				.inner {
+					padding: 0 1.5em;
+				}
+
+				h2 {
+					font-size: 2em;
+				}
+
+				.contact-methods {
+					flex-direction: column;
+					gap: 1.5em;
+				}
+
+				pre {
+					padding: 1em;
+				}
+			}
+
+			/* Main content spacing */
+			#main {
+				padding: 0 0 2em 0;
+			}
+
+			#one {
+				padding-top: 1em;
+			}
+
+			/* Title spacing */
+			h2 {
+				color: #2a2f35;
+				font-size: 2.5em;
+				font-weight: 600;
+				margin: 0 0 0.8em 0;
+				position: relative;
+				padding-bottom: 0.5em;
+			}
+
+			/* First paragraph after title */
+			h2 + p {
+				margin-top: 0;
+			}
+
+			/* Activity header styling */
+			.activity-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 2em;
+				padding-bottom: 1em;
+				border-bottom: 1px solid #e9ecef;
+			}
+
+			.activity-title {
+				font-size: 1.2em;
+				color: #2a2f35;
+				font-weight: 600;
+			}
+
+			.activity-date {
+				color: #666;
+				font-size: 0.9em;
+			}
+
+			/* Discussion post styling */
+			.discussion-post {
+				background: #f8f9fa;
+				border-left: 4px solid #f56a6a;
+				padding: 1.5em;
+				margin: 1.5em 0;
+				border-radius: 4px;
+			}
+
+			.discussion-post .metadata {
+				color: #2a2f35;
+				font-size: 0.9em;
+				margin-bottom: 1em;
+				background: #f0f1f2;
+				padding: 0.8em;
+				border-radius: 4px;
+			}
+
+			.discussion-post .metadata strong {
+				color: #f56a6a;
+				margin-right: 0.5em;
+			}
+
+			.discussion-post .content {
+				margin-bottom: 0;
+				color: #2a2f35;
+			}
+
+			.discussion-post h4 {
+				color: #2a2f35;
+				margin-bottom: 0.5em;
+			}
+
+			.discussion-post p {
+				color: #2a2f35;
+				margin-bottom: 0.8em;
+			}
+
+			.discussion-post p:last-child {
+				margin-bottom: 0;
+			}
+
+			.references {
+				margin-top: 1em;
+				padding-top: 0.8em;
+				border-top: 1px solid #ddd;
+			}
+
+			.references h4 {
+				color: #2a2f35;
+				margin-bottom: 0.5em;
+			}
+
+			.references ul {
+				list-style-type: none;
+				padding-left: 0;
+				color: #2a2f35;
+				margin: 0;
+			}
+
+			.references ul li {
+				margin-bottom: 0.3em;
+				padding-left: 1em;
+				text-indent: -1em;
+				color: #2a2f35;
+			}
+
+			.references ul li:last-child {
+				margin-bottom: 0;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="../../../index.html" class="logo"><strong>MSc AI</strong> <span>Portfolio</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="../../../index.html">Home</a></li>
+							<li><a href="../../../landing.html">Portfolio</a></li>
+							<li><a href="../../../generic.html">About</a></li>
+							<li><a href="../../../elements.html">Contact</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+						<section id="one">
+							<div class="inner">
+								<div class="activity-header">
+									<div class="activity-title">Units 5-7 - Collaborative Discussion 2</div>
+								</div>
+
+								<h2>Agent Communication Languages: Evolution and Adaptation</h2>
+								<p>This three-week collaborative discussion explores agent communication languages (ACLs) and their role in multi-agent systems. The discussion examines the advantages and limitations of formal communication protocols like KQML, and explores how the field is evolving toward more adaptive, learned communication strategies through natural language processing and modern AI techniques.</p>
+
+								<h3>Initial Post</h3>
+								<div class="discussion-post">
+									<div class="content">
+										<p>Knowledge Query and Manipulation Language (KQML) and Agent Communication Languages (ACLs) were developed to facilitate interaction among independent and heterogeneous software agents. Their most significant property is abstraction: agents can communicate via high-level "speech acts" (e.g., inform, request, query) rather than invoking a specific procedure. This allows agents to cooperate, negotiate, and solve problems in environments where they may have been created independently or are running on different systems (Finin et al., 1993).</p>
+
+										<p>A key advantage offered by ACLs is interoperability. As platform-independent protocols, they enable agents built with different underlying technologies to coordinate effectively in open systems. This is a primary reason why many modern multi-agent frameworks continue to endorse communication standards based on ACLs, as they allow for seamless integration into larger, more diverse agent communities. Furthermore, ACLs are designed to express not only the content of a message but also the sender's intent, which facilitates a richer and more flexible interaction than simple procedure calls.</p>
+
+										<p>However, ACLs also present limitations. Their effectiveness often depends on shared ontologies, creating potential for miscommunication if an agent has a different interpretation of a given term. Maintaining semantic agreement across a distributed system can be a costly and complex task. Additionally, ACLs carry processing overhead that reduces efficiency in comparison with direct method invocation. Method calls in languages such as Python or Java are lightweight, deterministic, and tightly bound to the implementation context, representing a best practice in closed systems. This procedural approach is fundamentally at odds with the agent-oriented paradigm, which prioritizes the autonomy of an agent to decide how to behave.</p>
+									</div>
+									<div class="references">
+										<h4>References</h4>
+										<ul>
+											<li>Austin, J.L. (1975) <em>How to do things with words</em>. Oxford: Oxford University Press.</li>
+											<li>Finin, T., Weber, J., Wiederhold, G., Genesereth, M., Fritzson, R., McKay, D., McGuire, J., Pelavin, R., Shapiro, S. and Beck, C. (1993) <em>Specification of the KQML agent-communication</em>. DARPA Knowledge Sharing Effort.</li>
+											<li>Searle, J.R. (1969) <em>Speech acts: An essay in the philosophy of language</em>. Cambridge: Cambridge University Press.</li>
+										</ul>
+									</div>
+								</div>
+
+								<h3>Summary Post</h3>
+								<div class="discussion-post">
+									<div class="content">
+										<p>Our discussion on agent communication languages (ACLs) has provided a clear overview of their foundational role and the evolving landscape of multi-agent coordination. The conversation has effectively contrasted the benefits of formal languages with their inherent limitations, and considered how newer approaches are addressing these challenges.</p>
+
+										<p>In my initial post, I focused on how ACLs like KQML enable interoperability in diverse, open systems. Their key advantage, rooted in the speech-act theory of Searle (1969), is that they allow agents to communicate intent through high-level performatives (e.g., 'inform', 'request'), abstracting away from specific implementations (Finin et al., 1994). This facilitates flexible coordination among independently developed agents.</p>
+
+										<p>However, as was discussed, the primary drawback of this approach is its reliance on a shared ontology. Without semantic agreement on the terms used in a message, communication can fail. This challenge is significant in open environments where agents may have incomplete or mismatched knowledge, making ontology negotiation a critical but difficult task (Payne and Tamma, 2014).</p>
+
+										<p>The feedback from Martyna Antas rightly pointed out that the field is moving beyond these rigid structures. Our course readings support this view, particularly those from Unit 7, which explore how semantic meaning can be acquired automatically from text. Techniques for learning distributed word representations (Mikolov et al., 2013) and identifying semantic relationships (Hearst, 1992) provide a foundation for agents to develop more flexible and emergent communication protocols. These data-driven methods, alongside reinforcement learning and large language models, offer a path to overcoming the bottleneck of pre-defined ontologies by allowing agents to learn and adapt their communication strategies dynamically.</p>
+
+										<p>This suggests that while formal ACLs established the core principles of agent communication, the future appears to lie in a spectrum of mechanisms. The insights from natural language processing are enabling a shift towards more adaptive and less brittle forms of communication, potentially combining the explicit intentionality of classic ACLs with the learned flexibility of modern AI.</p>
+									</div>
+									<div class="references">
+										<h4>References</h4>
+										<ul>
+											<li>Finin, T., Weber, J., Wiederhold, G., Genesereth, M., Fritzson, R., McKay, D., McGuire, J., Pelavin, R., Shapiro, S. and Beck, C. (1994) 'KQML as an agent communication language', in <em>Proceedings of the third international conference on Information and knowledge management</em>, pp. 456-463.</li>
+											<li>Hearst, M.A. (1992) 'Automatic acquisition of hyponyms from large text corpora', in <em>COLING 1992 Volume 2: The 14th International Conference on Computational Linguistics</em>.</li>
+											<li>Mikolov, T., Chen, K., Corrado, G. and Dean, J. (2013) 'Efficient estimation of word representations in vector space', <em>arXiv preprint arXiv:1301.3781</em>.</li>
+											<li>Payne, T.R and Tamma, V. (2014) 'Negotiating over ontological correspondences with asymmetric and incomplete knowledge', <em>Journal of the Brazilian Computer Society</em>, 20(1), p. 10.</li>
+											<li>Searle, J.R. (1969) <em>Speech acts: An essay in the philosophy of language</em>. Cambridge: Cambridge University Press.</li>
+											<li>Yan, B., Zhou, Z., Zhang, L., Zhang, L., Zhou, Z., Miao, D., Li, Z., Li, C. and Zhang, X. (2025) <em>Beyond self-talk: a communication-centric survey of LLM-based multi-agent systems</em>. arXiv preprint. Available at: https://arxiv.org/abs/2502.14321 (Accessed: 28 September 2025).</li>
+											<li>Zhu, C., Dastani, M. and Wang, S. (2024) 'A survey of multi-agent deep reinforcement learning with communication', <em>Autonomous Agents and Multi-Agent Systems</em>, 38(4), p. 4.</li>
+										</ul>
+									</div>
+								</div>
+
+								<h3>Reflection</h3>
+								<div class="discussion-post">
+									<div class="content">
+										<p>This discussion illuminated the tension between formal structure and adaptive flexibility in agent communication. The realization that ACLs' greatest strength—their abstraction through speech acts (Searle, 1969)—also creates their greatest weakness through ontology dependence was particularly striking.</p>
+
+										<p>What emerged most clearly was the evolution of the field itself. The shift from rigid, pre-defined communication protocols toward learned, emergent communication strategies (Mikolov et al., 2013; Yan et al., 2025) represents a fundamental change in how we approach multi-agent coordination. Rather than imposing structure from above, modern approaches allow agents to discover effective communication patterns through interaction and learning.</p>
+
+										<p>Peer feedback highlighted this transition from theory to practice, showing how contemporary research combines the intentional clarity of classical ACLs with the adaptive capabilities of modern machine learning. This suggests future multi-agent systems will need hybrid approaches—maintaining explicit communicative intent while enabling flexible, context-dependent interpretation.</p>
+									</div>
+									<div class="references">
+										<h4>References</h4>
+										<ul>
+											<li>Mikolov, T., Chen, K., Corrado, G. and Dean, J. (2013) 'Efficient estimation of word representations in vector space', <em>arXiv preprint arXiv:1301.3781</em>.</li>
+											<li>Searle, J.R. (1969) <em>Speech acts: An essay in the philosophy of language</em>. Cambridge: Cambridge University Press.</li>
+											<li>Yan, B., Zhou, Z., Zhang, L., Zhang, L., Zhou, Z., Miao, D., Li, Z., Li, C. and Zhang, X. (2025) <em>Beyond self-talk: a communication-centric survey of LLM-based multi-agent systems</em>. arXiv preprint.</li>
+										</ul>
+									</div>
+								</div>
+
+								<div style="margin-top: 1em; border-top: 1px solid #e9ecef;">
+									<div style="max-width: 700px; margin: 0 auto; text-align: center; padding: 0.8em 0;">
+										<div style="display: flex; align-items: center; justify-content: center; gap: 1.2em; flex-wrap: wrap; font-size: 0.95em;">
+											<span style="color: #2a2f35; display: flex; align-items: center; gap: 0.5em; font-weight: 600; opacity: 0.8;">
+												<svg height="20" viewBox="0 0 16 16" width="20" style="fill: #2a2f35;">
+													<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+												</svg>
+												Source Artifacts
+											</span>
+											<span style="color: #e9ecef; font-weight: 300;">|</span>
+											<a href="https://github.com/FNrythm/eportfolio/blob/main/intelligent-agents/discussions/collaborative-discussion-2/initial-post.md" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 Initial Post</a>
+											<span style="color: #e9ecef; font-weight: 300;">|</span>
+											<a href="https://github.com/FNrythm/eportfolio/blob/main/intelligent-agents/discussions/collaborative-discussion-2/summary-post.md" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 Summary Post</a>
+											<span style="color: #e9ecef; font-weight: 300;">|</span>
+											<a href="https://github.com/FNrythm/eportfolio/blob/main/intelligent-agents/discussions/collaborative-discussion-2/reflection.md" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📝 Reflection</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+
+				<!-- Contact -->
+					<section id="contact">
+						<div class="inner">
+							<section class="split contact horizontal">
+								<div class="contact-methods">
+									<div class="contact-method">
+										<a href="mailto:fabian.narel@gmail.com">
+											<span class="icon solid alt fa-envelope"></span>
+										</a>
+										<span class="title">Email</span>
+									</div>
+								
+									<div class="contact-method">
+										<a href="https://github.com/FNrythm" target="_blank" rel="noopener noreferrer">
+											<span class="icon brands alt fa-github"></span>
+										</a>
+										<span class="title">GitHub</span>
+									</div>
+								
+									<div class="contact-method">
+										<a href="https://www.linkedin.com/in/fabiannarel/" target="_blank" rel="noopener noreferrer">
+											<span class="icon brands alt fa-linkedin-in"></span>
+										</a>
+										<span class="title">LinkedIn</span>
+									</div>
+								</div>
+							</section>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="copyright">
+								<li>&copy; Fabian Narel</li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../../assets/js/jquery.min.js"></script>
+			<script src="../../../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../../../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../../../assets/js/browser.min.js"></script>
+			<script src="../../../assets/js/breakpoints.min.js"></script>
+			<script src="../../../assets/js/util.js"></script>
+			<script src="../../../assets/js/main.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+	</body>
+</html>
+

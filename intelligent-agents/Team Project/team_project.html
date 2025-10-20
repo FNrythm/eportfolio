@@ -1,0 +1,501 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Team Project - Multi-Agent Email Forensics System - Intelligent Agents</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../../assets/css/main.css" />
+	<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+	<style>
+		body {
+			line-height: 1.7;
+			color: #2a2f35;
+			background: #ffffff;
+		}
+
+		.inner {
+			max-width: 1000px;
+			margin: 0 auto;
+			padding: 2em;
+		}
+
+		p, li, span, strong {
+			color: #2a2f35;
+		}
+
+		ul, ol {
+			color: #2a2f35;
+		}
+
+		h1 {
+			color: #2a2f35;
+			border-bottom: 3px solid #f56a6a;
+			padding-bottom: 0.5em;
+			margin-bottom: 1em;
+		}
+
+		h2 {
+			color: #f56a6a;
+			margin-top: 2em;
+			border-bottom: 2px solid #e5e7eb;
+			padding-bottom: 0.3em;
+		}
+
+		h3 {
+			color: #2a2f35;
+			margin-top: 1.5em;
+			font-size: 1.3em;
+		}
+
+		h4 {
+			color: #2a2f35;
+			margin-top: 1em;
+		}
+
+		.project-meta {
+			background: #f8f9fa;
+			padding: 1.5em;
+			border-left: 4px solid #f56a6a;
+			margin-bottom: 2em;
+			border-radius: 4px;
+		}
+
+		.project-meta p {
+			margin: 0.5em 0;
+			color: #2a2f35;
+		}
+
+		.project-meta strong {
+			color: #f56a6a;
+		}
+
+		.overview-box {
+			background: #e3f2fd;
+			border-left: 4px solid #2196f3;
+			padding: 1.5em;
+			margin: 1.5em 0;
+			border-radius: 4px;
+		}
+
+		.overview-box p, .overview-box ul, .overview-box li {
+			color: #2a2f35;
+		}
+
+		.overview-box h4 {
+			color: #1976d2;
+			margin-top: 1em;
+		}
+
+		.overview-box h4:first-child {
+			margin-top: 0;
+		}
+
+		.agent-box {
+			background: #f3e5f5;
+			border-left: 4px solid #9c27b0;
+			padding: 1.5em;
+			margin: 1.5em 0;
+			border-radius: 4px;
+		}
+
+		.agent-box p, .agent-box ul, .agent-box li {
+			color: #2a2f35;
+		}
+
+		.agent-box h4 {
+			color: #7b1fa2;
+			margin-top: 1em;
+		}
+
+		.agent-box h4:first-child {
+			margin-top: 0;
+		}
+
+		.requirements-box {
+			background: #e8f5e9;
+			border-left: 4px solid #4caf50;
+			padding: 1.5em;
+			margin: 1.5em 0;
+			border-radius: 4px;
+		}
+
+		.requirements-box p, .requirements-box ul, .requirements-box li {
+			color: #2a2f35;
+		}
+
+		.requirements-box h4 {
+			color: #388e3c;
+			margin-top: 1em;
+		}
+
+		.requirements-box h4:first-child {
+			margin-top: 0;
+		}
+
+		.risk-box {
+			background: #fff3e0;
+			border-left: 4px solid #ff9800;
+			padding: 1.5em;
+			margin: 1.5em 0;
+			border-radius: 4px;
+		}
+
+		.risk-box p, .risk-box ul, .risk-box li {
+			color: #2a2f35;
+		}
+
+		.risk-box h4 {
+			color: #f57c00;
+			margin-top: 1em;
+		}
+
+		.risk-box h4:first-child {
+			margin-top: 0;
+		}
+
+		.evaluation-box {
+			background: #fce4ec;
+			border-left: 4px solid #e91e63;
+			padding: 1.5em;
+			margin: 1.5em 0;
+			border-radius: 4px;
+		}
+
+		.evaluation-box p, .evaluation-box ul, .evaluation-box li {
+			color: #2a2f35;
+		}
+
+		.evaluation-box h4 {
+			color: #c2185b;
+			margin-top: 1em;
+		}
+
+		.evaluation-box h4:first-child {
+			margin-top: 0;
+		}
+
+		.my-contribution-box {
+			background: #fffde7;
+			border-left: 4px solid #fdd835;
+			padding: 1.5em;
+			margin: 2em 0;
+			border-radius: 4px;
+		}
+
+		.my-contribution-box p, .my-contribution-box ul, .my-contribution-box li {
+			color: #2a2f35;
+		}
+
+		.my-contribution-box h3 {
+			color: #f57c00;
+			margin-top: 0;
+			border-bottom: 2px solid #fdd835;
+			padding-bottom: 0.5em;
+		}
+
+		.my-contribution-box h4 {
+			color: #f57c00;
+			margin-top: 1em;
+		}
+
+		.reflection-box {
+			background: #f5f5f5;
+			border-left: 4px solid #607d8b;
+			padding: 1.5em;
+			margin: 2em 0;
+			border-radius: 4px;
+		}
+
+		.reflection-box p, .reflection-box ul, .reflection-box li {
+			color: #2a2f35;
+		}
+
+		.reflection-box h3 {
+			color: #455a64;
+			margin-top: 0;
+			border-bottom: 2px solid #607d8b;
+			padding-bottom: 0.5em;
+		}
+
+		pre {
+			background: #f1f3f5;
+			border-left: 4px solid #f56a6a;
+			border-radius: 4px;
+			padding: 1.5em;
+			overflow-x: auto;
+			margin: 1.5em 0;
+			color: #2a2f35;
+		}
+
+		code {
+			font-family: 'Consolas', 'Monaco', monospace;
+			font-size: 0.9em;
+			background: #e9ecef;
+			padding: 0.2em 0.4em;
+			border-radius: 3px;
+			color: #2a2f35;
+		}
+
+		pre code {
+			background: transparent;
+			padding: 0;
+			color: #2a2f35;
+		}
+
+		.back-link {
+			display: inline-block;
+			margin-top: 2em;
+			padding: 0.5em 1em;
+			background: #2a2f35;
+			color: white;
+			text-decoration: none;
+			border-radius: 4px;
+			transition: background 0.3s;
+		}
+
+		.back-link:hover {
+			background: #f56a6a;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin: 1.5em 0;
+		}
+
+		table th, table td {
+			padding: 0.75em;
+			border: 1px solid #e5e7eb;
+			text-align: left;
+			color: #2a2f35;
+		}
+
+		table th {
+			background: #f8f9fa;
+			font-weight: 600;
+		}
+
+		table tr:hover {
+			background: #f8f9fa;
+		}
+
+		.download-link {
+			display: inline-block;
+			margin: 1em 0;
+			padding: 0.8em 1.5em;
+			background: #f56a6a;
+			color: white;
+			text-decoration: none;
+			border-radius: 4px;
+			transition: background 0.3s;
+			font-weight: 600;
+		}
+
+		.download-link:hover {
+			background: #2a2f35;
+		}
+	</style>
+</head>
+<body class="is-preload">
+	<div id="wrapper">
+		<div id="main" class="alt">
+			<section id="one">
+				<div class="inner">
+					<h1>Team Project - Unit 6<br/>Multi-Agent Email Forensics System</h1>
+
+					<div class="project-meta">
+						<p><strong>Team:</strong> Group F</p>
+						<p><strong>Team Members:</strong> Andrea Trevisi, Fabian Narel, Pavlos Papachristos</p>
+						<p><strong>Project Title:</strong> AI Fraudulent Mail Detection System</p>
+						<p><strong>Module:</strong> Intelligent Agents</p>
+						<p><strong>Submission:</strong> October 2025</p>
+					</div>
+
+					<h2>Introduction</h2>
+					<p>In today's digital environment, email is the most exploited media platform for cyber threats such as phishing, data theft, and corporate espionage (Verizon, 2024). The scale and speed of email communications in modern organizations make manual forensic review both impractical and ineffective.</p>
+
+					<p>This report proposes the development and implementation of an automated, modular system for email forensic analysis. The system is designed using a Multi-Agent System (MAS) architecture, where distinct, autonomous agents collaborate to perform a comprehensive forensic workflow that includes in sequence: a) data generation, b) suspected phrases discovery, c) results analysis, d) visualization, and e) reporting.</p>
+
+					<p>This document outlines the system's technical requirements, key design decisions, and the underlying rationale supported by academic principles. It presents graphical models of the system's architecture, discusses anticipated challenges, and proposes mitigation strategies. The goal is to deliver a business-ready proposal for a robust, scalable, and interpretable email forensics tool that can enhance an organization's security posture.</p>
+
+					<h2>1. System Requirements</h2>
+
+					<div class="requirements-box">
+						<p>The system is developed in Python 3 and relies on a suite of standard libraries for data science and visualization. No specialized hardware is necessary.</p>
+
+						<h4>Core Libraries</h4>
+						<ul>
+							<li><strong>os, glob, datetime, random, collections</strong> - For fundamental operations such as file system interaction, date/time handling, and data structuring</li>
+						</ul>
+
+						<h4>Data Handling</h4>
+						<ul>
+							<li><strong>pandas</strong> - Essential for structuring the email data into DataFrames, which facilitates efficient statistical analysis and manipulation required by the DashboardAgent</li>
+						</ul>
+
+						<h4>Visualization</h4>
+						<ul>
+							<li><strong>matplotlib</strong> - Primary plotting library for creating static charts and graphs</li>
+							<li><strong>seaborn</strong> - Used for advanced visualizations such as the activity heatmap</li>
+							<li><strong>wordcloud</strong> - To generate a word cloud from suspicious email subjects, utilising prominent keywords</li>
+						</ul>
+
+						<h4>Reporting</h4>
+						<ul>
+							<li><strong>jinja2</strong> - Templating engine to dynamically generate the comprehensive HTML report, embedding analysis results and visualizations into a structured, professional format</li>
+						</ul>
+					</div>
+
+					<h2>2. System Design and Rationale</h2>
+
+					<div class="overview-box">
+						<h4>Multi-Agent System Architecture</h4>
+						<p>The system's design is grounded in a modular, agent-based methodology. This approach is chosen to enhance maintainability, scalability and to provide the needed clarity of the methodology framework.</p>
+
+						<p>A 'Multi-Agent System' (MAS) is a framework in which autonomous computational entities, or agents, interact to solve problems that are beyond their individual capabilities (Wooldridge, 2009). The MAS framework is well-suited to analyse complex and multi-stage tasks like digital forensics (Al-Amri & Watson, 2021).</p>
+
+						<p>The forensic workflow is executed sequentially and it is orchestrated by a main controller that activates each agent in turn.</p>
+
+						<h4>Data Models</h4>
+						<p>Two primary dataclasses structure the system's data:</p>
+						<p><strong>SimpleEmail:</strong> Represents an email with fields: id, subject, sender, recipient, date, content, file_path. Includes methods:</p>
+						<ul>
+							<li><code>is_suspicious()</code> - Checks for suspicious keywords in subject/content</li>
+							<li><code>is_after_hours()</code> - Determines if sent outside business hours (8 AM-6 PM)</li>
+							<li><code>is_external()</code> - Checks if sender is from external domain</li>
+						</ul>
+						<p><strong>Finding:</strong> Represents an investigation finding with fields: finding_type, description, email_id, severity, timestamp</p>
+					</div>
+
+					<div class="agent-box">
+						<h3>Multi-Agent System Workflow</h3>
+						<p>The forensic workflow is executed sequentially, orchestrated by a main controller that activates each agent in turn:</p>
+
+						<h4>Step 1: EnhancedEmailGenerator (with Suspicious Subject Generator)</h4>
+						<p>The process begins with the <strong>EnhancedEmailGenerator</strong>, which creates a realistic set of test data. This agent is vital for validation, producing both benign emails and suspicious ones with sophisticated subjects crafted by a dedicated <strong>SuspiciousSubjectGenerator</strong>.</p>
+						<p><strong>Implementation:</strong> Generates 50 emails (30% suspicious rate)</p>
+						<p><strong>Features:</strong></p>
+						<ul>
+							<li>Realistic normal subjects: "Weekly team meeting agenda", "Project status update", "Q3 budget review"</li>
+							<li>Realistic suspicious subjects: "URGENT: Account verification required", "CRITICAL: Security breach detected"</li>
+							<li>Combinatorial subject generation for variety</li>
+							<li>After-hours timestamps for suspicious emails (2-7 AM, 10 PM-11 PM)</li>
+							<li>Business hours timestamps for normal emails (8 AM-6 PM)</li>
+							<li>Team member emails: pavlos.papachristos@Group-F.com, fabian.narel@Group-F.com, andrea.trevisi@Group-F.com</li>
+							<li>External suspicious domains: phishing-site.com, suspicious-bank.net, lottery-scam.org</li>
+						</ul>
+
+						<h4>Step 2: DiscoveryAgent</h4>
+						<p>The generated data is located and processed by the <strong>DiscoveryAgent</strong>. This agent simulates the initial stage of a forensic investigation by identifying and collecting evidence from the file system, loading it into structured SimpleEmail objects for processing.</p>
+						<p><strong>Implementation:</strong></p>
+						<ul>
+							<li>Searches <code>output/emails/</code> directory for .txt files</li>
+							<li>Parses email files extracting ID, Subject, From, To, Date, Content</li>
+							<li>Loads emails into SimpleEmail dataclass objects</li>
+							<li>Decouples data acquisition from analytical processes (Fowler, 2018)</li>
+						</ul>
+
+						<h4>Step 3: AnalysisAgent</h4>
+						<p>The <strong>AnalysisAgent</strong> performs the main analytical tasks. It employs a multi-faceted detection strategy that moves beyond simple keyword matching to analyse emails based on keywords, timing, communication patterns, and combinations of these factors. This layered approach provides context-aware analysis.</p>
+						<p><strong>Four Analysis Methods:</strong></p>
+						<ol>
+							<li><strong>Keyword Analysis:</strong> Detects suspicious words like 'confidential', 'urgent', 'verify', 'bitcoin', 'phishing', 'winner', 'inheritance'</li>
+							<li><strong>Timing Analysis:</strong> Flags emails sent after business hours (before 8 AM or after 6 PM)</li>
+							<li><strong>External Communication Analysis:</strong> Identifies emails from external domains (not Group-F.com or internal.org)</li>
+							<li><strong>Volume Analysis:</strong> Detects unusual patterns in email frequency</li>
+						</ol>
+						<p><strong>Output:</strong> Finding objects with type, description, email_id, severity, and timestamp</p>
+
+						<h4>Step 4: DashboardAgent</h4>
+						<p>The <strong>DashboardAgent</strong> transforms raw data into a suite of eight distinct visualizations for rapid interpretation by security analysts.</p>
+						<p><strong>Eight Visualizations Generated:</strong></p>
+						<ol>
+							<li>Summary Statistics Chart (bar chart)</li>
+							<li>Pie Chart (suspicious vs. normal email distribution)</li>
+							<li>Histogram (finding types distribution)</li>
+							<li>Word Cloud (from suspicious email subjects)</li>
+							<li>Timeline Analysis (findings over time)</li>
+							<li>Activity Heatmap (email patterns by hour/day)</li>
+							<li>Network Analysis (sender-recipient relationships)</li>
+							<li>Severity Distribution (high/medium/low risk findings)</li>
+						</ol>
+						<p><strong>Tools Used:</strong> matplotlib, seaborn, wordcloud libraries</p>
+						<p><strong>Output:</strong> PNG images saved to <code>output/visualizations/</code></p>
+
+						<h4>Step 5: ReportAgent</h4>
+						<p>The <strong>ReportAgent</strong> consolidates all statistics, detailed findings, and visualizations into comprehensive text and HTML formats, creating a permanent, shareable record for archival, evidentiary, and executive communication purposes.</p>
+						<p><strong>Report Components:</strong></p>
+						<ul>
+							<li>Executive summary with key statistics</li>
+							<li>Detailed findings list</li>
+							<li>Embedded visualizations</li>
+							<li>Recommendations for security team</li>
+						</ul>
+						<p><strong>Template Engine:</strong> Jinja2 for dynamic HTML generation</p>
+						<p><strong>Output:</strong> <code>forensics_report.html</code> and text report in <code>output/reports/</code></p>
+
+						<h4>Step 6: UML Documentation Generation</h4>
+						<p>Automatically generates UML diagrams documenting the system architecture:</p>
+						<ul>
+							<li><strong>Class Diagram:</strong> Shows static structure of agents and data models</li>
+							<li><strong>Sequence Diagram:</strong> Shows dynamic interaction flow between agents</li>
+						</ul>
+						<p><strong>Output:</strong> PlantUML (.puml) files in <code>output/uml_documentation/</code></p>
+					</div>
+
+					<h2>3. Graphical System Designs</h2>
+
+					<div class="overview-box">
+						<h4>UML Diagrams</h4>
+						<p>The system's architecture and behaviour are visualized using standard UML diagrams to provide clear, industry-standard documentation.</p>
+
+						<p><strong>Figure 1: UML Class Diagram</strong></p>
+						<p>Illustrates the static structure of the multi-agent system. It defines each agent as a class with its specific attributes and methods. The diagram illustrates how the classes interact with one another. The EnhancedEmailGenerator produces SimpleEmail objects, which are then examined by the AnalysisAgent, resulting in Finding records. This flow reflects the system's modular design and the interfaces between its components.</p>
+
+						<p><strong>Figure 2: UML Sequence Diagram</strong></p>
+						<p>Presents a dynamic view of the system, showing the sequence of interactions between the agents as orchestrated by the Main Controller. The flow begins with data generation and proceeds through discovery, analysis, and concludes with the dashboard and report generation. This diagram effectively visualizes the system's operational workflow from start to finish, confirming the logical progression of the forensic process.</p>
+
+						<p><em>Note: Full UML diagrams are included in the complete project report PDF.</em></p>
+					</div>
+
+					<div class="reflection-box">
+						<h3>Personal Reflection</h3>
+
+						<p>Working with Andrea Trevisi and Pavlos Papachristos on this email forensics system taught me the practical value of multi-agent architectures. The modular design, where each agent had clearly defined responsibilities, enabled parallel development and made the system easier to maintain (Wooldridge, 2009).</p>
+
+						<p>Implementing the sequential orchestration revealed the importance of well-defined interfaces between components. Integration challenges between agents taught us that explicit interface specifications prevent costly rework (Fowler, 2018). The rule-based approach provided transparency essential for forensic analysis (Casey, 2011), though this came at the cost of adaptability compared to learning-based systems (Sommer & Paxson, 2010).</p>
+
+						<p>Team coordination across different time zones required disciplined communication, and version control conflicts taught us to establish clearer workflows early. This project effectively bridged theory and practice, making abstract concepts about agent coordination tangible through real implementation challenges.</p>
+					</div>
+
+					<div style="margin-top: 1em; border-top: 1px solid #e9ecef;">
+						<div style="max-width: 700px; margin: 0 auto; text-align: center; padding: 0.8em 0;">
+							<div style="display: flex; align-items: center; justify-content: center; gap: 1.2em; flex-wrap: wrap; font-size: 0.95em;">
+								<span style="color: #2a2f35; display: flex; align-items: center; gap: 0.5em; font-weight: 600; opacity: 0.8;">
+									<svg height="20" viewBox="0 0 16 16" width="20" style="fill: #2a2f35;">
+										<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+									</svg>
+									Source Artifacts
+								</span>
+								<span style="color: #e9ecef; font-weight: 300;">|</span>
+								<a href="Intelligent Agent Module - Group F Project.pdf" target="_blank" style="color: #2a2f35; text-decoration: none; opacity: 0.8; transition: opacity 0.2s ease;">📄 Full Project Report (PDF)</a>
+							</div>
+						</div>
+					</div>
+
+					<a href="../../IA_Index.html" class="back-link">← Back to Intelligent Agents Portfolio</a>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="../../assets/js/jquery.min.js"></script>
+	<script src="../../assets/js/jquery.scrolly.min.js"></script>
+	<script src="../../assets/js/jquery.scrollex.min.js"></script>
+	<script src="../../assets/js/browser.min.js"></script>
+	<script src="../../assets/js/breakpoints.min.js"></script>
+	<script src="../../assets/js/util.js"></script>
+	<script src="../../assets/js/main.js"></script>
+</body>
+</html>
