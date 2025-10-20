@@ -194,8 +194,4 @@ Alice                                                Bob
   |                                                   |
 ```
 
----
-
-**Activity Completed:** October 2024  
-**Added to E-Portfolio:** October 2024
 

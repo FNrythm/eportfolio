@@ -130,8 +130,4 @@ Both interpretations are grammatically valid, and disambiguation requires:
 
 This ambiguity is a classic example in computational linguistics and highlights the challenges intelligent agents face in natural language understanding.
 
----
-
-**Activity Completed:** October 2024  
-**Added to E-Portfolio:** October 2024
 
